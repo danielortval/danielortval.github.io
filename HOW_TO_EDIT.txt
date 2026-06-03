@@ -1,0 +1,36 @@
+DANIEL ORTIZ VALENCIA — PORTFOLIO (source files)
+=================================================
+
+FILES
+  index.html   -> all the text & page structure (edit content here)
+  styles.css    -> colors, fonts, spacing, layout
+  script.js     -> typewriter, accordion, media slots
+  assets/        -> all images, videos, PDFs
+
+HOW TO PREVIEW LOCALLY
+  1. Unzip this folder anywhere.
+  2. Easiest: just double-click index.html to open it in your browser.
+     (Videos play best when served — see step 3.)
+  3. Optional, for a proper local server (recommended):
+       - Open a terminal in this folder
+       - Run:  python3 -m http.server 8000
+       - Visit: http://localhost:8000  in your browser
+     Stop the server with Ctrl+C.
+
+HOW TO EDIT
+  - Open the files in any code editor (VS Code is free and great).
+  - Text on the page lives in index.html.
+  - To swap an image: drop your new file into the right assets/ subfolder
+    and update the matching "src" path in index.html.
+  - Subsystem images use a data-media list on each <div class="sub-photos">.
+    Format example:
+      data-media='[{"src":"assets/.../photo.jpg","caption":"Your caption"}]'
+    For video, add  "type":"video"  to the entry.
+  - Subsystems with no image show a documentation card via  data-note="..."
+
+PUBLISHING YOUR CHANGES
+  - You can keep sending me the edited files and I'll re-publish to
+    danielortval.pplx.app, OR
+  - Host it yourself anywhere static files work (Vercel, Netlify,
+    GitHub Pages, Cloudflare Pages) — just upload this whole folder.
+

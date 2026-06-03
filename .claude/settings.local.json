@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(winget --version)",
+      "PowerShell(gh repo create Packman13/Packman13.github.io --public --description \"Daniel Ortiz Valencia - Portfolio\" 2>&1)",
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); gh --version 2>&1)"
+    ]
+  }
+}

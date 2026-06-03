@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daniel Ortiz Valencia, Portfolio</title>
+<meta name="description" content="Daniel Ortiz Valencia, electrical & autonomous systems engineer. Founder of Colorado's first Formula SAE Electric program. Projects, papers, prizes, and leadership in HV battery systems and driverless racing." />
+<meta property="og:title" content="Daniel Ortiz Valencia, Portfolio" />
+<meta property="og:description" content="Electrical & autonomous systems engineer. HV battery architecture, driverless racing, six competition vehicles." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d9741f'/%3E%3Cpath d='M9 8h6a8 8 0 010 16H9z' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<canvas id="neural-bg" aria-hidden="true"></canvas>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      Daniel Ortiz Valencia
+    </a>
+    <nav class="nav">
+      <a href="#projects">Projects</a><span class="sep">|</span>
+      <a href="#papers">Papers</a><span class="sep">|</span>
+      <a href="#prizes">Prizes</a><span class="sep">|</span>
+      <a href="#leadership">Leadership</a><span class="sep">|</span>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon-sun" aria-hidden="true">☀</span><span class="theme-icon-moon" aria-hidden="true">☾</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO / OVERVIEW ============ -->
+<section class="hero wrap">
+  <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Building the future, one system at a time</div>
+  <h1>Daniel Ortiz Valencia<br><span class="accent">Portfolio</span></h1>
+
+  <div class="overview-grid reveal">
+    <div class="overview-text">
+      <div class="section-label">Overview</div>
+      <p>I founded Colorado's first Formula SAE Electric Vehicle program and designed a 324V, 8.64kWh battery system that earned a Tesla sponsorship. Across four competition vehicles, I've designed custom PCBs (BMS, safety interlocks, telemetry), written CAN test frameworks for fault validation, and architected full vehicle harnesses integrating 30+ sensors.</p>
+      <p>I scaled RAM Racing from 30 to 60+ members, raised $400K, and shipped four competition vehicles, building a team culture around precision, ownership, and real engineering accountability.</p>
+      <div class="stats">
+        <div class="stat"><span class="num">4</span><span class="lbl">Competition vehicles engineered</span></div>
+        <div class="stat"><span class="num">60+</span><span class="lbl">Members led at RAM Racing</span></div>
+        <div class="stat"><span class="num">$400K</span><span class="lbl">Funding raised</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="overview-imgs">
+        <figure style="margin:0">
+          <div class="imgslot">
+            <img src="assets/overview/me.jpg" alt="Daniel Ortiz Valencia at MIT" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex';" />
+            <span class="ph" style="display:none">Image of me<small>at MIT with Alexander Amini</small></span>
+          </div>
+          <figcaption class="img-caption">At MIT with Alexander Amini after being selected for the Deep Learning class.</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div class="imgslot">
+            <img src="assets/overview/cars.jpg" alt="Formula SAE vehicles" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex';" />
+            <span class="ph" style="display:none">Image of the cars<small>RAM Racing fleet</small></span>
+          </div>
+          <figcaption class="img-caption">Formula SAE vehicles built at RAM Racing, four completed, six total by graduation.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Projects</h2>
+    </div>
+
+    <!-- ===== Venus EV ===== -->
+    <details class="car reveal" open>
+      <summary class="car-summary">
+        <span class="car-thumb">
+          <img src="assets/projects/rr26ev/thumb.jpg" alt="Venus EV Formula SAE Electric car" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noimg');" />
+        </span>
+        <span class="car-headtext">
+          <span class="car-toprow"><span class="car-index">01</span><span class="car-name">Venus EV</span></span>
+          <span class="car-tagline">Colorado's flagship FSAE Electric car, full HV accumulator &amp; safety stack</span>
+          <span class="car-keywords">
+            <span class="kw">HV Accumulator</span><span class="kw">324V Battery</span><span class="kw">BMS</span><span class="kw">KiCad</span><span class="kw">System Integration</span>
+          </span>
+        </span>
+        <span class="car-meta">
+          <span class="car-role">Electrical System Officer</span>
+          <span class="car-year">FSAE 2026</span>
+        </span>
+        <span class="car-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="car-body">
+        <p class="car-intro">As Electrical System Officer for the 2026 car, I managed the LV and HV subteams while personally focusing on energy experimentation to deliver the program's first competition-bound battery pack, balancing the technical demands against the challenge of building it as cheaply as possible so the other subteams had the budget to build the rest of the car.</p>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Battery Pack Architecture &amp; Cell Selection</div>
+            <div class="sub-blurb">90s5p · 8.64kWh · 324V nominal, designed cell-level from scratch</div>
+            <h4>Background</h4><ul>
+              <li>First EV program with no existing battery architecture, required full cell-level design rather than purchasing pre-made modules.</li>
+              <li>Budget constraints made in-house cell assembly necessary, saving ~$7,000 but requiring the electrical team to own all pack design decisions.</li>
+              <li>Needed to size for FSAE endurance (22km) with enough margin to account for simulation uncertainty.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Evaluated five cell chemistries (P30B, P50B, P28A, P60B, M35A); selected Molicel P50B for its energy density (5000mAh, 18Wh) at acceptable weight (71g) and internal resistance (17mΩ).</li>
+              <li>Simulated full endurance in OpenLap (2023 Michigan layout), 350Wh/lap, requiring 7.7kWh minimum; applied a 12% margin from a prior ICE vehicle where actual exceeded simulation by 7%.</li>
+              <li>Configured as 90s5p (8.64kWh, 324V nominal) in 16 segments of three modules each, enabling symmetric segment removal for future weight optimization.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered complete pack architecture meeting FSAE energy requirements with 12% validated margin.</li>
+              <li>Cell thermal modeling confirmed sub-40°C operation through full endurance, eliminating active cooling complexity.</li>
+              <li>Modular design enabled future weight reduction without redesign, ordered 20% extra cells for screening and parallel-group matching.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Battery pack architecture" data-media='[{"src":"assets/projects/rr26ev/arch-1.jpg","caption":"Cell down-selection matrix, five chemistries compared across capacity, power, weight and pack voltage."},{"src":"assets/projects/rr26ev/arch-2.jpg","caption":"Weighted decision-matrix results by cell type (availability, manufacturability, thermal, cost, rules compliance)."},{"src":"assets/projects/rr26ev/arch-3.jpg","caption":"Single-lap state-of-charge simulation (OpenLap), energy draw across one endurance lap."},{"src":"assets/projects/rr26ev/arch-torque.jpg","caption":"Motor torque curve (P50B, 96s5p), torque vs. RPM used to size the pack for endurance."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Battery Pack High-Voltage Integration</div>
+            <div class="sub-blurb">Precharge, discharge &amp; isolation monitoring, full KiCad HV architecture</div>
+            <h4>Background</h4><ul>
+              <li>HV system must precharge inverter bus capacitance before contactor closure, discharge stored energy on shutdown, and continuously monitor isolation failure, any fault is safety-critical.</li>
+              <li>FSAE rules require precharge to 95% bus voltage before main contactor closure, discharge to under 60V within a set time, and IMD response within defined latency for isolation loss.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Sized 1/0 AWG EXRAD-HVX1V8X cabling from thermal modeling (sub-40°C continuous, margin to 90°C at 500A) and selected Littelfuse protection from datasheet I²t curves.</li>
+              <li>Designed precharge (620Ω, 0.88mF bus, 95% in under 10s) and discharge (2.2kΩ, NC relay auto bleed-down) circuits within resistor power ratings.</li>
+              <li>Created a full KiCad schematic defining AIR control, IMD integration, TSAL logic, energy metering, and connector interfaces (Amphenol, LEMO, Hirose).</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered complete HV architecture with selections justified by operating conditions and datasheet specs.</li>
+              <li>Produced operational documentation covering startup, shutdown, and fault injection sequences.</li>
+              <li>System prepared for bench validation of precharge timing and IMD fault response before integration.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="HV integration" data-media='[{"src":"assets/projects/rr26ev/hv-1.jpg","caption":"Precharge / discharge analysis, charging time, peak power and energy dissipated vs. resistance."},{"src":"assets/projects/rr26ev/hv-2.svg","caption":"High-voltage integration schematic, AIR control, IMD, TSAL logic and connector interfaces (KiCad)."},{"src":"assets/projects/rr26ev/hv-integration-2.jpg","caption":"HV output schematic, tractive battery pack feeding the PM150DX inverter and EMRAX 208 motor through the MSD, junction box and AIRs."},{"src":"assets/projects/rr26ev/hv-integration-4.jpg","caption":"HV system block diagram, hard-fault latch, BMS, IMD, main fuse, HV relays, charge-control PCB and shutdown-circuit interlocks."},{"src":"assets/projects/rr26ev/hv-integration-3.jpg","caption":"HV bench-test setup, voltage-tap and thermistor harnesses, BMS, relays, E-stop and high-power discharge resistor on a live battery segment."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Battery Structure &amp; Manufacturing</div>
+            <div class="sub-blurb">450-cell pack containment, weighted decision matrices &amp; poka-yoke busbars</div>
+            <h4>Background</h4><ul>
+              <li>450-cell pack (90s5p, Molicel P50B 21700) requires structural containment against shock and vibration, cell ejection or busbar fatigue causes short circuit or arc flash.</li>
+              <li>No inherited designs; team defined module geometry, materials, and assembly sequence from scratch with in-house FDM and manual welding.</li>
+              <li>Architecture must allow field serviceability while meeting FSAE flame-retardant and HV isolation requirements.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Drove material selection through weighted matrices: steel exterior (59/100), garolite interior (46/100), passive air cooling (41/100).</li>
+              <li>Defined a module-segment-pack hierarchy (2s5p → 6s5p → 90s5p) with press-fit cell retention and keyed copper busbars preventing incorrect assembly.</li>
+              <li>Supported the mechanical engineer with stress analysis inputs; evaluated printable materials (Ultem 9085, Nylon-GF, PC-FR, ASA, PEEK) against UL94 and Tg.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered complete pack architecture with material down-selections justified by quantified tradeoff analysis.</li>
+              <li>Defined poka-yoke busbar geometry eliminating operator errors across 90 module interfaces.</li>
+              <li>Established module specs (35.3 cm³, 46g, 45-min print) enabling production planning for a 56-module build.</li>
+            </ul>
+            <div class="sub-links">
+              <a class="btn ghost" href="assets/docs/Battery_Pack_Structure.pdf" target="_blank" rel="noopener">📄 Battery Pack Structure (PDF)</a>
+            </div>
+          </div>
+          <div class="sub-photos" data-label="Structure & manufacturing" data-media='[{"src":"assets/projects/rr26ev/struct-2026-4.jpg","caption":"Accumulator integrated in the Venus EV chassis, segmented pack mounted between the rear frame members alongside the powertrain."},{"src":"assets/projects/rr26ev/struct-2026-3.jpg","caption":"Pack module array (CAD), keyed copper busbars and press-fit cell retention across the segmented 90s5p layout."},{"src":"assets/projects/rr26ev/struct-2026-1.jpg","caption":"Assembled battery segment, copper busbars, structural endplate and sealed cell containment."},{"src":"assets/projects/rr26ev/struct-2026-2.jpg","caption":"Tractive-system structure decision matrix, weighted selection of exterior, interior, cooling and packaging strategies."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Fuse Links</div>
+            <div class="sub-blurb">328A short-circuit characterization, benchtop test rig at 200Hz+</div>
+            <h4>Background</h4><ul>
+              <li>Individual cell fusing must interrupt 328A theoretical short-circuit current to prevent thermal runaway, FSAE requires test data at four current levels (Level 4: 0.05 to 0.15s at highest current).</li>
+              <li>Nickel-plated fuse links with reduced cross-section need characterization to validate melt time against the thermal model (t_melt = M·ΔH / (P_gen - P_loss)).</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Built a benchtop rig using a stick welder (500A short-circuit) with a current sensor feeding Simulink for real-time acquisition and automatic blow-time detection.</li>
+              <li>Defined a test matrix across four current levels; a rapid fuse-swap fixture enables iterating geometry to correlate measured blow times with analytical calculations.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Established a repeatable characterization process with &gt;200Hz sample rate capturing blow transients.</li>
+              <li>Test data package prepared for SAE technical inspection, proving the fuse clears fault current within required windows.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Fuse-link characterization" data-media='[{"src":"assets/projects/rr26ev/fuse-1.jpg","caption":"Fuse-wire temperature profile (nickel, I = 328A), modeled heating phase and melt transition (~68ms) used to validate blow time."},{"src":"assets/projects/rr26ev/fuse-2.jpg","caption":"Benchtop fuse-characterization rig, stick-welder short-circuit source with current sensing into Simulink for blow-time capture."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Custom Charging Architecture</div>
+            <div class="sub-blurb">6.6kW off-vehicle charger interface with full interlock integration</div>
+            <h4>Background</h4><ul>
+              <li>FSAE rules require accumulator removal for charging; the system must safely interface an external 6.6kW charger with HV isolation, interlocks, and voltage monitoring via banana jacks.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Created a KiCad schematic defining the charger-to-pack interface: EV200A1ANA contactor, Amphenol UPCR012AL51 and TE AMP+HVP800 (50mm²) quick-disconnects, LV25-P voltage transducer with resistor divider for isolated HV sense, and HVIL continuity through a LEMO connector to shutdown.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered complete charging documentation with connector selections, fuse ratings (30A charger input, 5A energy meter), and wire gauges (8 AWG feed, 84mm² bus bars) enabling off-vehicle charging with full interlock integration.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Charging architecture" data-media='[{"src":"assets/projects/rr26ev/charging-1.jpg","caption":"Charging-circuit schematic, ELKON 6.6kW charger interfacing the tractive battery through fused distribution, AIRs, IMD and energy-meter monitoring (KiCad)."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Custom Battery Management System <span style="color:var(--ink-faint);font-weight:400">(in validation)</span></div>
+            <div class="sub-blurb">Distributed 16-slave architecture, 90-wire harness reduced to a 6-wire digital backbone</div>
+            <h4>Background</h4><ul>
+              <li>Orion thermistor expansion required a 90-wire harness inside a 378V accumulator, creating assembly risk and service complexity.</li>
+              <li>Wiring bulk and connector density were the highest-probability failure modes during integration and maintenance.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Designed a distributed architecture with 16 slave boards, 1 master, 16-bit ADCs over SPI, isolated GLV-to-tractive domains, and CAN communication to the BMS.</li>
+              <li>Replaced parallel analog wiring with a 6-wire digital backbone, local temperature acquisition with centralized data aggregation.</li>
+            </ul>
+            <h4>Results</h4><ul><li>Currently in the process of validation.</li></ul>
+          </div>
+          <div class="sub-photos" data-label="Custom BMS" data-media='[{"src":"assets/projects/rr26ev/bms-schematic.svg","caption":"Custom distributed BMS schematic, 16-bit ADCs over SPI, isolated GLV-to-tractive domains and a 6-wire digital backbone to the master over CAN (KiCad)."}]'></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===== Rubicon EV ===== -->
+    <details class="car reveal">
+      <summary class="car-summary">
+        <span class="car-thumb">
+          <img src="assets/projects/rubicon/thumb.jpg" alt="Rubicon EV, first CSU Formula SAE Electric car" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noimg');" />
+        </span>
+        <span class="car-headtext">
+          <span class="car-toprow"><span class="car-index">02</span><span class="car-name">Rubicon EV</span></span>
+          <span class="car-tagline">First CSU EV car, full vehicle electrical architecture &amp; safety systems</span>
+          <span class="car-keywords">
+            <span class="kw">System Architecture</span><span class="kw">Tractive System</span><span class="kw">Brake Plausibility</span><span class="kw">Powertrain</span><span class="kw">Vehicle Integration</span>
+          </span>
+        </span>
+        <span class="car-meta">
+          <span class="car-role">Chief Engineer</span>
+          <span class="car-year">FSAE 2025 EV</span>
+        </span>
+        <span class="car-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="car-body">
+        <p class="car-intro">As Chief Engineer of CSU's first electric car, I owned the full vehicle architecture and supported the powertrain and suspension teams, managing timelines across six mechanical and electrical subteams to deliver the first FSAE EV prototype in the Rocky Mountain region.</p>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Formula SAE Electric Vehicle System Architecture</div>
+            <div class="sub-blurb">Full HV, LV &amp; safety architecture, bench-testable before integration</div>
+            <h4>Context</h4><ul>
+              <li>Integrated HV powertrain and LV controls into one vehicle-level design meeting FSAE shutdown and safety requirements.</li>
+              <li>Coordinated interfaces across inverter PM100DX, Orion VMS2, accumulator, and vehicle controls with mixed signal types.</li>
+              <li>Needed a bench-testable architecture to validate interlocks and communication before accumulator integration.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Engineered full HV, LV, and safety system architecture and interfaces.</li>
+              <li>Defined shutdown, interlock, and communication paths (CAN, analog, digital).</li>
+              <li>Created complete KiCad schematics from component datasheets.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered complete electrical schematics used by all subteams.</li>
+              <li>Enabled bench testing of HV, LV, and safety interactions before vehicle integration.</li>
+              <li>Reduced integration risk during first high-voltage power-up.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="System architecture" data-media='[{"src":"assets/projects/rubicon/sysarch.svg","caption":"Full vehicle electrical system architecture, power distribution, safety interlocks and CAN topology (KiCad)."},{"src":"assets/projects/rubicon/systemarchitecture.jpg","caption":"PM100DX powertrain wiring diagram, 12VDC converters, cooling pump, APPS/brake, resolver, EMRAX, precharge relay, AIRs and J1/J2 connector pinouts."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Tractive System Active Lights</div>
+            <div class="sub-blurb">Galvanically isolated HV/LV PCB, 60V threshold detection &amp; 555 blink timing</div>
+            <h4>Context</h4><ul>
+              <li>FSAE rules require visible HV indication: solid red above 60V DC (live), blinking green below 60V (safe), incorrect indication is immediate disqualification.</li>
+            </ul>
+            <h4>Approach</h4><ul>
+              <li>Split the PCB into galvanically isolated HV and LV sections with a 0.3mm creepage barrier, isolated DC-DC converter, and optocoupler relay; HV side uses a resistor divider for comparator threshold detection, LV side drives a 555 timer for the green blink and red enable logic.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered KiCad schematic and PCB layout with clear HV/LV boundary marking, comparator-based 60V detection, and 555-based blink timing meeting FSAE visibility and frequency requirements.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Active lights PCB" data-media='[{"src":"assets/projects/rubicon/lights-1.jpg","caption":"Active-lights driver board layout, isolated high-voltage and low-voltage domains with comparator-based 60V detection."},{"src":"assets/projects/rubicon/lights-2.svg","caption":"Active-lights schematic, 555-based blink timing meeting FSAE visibility and frequency requirements (KiCad)."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Brake System Plausibility Design</div>
+            <div class="sub-blurb">Hardware brake/throttle conflict detection, latched shutdown, all fault modes tested</div>
+            <h4>Background</h4><ul>
+              <li>FSAE rules require hardware-based detection of simultaneous brake and throttle, if accelerator exceeds threshold while braking, the system must open shutdown and latch the fault until manual reset; software-only solutions are prohibited.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Partitioned the circuit into independent brake and accelerator monitoring sections, each with LM393 comparators checking voltage bounds and signal-loss via pull-up resistors.</li>
+              <li>Combined fault conditions through logic gates (74AHC1G02) feeding a latched relay driver (TLP241A); included test points (TP1 to TP9) for calibration and fault injection.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Completed schematic, PCB layout, and 3D model in KiCad; bench-tested all fault modes confirming correct latch behavior and that shutdown opens within timing requirements.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Brake plausibility" data-media='[{"src":"assets/projects/rubicon/brake-1.jpg","caption":"Brake-system plausibility PCB, independent brake and accelerator monitoring sections."},{"src":"assets/projects/rubicon/brake-2.jpg","caption":"Board layout detail with test points (TP1 to TP9) for calibration and fault injection."},{"src":"assets/projects/rubicon/brake-3.svg","caption":"Plausibility-detection schematic, LM393 comparators feeding a latched relay driver."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Battery Pack Structure</div>
+            <div class="sub-blurb">First CSU EV accumulator, 180V, 4.1kWh pack, 50 pre-made modules</div>
+            <h4>Background</h4><ul>
+              <li>First EV accumulator for CSU required integrating 50 pre-made 8p modules (CIE Solutions Lithium Block, Molicel P28A) into a structural container meeting FSAE flame-retardant, isolation, and serviceability requirements, no prior team knowledge existed.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Collaborated with a mechanical engineer to define the container: 1018 cold-rolled steel welded enclosure, Garolite G10 interior for HV isolation, laser-cut acrylic module cases, and 9200FR flame-retardant epoxy for bonding.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered a functional 180V, 4.1kWh pack integrated with Orion BMS 2 and safety electronics; directly informed next-gen 90s5p pack design decisions.</li>
+            </ul>
+            <div class="sub-links">
+              <a class="btn ghost" href="#" data-attachment="Accumulator_Design_RAM_RACING_2025.pdf">📄 Accumulator Design Report (PDF)</a>
+            </div>
+          </div>
+          <div class="sub-photos" data-label="Battery pack structure" data-media='[{"src":"assets/projects/rr26ev/struct-1.jpg","caption":"Module / segment containment geometry, 50 pre-made 8p modules in a welded steel enclosure with Garolite isolation."},{"src":"assets/projects/rr26ev/struct-2.jpg","caption":"Pack structure detail, keyed busbars and press-fit module retention for the 180V, 4.1kWh accumulator."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Electrical Powertrain Set-Up</div>
+            <div class="sub-blurb">PM100 bench validation, CAN fault-injection framework, thermal derating</div>
+            <h4>Background</h4><ul>
+              <li>Before integration, the motor controller (PM100) and motor must be validated on bench to verify startup sequencing, fault responses, thermal behavior, and CAN communication, an untested HV powertrain in-vehicle risks damage to drivetrain and safety systems.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Built a benchtop test stand with isolated mounting, an E-stop killing both LV and HV, a precharge circuit with manual contactor sequencing, and an independent cooling loop; developed a systematic startup procedure (LV → CAN active → precharge → main contactor → zero-throttle verify → incremental torque).</li>
+              <li>Created a CAN test framework to inject faults (CAN dropout, throttle loss, simulated overtemp, undervoltage) and verify controller behavior; logged DC bus voltage, temps, torque command vs. actual, and coolant delta-T.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Validated a repeatable startup sequence, confirmed all fault-injection cases trigger expected shutdown, and established thermal derating thresholds; system ready for vehicle integration with a known operating envelope.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Powertrain bench" data-media='[{"src":"assets/projects/rubicon/powertrain.mp4","type":"video","caption":"PM100 powertrain bench validation, startup sequencing and fault-injection testing."}]'></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===== Intrepid ===== -->
+    <details class="car reveal">
+      <summary class="car-summary">
+        <span class="car-thumb">
+          <img src="assets/projects/intrepid/thumb.jpg" alt="Intrepid IC combustion Formula SAE car" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noimg');" />
+        </span>
+        <span class="car-headtext">
+          <span class="car-toprow"><span class="car-index">03</span><span class="car-name">Intrepid IC</span></span>
+          <span class="car-tagline">Combustion car, full harness integration &amp; wireless telemetry</span>
+          <span class="car-keywords">
+            <span class="kw">Wiring Harness</span><span class="kw">CAN Bus</span><span class="kw">Haltech ECU</span><span class="kw">Telemetry</span><span class="kw">30+ Sensors</span>
+          </span>
+        </span>
+        <span class="car-meta">
+          <span class="car-role">Assistant Electrical Lead</span>
+          <span class="car-year">FSAE 2024 IC</span>
+        </span>
+        <span class="car-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="car-body">
+        <p class="car-intro">On the combustion car, our two-person electrical team delivered the full vehicle harness and a wireless telemetry unit, the foundation that later grew into sensor fusion and autonomous work.</p>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Vehicle Wiring Integration</div>
+            <div class="sub-blurb">Haltech Nexus R5 + 30 sensors, full harness mapped in RapidHarness</div>
+            <h4>Background</h4><ul>
+              <li>FSAE combustion vehicle requires integration of an ECU (Haltech Nexus R5), transmission control unit, custom Raspberry Pi display, and 30+ sensors into one harness, wiring errors cause no-start, sensor faults, or fire risk.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Mapped complete electrical architecture in RapidHarness: wire routing by zone, harness segment lengths, connector pinouts (Deutsch, DTM), and color-coded circuits; documented every ECU input.</li>
+              <li>Defined a CAN bus architecture connecting ECU, TCU (servo clutch, solenoid shift), and Raspberry Pi display; mapped CAN message IDs.</li>
+              <li>Integrated vehicle dynamics sensors (linear pots, wheel speed, throttle, brake pressure) with headroom for future strain gauges and steering torque sensors.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered complete wiring documentation enabling repeatable harness builds; established the CAN protocol map used by the telemetry system; harness supports trackside serviceability with labeled service connectors.</li>
+            </ul>
+            <div class="sub-links">
+              <a class="btn ghost" href="assets/docs/Nexus_R5_Wiring_Diagram.pdf" target="_blank" rel="noopener">📄 Nexus R5 Wiring Diagram (PDF)</a>
+            </div>
+          </div>
+          <div class="sub-photos" data-label="Wiring integration" data-media='[{"src":"assets/projects/intrepid/wiring-1.jpg","caption":"Full vehicle harness mapped in RapidHarness, routing, segment lengths and connector pinouts."},{"src":"assets/projects/intrepid/wiring-2.jpg","caption":"Harness integration detail, Haltech Nexus R5 and 30+ sensors."},{"src":"assets/projects/intrepid/wiring-3.jpg","caption":"Installed vehicle wiring with labeled service connectors for trackside serviceability."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Telemetry Control Unit</div>
+            <div class="sub-blurb">Teensy + XBee wireless telemetry, ECU + IMU broadcast at ~300m range</div>
+            <h4>Background</h4><ul>
+              <li>Real-time vehicle data was needed at pit for driver coaching and fault diagnosis; a wired connection was impractical, requiring a wireless system with ~300m range and a meaningful update rate.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Selected Teensy for CAN support and speed to parse Haltech ECU broadcasts at 500 kbps; designed power regulation stepping 12V to 3.3V/5V rails with filtering for high-EMI noise immunity.</li>
+              <li>Integrated a BMI270 6-axis IMU for yaw rate and acceleration; implemented an XBee 2.4GHz radio (~250 kbps, ~300m range); architected for future sensor fusion and autonomous development.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Delivered a functional telemetry PCB (EasyEDA schematic, fabricated board) broadcasting ECU and IMU data wirelessly; documented range/bandwidth tradeoffs vs. LoRa and cellular.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Telemetry unit" data-media='[{"src":"assets/projects/intrepid/telemetry-1.jpg","caption":"Telemetry control unit PCB, Teensy + XBee, power regulation and BMI270 IMU."},{"src":"assets/projects/intrepid/telemetry-2.jpg","caption":"Board layout detail, CAN interface and 2.4GHz radio section."}]'></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===== Other Projects ===== -->
+    <details class="car reveal">
+      <summary class="car-summary">
+        <span class="car-thumb">
+          <img src="assets/projects/other/cybertruck-2.jpg" alt="Cybertruck Challenge cohort, heavy-vehicle cybersecurity" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noimg');" />
+        </span>
+        <span class="car-headtext">
+          <span class="car-toprow"><span class="car-index">04</span><span class="car-name">Other Projects</span></span>
+          <span class="car-tagline">Selected work, embedded systems, automotive cybersecurity &amp; early CSU race cars</span>
+        </span>
+        <span class="car-meta">
+          <span class="car-year">Various</span>
+        </span>
+        <span class="car-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="car-body">
+        <p class="car-intro">A few standout projects beyond my lead Formula SAE roles, from a competition-winning embedded clock and heavy-vehicle cybersecurity to the early CSU race cars where I cut my teeth on harnesses and vehicle instrumentation.</p>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Sophomore Competition Winner</div>
+            <div class="sub-blurb">Mechanical seven-segment clock, ESP32, WiFi UI, servo control</div>
+            <h4>Background</h4><ul>
+              <li>The competition required a functional electromechanical product from concept to prototype; the team chose a mechanical seven-segment clock combining PCB design, embedded firmware, servo control, and wireless connectivity.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Supported PCB implementation: ESP32-WROOM selection (integrated WiFi, GPIO for servos, low cost), USB-C power/programming, and overcurrent protection sizing for servo stall.</li>
+              <li>Developed a web-based control interface hosted on the ESP32 for setting time and alarm, with servo PWM control to flip mechanical segments.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Won the sophomore engineering competition; contributed across the full product cycle from component selection to working prototype.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Seven-segment clock" data-media='[{"src":"assets/projects/other/clock.mp4","type":"video","caption":"Mechanical seven-segment clock in motion, servo-driven flipping segments."},{"src":"assets/projects/other/clock-1.jpg","caption":"Assembled clock prototype."},{"src":"assets/projects/other/clock-2.jpg","caption":"Build detail, ESP32 control board and servo-actuated segments."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Cybertruck Challenge</div>
+            <div class="sub-blurb">Heavy-vehicle cybersecurity, CAN/J1939 analysis, UDS, ~50 selected nationwide</div>
+            <h4>Background</h4><ul>
+              <li>Selected as one of ~50 participants nationwide for week-long hands-on cybersecurity training on commercial heavy-duty trucks; mentored by engineers from Bosch, PACCAR, Daimler, and NMFTA.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Captured CAN traffic with Wireshark to map arbitration IDs to source ECUs across the J1939 protocol.</li>
+              <li>Developed brute-force scripts targeting the UDS Security Access seed/key challenge to probe the authentication mechanism.</li>
+              <li>Scripted replay and spoofing attacks with crafted CAN frames; tested which sequences triggered state changes vs. plausibility-check rejections.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Specific findings under NDA; demonstrated automotive network analysis, diagnostic protocol enumeration, and scripted attack methodology on production heavy vehicles.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Cybertruck Challenge" data-media='[{"src":"assets/projects/other/cybertruck-2.jpg","caption":"Cybertruck Challenge cohort in front of the heavy-duty trucks used for hands-on training."},{"src":"assets/projects/other/cybertruck-1.jpg","caption":"Cybertruck Challenge, hands-on heavy-vehicle cybersecurity training (~50 selected nationwide)."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Endeavour IC</div>
+            <div class="sub-blurb">CSU's first combustion car, wiring harness, electronics placement &amp; MoTeC first start</div>
+            <h4>Background</h4><ul>
+              <li>Endeavour was the first internal combustion car at Colorado State University, with no inherited electrical design to build from.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Built the vehicle wiring harness, laid out electronics placement on the chassis, and tested every circuit before commissioning the engine on a MoTeC ECU.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Successfully started and ran the car, establishing the electrical foundation every later CSU Formula SAE vehicle was built on.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Endeavour IC" data-media='[{"src":"assets/projects/other/endeavour-1.jpg","caption":"Endeavour IC, the first internal combustion Formula SAE car at Colorado State University."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Dauntless IC</div>
+            <div class="sub-blurb">Summer strain-gauge campaign, turning Intrepid track data into suspension &amp; powertrain design loads</div>
+            <h4>Background</h4><ul>
+              <li>The suspension and powertrain teams needed measured load data, not just assumptions, to design Dauntless, so over the summer I instrumented the Intrepid IC car to capture how it was actually loaded on track.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Bonded strain gauges to suspension members and driveline components in Wheatstone-bridge configurations, calibrated each channel to engineering units, and logged the bridge outputs synchronized with vehicle CAN data so strain could be tied to cornering, braking, and acceleration events.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Converted real track strain into peak and fatigue load cases that fed the Dauntless suspension geometry and informed predicted powertrain loads, replacing guesswork with measured design inputs.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Dauntless IC" data-media='[{"src":"assets/projects/other/dauntless-1.jpg","caption":"Dauntless IC under dynamic event inspection, the car informed by strain-gauge data measured on Intrepid."}]'></div>
+        </div>
+
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ============ PAPERS ============ -->
+<section class="section" id="papers">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Papers &amp; Research</h2>
+    </div>
+    <div class="papers-list reveal">
+
+      <!-- FSDS moved here -->
+      <article class="paper">
+        <div class="paper-visual" data-video="assets/papers/fsds-demo.mp4" data-label="FSDS track navigation demo">
+          <span class="ph">FSDS autonomous<br>track demo<br><small>video slot</small></span>
+        </div>
+        <div class="paper-body">
+          <span class="paper-status">arXiv · In Progress</span>
+          <a class="paper-title" href="assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">Incremental LiDAR-Camera Sensor Fusion for Reactive Cone Following in the Formula Student Driverless Simulator</a>
+          <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span>, RAM Racing Driverless</div>
+          <div class="paper-venue">Formula Student Driverless Simulator (FSDS), 2026</div>
+          <div class="paper-linkrow">
+            <a href="assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">report</a>
+            <span class="slash">/</span><span class="muted">arXiv soon</span>
+            <span class="slash">/</span><span class="muted">code soon</span>
+            <span class="slash">/</span><a href="https://www.linkedin.com/in/danielortval/overlay/Project/1411929511/treasury/?profileId=ACoAABqxuG8BxSCZqtkvSw8ffR50Pj5nVNJeR1g" target="_blank" rel="noopener">demo</a>
+          </div>
+          <p class="paper-abstract">An incremental perception and control pipeline for autonomous navigation in the Formula Student Driverless Simulator (FSDS). A reactive LiDAR-only baseline isolates cone positions at 20Hz with O(n) sequential clustering and a binary density heuristic for steering, then a forward-facing camera processed by a YOLOv5 detector with FSOCO weights is fused with LiDAR depth. Pinhole ground-plane projection and nearest-neighbor matching align the two sensors to a 0.06m average match distance with near-zero systematic bias. A three-tier hybrid color verification scheme (stripe brightness, BGR channel dominance, HSV hue fallback) reaches roughly 98% accuracy at close range, and a color-aware proportional controller tracks the geometric centerline between the blue and yellow boundaries, eliminating the straight-line oscillation of the baseline while keeping a graceful fallback to the density heuristic under camera failure.</p>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="paper-visual">
+          <img src="assets/papers/anomaly-yolo-failure.jpg" alt="YOLO failure frame: a blue cone labeled orange at 0.61 confidence" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex';" />
+          <span class="ph" style="display:none">YOLO color<br>anomaly detection<br><small>figure</small></span>
+        </div>
+        <div class="paper-body">
+          <span class="paper-status">Technical Report</span>
+          <a class="paper-title" href="#" aria-disabled="true">YOLO Color Anomaly Detection for FSAE Driverless: From Ground-Truth Dataset Construction to an XGBoost Safety Gate</a>
+          <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span></div>
+          <div class="paper-venue">ECE553, Colorado State University, 2026</div>
+          <div class="paper-linkrow">
+            <span class="muted">write-up soon</span><span class="slash">/</span><span class="muted">code soon</span>
+          </div>
+          <p class="paper-abstract">A two-phase system that detects and suppresses YOLO color misclassifications before they reach the path planner. Phase 1 builds a ground-truth dataset: a ROS2 bridge and four-stage spatial matching pipeline label 129,025 cone detections from the Formula Student Driverless Simulator, exposing a 2.52% baseline false-positive rate with orange cones failing at 24.4% (9.7x the mean). Phase 2 trains a two-model XGBoost Safety Gate, framed as supervised anomaly detection, on 17 features including five engineered context features (neighbor agreement, lateral outlier, relative size, corner flag, and a corner-by-prior interaction). On the held-out test set the system reaches F1 = 0.906, PR-AUC = 0.976, and ROC-AUC = 0.999, cutting incorrect color labels reaching the steering controller from 2.73% to roughly 0.24%, a 91% reduction in the failure mode that causes wrong lane assignment, at under 0.3ms per frame on a Raspberry Pi 4.</p>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="paper-visual">
+          <img src="assets/papers/rl-sac-vs-ppo.jpg" alt="Structural comparison of SAC and PPO across experience reuse, update bound, exploration, reward changes, and sample cost" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex';" />
+          <span class="ph" style="display:none">SAC vs PPO<br>structural comparison<br><small>figure</small></span>
+        </div>
+        <div class="paper-body">
+          <span class="paper-status">Technical Report</span>
+          <a class="paper-title" href="assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">Reinforcement Learning for Steering Control in the Formula Student Driverless Simulator: Structural Failure Modes of Soft Actor-Critic and the Case for PPO</a>
+          <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span></div>
+          <div class="paper-venue">Electrical &amp; Computer Engineering, Colorado State University, 2026</div>
+          <div class="paper-linkrow">
+            <a href="assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">report</a>
+            <span class="slash">/</span><span class="muted">code soon</span>
+          </div>
+          <p class="paper-abstract">A study of replacing a hand-coded reactive steering controller with a learned policy in the Formula Student Driverless Simulator. The work delivers a reproducible RL environment with a 41-dimensional cone observation, a single steering action, and a three-term reward, with the policy trained against ground-truth cones and warm-started by behavior cloning to isolate control from perception. Soft Actor-Critic was evaluated across six configurations and every run ended in collapse, traced to three structural properties of the algorithm rather than tuning: replay-buffer poisoning, automatic-entropy collapse, and catastrophic forgetting after reward changes. Proximal Policy Optimization is then adopted, whose on-policy formulation, trust-region clipping, and fixed entropy coefficient remove each failure mode by design at the cost of more environment interactions. The result is a validated training infrastructure and a catalogue of failure modes with recognizable training-log signatures.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIZES ============ -->
+<section class="section" id="prizes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Prizes &amp; Awards</h2>
+      <p class="sub">Recognition for engineering, leadership, and academic achievement.</p>
+    </div>
+    <div class="prizes reveal">
+      <div class="prize"><div class="pyear">Sep 2025</div><div class="pbody"><h3>Featured in The Rocky Mountain Collegian</h3><div class="porg">The Rocky Mountain Collegian</div><p>Featured for engineering work and leadership with CSU Ram Racing Formula SAE.</p></div><div class="pmark">★</div></div>
+      <div class="prize"><div class="pyear">Aug 2025</div><div class="pbody"><h3>Tesla Battery Sponsorship Recipient</h3><div class="porg">Tesla</div><p>Team selected based on a high-voltage battery pack proposal for the FSAE EV accumulator.</p></div><div class="pmark">★</div></div>
+      <div class="prize"><div class="pyear">Mar 2024</div><div class="pbody"><h3>ECE 202 Sophomore Competition Winner</h3><div class="porg">Colorado State University ECE Department</div><p>Won the department-wide product competition with a custom PCB and embedded system design.</p></div><div class="pmark">★</div></div>
+      <div class="prize"><div class="pyear">Aug 2023</div><div class="pbody"><h3>ECE Department Scholarship</h3><div class="porg">Colorado State University ECE Department</div><p>Merit-based award for academic performance and contributions to ECE.</p></div><div class="pmark">★</div></div>
+      <div class="prize"><div class="pyear">Feb 2023</div><div class="pbody"><h3>NRHH Academic Achievement Award</h3><div class="porg">National Residence Hall Honorary, CSU Chapter</div><p>Recognized for a 4.0 GPA and academic excellence.</p></div><div class="pmark">★</div></div>
+      <div class="prize"><div class="pyear">Aug 2022</div><div class="pbody"><h3>International Scholarship Award</h3><div class="porg">Colorado State University</div><p>Merit-based scholarship for international students.</p></div><div class="pmark">★</div></div>
+      <div class="prize"><div class="pyear">Jan 2022</div><div class="pbody"><h3>Honor Tuition Award</h3><div class="porg">Universidad de Nariño, Colombia</div><p>Highest GPA in cohort with a tuition waiver.</p></div><div class="pmark">★</div></div>
+      <div class="prize"><div class="pyear">Jul 2020</div><div class="pbody"><h3>Regional Recognition, Bachiller CONACED</h3><div class="porg">Confederación Nacional Católica de Educación, Federación Pasto</div><p>Top-performing high school graduate in the region.</p></div><div class="pmark">★</div></div>
+      <div class="prize"><div class="pyear">May 2020</div><div class="pbody"><h3>Gloria de Martínez Prize</h3><div class="porg">Gimnasio Los Andes</div><p>Perfect GPA, first student in school history to achieve this record.</p></div><div class="pmark">★</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERSHIP ============ -->
+<section class="section" id="leadership">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Leadership &amp; Ownership</h2>
+      <p class="sub">Building teams, programs, and engineering culture from the ground up.</p>
+    </div>
+    <div class="lead-grid reveal">
+      <div class="lead-card"><div class="lrole">Electrical Systems Officer</div><div class="lorg">CSU Formula SAE</div><div class="lyear">2025 to 2026</div><p>Lead 20 electrical and computer engineering students across HV systems, electronics, and driverless research. Delivered the program's first complete EV car to competition 2026.</p></div>
+      <div class="lead-card"><div class="lrole">EV Chief Engineer &amp; Founder</div><div class="lorg">CSU Formula SAE Electric</div><div class="lyear">2024 to 2025</div><p>Founded Colorado's first university FSAE Electric program from nothing, only 2 people, no sponsors, no workspace. Scaled to 30+ members and 15+ sponsors in one year. Managed all subsystem teams and built a leadership pipeline that enabled the team to reach competition independently.</p></div>
+      <div class="lead-card"><div class="lrole">Electrical Systems Assistant Lead</div><div class="lorg">CSU Formula SAE Combustion</div><div class="lyear">2023 to 2024</div><p>Two-person electrical team delivering full vehicle electrical integration, controllers adding electronic shifting and a custom dashboard. Established documentation standards for team knowledge transfer.</p></div>
+      <div class="lead-card"><div class="lrole">Operations Lead</div><div class="lorg">Healthcare Practice</div><div class="lyear">Summer 2025</div><p>Led organizational restructuring for a 20-person team during rapid growth: defined reporting structure, closed financial leakages, and used data analysis to exit unprofitable investments. Reduced operational time ~20% while maintaining revenue.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Contact Me</h2>
+      <p class="sub">Get in touch for collaboration.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <a class="contact-card" href="mailto:danielortval@gmail.com">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">danielortval@gmail.com</div>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/danielortval/" target="_blank" rel="noopener">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">linkedin.com/in/danielortval ↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer wrap">
+  <div>© <span id="year"></span> Daniel Ortiz Valencia, Electrical &amp; Autonomous Systems Engineer</div>
+  <div class="fcontact">
+    <a href="https://www.linkedin.com/in/danielortval/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="mailto:danielortval@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>
