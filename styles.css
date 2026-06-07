@@ -148,12 +148,14 @@ a { color: inherit; text-decoration: none; }
 }
 .edu-card:hover { box-shadow: var(--shadow-md); border-color: var(--orange-soft); transform: translateY(-3px); }
 .edu-logo-wrap { margin-bottom: 1rem; }
-.edu-logo {
-  width: 62px; height: 62px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .75rem; font-weight: 800; color: #fff;
-  letter-spacing: .04em; box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+.edu-logo-img {
+  width: 72px; height: 72px; object-fit: contain;
+  display: block; margin: 0 auto;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+  transition: transform .2s ease;
 }
+.edu-card:hover .edu-logo-img { transform: scale(1.07); }
+[data-theme="dark"] .edu-logo-img { filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)) brightness(0.92); }
 .edu-school {
   font-size: var(--text-sm); font-weight: 700; color: var(--ink);
   letter-spacing: -0.01em; margin-bottom: .3rem; line-height: 1.3;
