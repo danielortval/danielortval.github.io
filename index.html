@@ -548,11 +548,11 @@
         </div>
         <div class="paper-body">
           <span class="paper-status">Technical Report</span>
-          <a class="paper-title" href="#" aria-disabled="true">YOLO Color Anomaly Detection for FSAE Driverless: From Ground-Truth Dataset Construction to an XGBoost Safety Gate</a>
+          <a class="paper-title" href="assets/papers/AnomalyDetectionPaper.pdf" target="_blank" rel="noopener">YOLO Color Anomaly Detection for FSAE Driverless: From Ground-Truth Dataset Construction to an XGBoost Safety Gate</a>
           <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span></div>
           <div class="paper-venue">ECE553, Colorado State University, 2026</div>
           <div class="paper-linkrow">
-            <span class="muted">write-up soon</span><span class="slash">/</span><span class="muted">code soon</span>
+            <a href="assets/papers/AnomalyDetectionPaper.pdf" target="_blank" rel="noopener">report</a><span class="slash">/</span><span class="muted">code soon</span>
           </div>
           <p class="paper-abstract">A two-phase system that detects and suppresses YOLO color misclassifications before they reach the path planner. Phase 1 builds a ground-truth dataset: a ROS2 bridge and four-stage spatial matching pipeline label 129,025 cone detections from the Formula Student Driverless Simulator, exposing a 2.52% baseline false-positive rate with orange cones failing at 24.4% (9.7x the mean). Phase 2 trains a two-model XGBoost Safety Gate, framed as supervised anomaly detection, on 17 features including five engineered context features (neighbor agreement, lateral outlier, relative size, corner flag, and a corner-by-prior interaction). On the held-out test set the system reaches F1 = 0.906, PR-AUC = 0.976, and ROC-AUC = 0.999, cutting incorrect color labels reaching the steering controller from 2.73% to roughly 0.24%, a 91% reduction in the failure mode that causes wrong lane assignment, at under 0.3ms per frame on a Raspberry Pi 4.</p>
         </div>
@@ -633,7 +633,7 @@
         <div class="edu-school">Massachusetts Institute of Technology</div>
         <div class="edu-degree">Coursework · Deep Learning</div>
         <div class="edu-dates">Jan 2026 · Winter</div>
-        <div class="edu-note">Selected for the in-person MIT 6.S191 course. Neural networks, CNNs, RNNs, transformers and applied deep learning with PyTorch.</div>
+        <div class="edu-note">Selected for the in-person MIT 6.S191 course taught by Dr. Alexander Amini. Covered neural networks, CNNs, RNNs, and transformers.</div>
       </div>
 
       <!-- Stanford -->
