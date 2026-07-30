@@ -235,3 +235,135 @@ document.querySelectorAll('[data-attachment]').forEach((a) => {
     if (a.getAttribute('href') === '#') { e.preventDefault(); a.style.opacity = '0.6'; a.title = 'Document will be linked once uploaded'; }
   });
 });
+
+// ---------- Paper reader (modal document viewer) ----------
+// Each paper card carries data-paper-open="<slug>". The readable body lives in
+// a <template id="pdoc-<slug>"> at the bottom of index.html, so everything works
+// from file:// with no fetch. Falls back to the PDF link if JS is unavailable.
+(function () {
+  const overlay = document.getElementById('pdoc');
+  const zoom = document.getElementById('pzoom');
+  if (!overlay || !zoom) return;
+
+  const panel    = overlay.querySelector('.pdoc-panel');
+  const scroller = document.getElementById('pdoc-scroll');
+  const bodyEl   = document.getElementById('pdoc-body');
+  const kickerEl = document.getElementById('pdoc-kicker');
+  const titleEl  = document.getElementById('pdoc-title');
+  const venueEl  = document.getElementById('pdoc-venue');
+  const pdfEl    = document.getElementById('pdoc-pdf');
+  const barEl    = document.getElementById('pdoc-progress-bar');
+
+  const zoomImg = document.getElementById('pzoom-img');
+  const zoomCap = document.getElementById('pzoom-cap');
+
+  let lastFocus = null;
+
+  const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function openPaper(slug) {
+    const tpl = document.getElementById('pdoc-' + slug);
+    if (!tpl) return false;
+
+    kickerEl.textContent = tpl.dataset.kicker || '';
+    titleEl.textContent  = tpl.dataset.title  || '';
+    venueEl.textContent  = tpl.dataset.venue  || '';
+    if (tpl.dataset.pdf) {
+      pdfEl.href = tpl.dataset.pdf;
+      pdfEl.hidden = false;
+    } else {
+      pdfEl.hidden = true;
+    }
+
+    bodyEl.replaceChildren(tpl.content.cloneNode(true));
+
+    lastFocus = document.activeElement;
+    overlay.hidden = false;
+    document.body.classList.add('pdoc-open');
+    scroller.scrollTop = 0;
+    barEl.style.width = '0%';
+    // Focus the panel itself so Esc and Tab are captured immediately.
+    panel.querySelector('.pdoc-close').focus();
+    return true;
+  }
+
+  function closePaper() {
+    if (overlay.hidden) return;
+    overlay.hidden = true;
+    bodyEl.replaceChildren();
+    if (zoom.hidden) document.body.classList.remove('pdoc-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    lastFocus = null;
+  }
+
+  function openZoom(img) {
+    zoomImg.src = img.currentSrc || img.src;
+    zoomImg.alt = img.alt || '';
+    const cap = img.closest('figure')?.querySelector('figcaption');
+    zoomCap.textContent = cap ? cap.textContent : '';
+    zoom.hidden = false;
+    document.body.classList.add('pdoc-open');
+    zoom.querySelector('.pzoom-close').focus();
+  }
+
+  function closeZoom() {
+    if (zoom.hidden) return;
+    zoom.hidden = true;
+    zoomImg.src = '';
+    if (overlay.hidden) document.body.classList.remove('pdoc-open');
+    else panel.querySelector('.pdoc-close').focus();
+  }
+
+  // ---- Open triggers (title, visual, "read paper" link) ----
+  document.querySelectorAll('[data-paper-open]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      // Let modified clicks (new tab / download) fall through to the PDF href.
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      if (openPaper(el.dataset.paperOpen)) e.preventDefault();
+    });
+    // .paper-visual is a div with role="button" - support keyboard activation.
+    if (el.getAttribute('role') === 'button') {
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openPaper(el.dataset.paperOpen);
+        }
+      });
+    }
+  });
+
+  // ---- Close triggers ----
+  overlay.querySelectorAll('[data-pdoc-close]').forEach((el) => {
+    el.addEventListener('click', closePaper);
+  });
+  zoom.querySelector('.pzoom-close').addEventListener('click', closeZoom);
+  zoom.addEventListener('click', (e) => { if (e.target === zoom) closeZoom(); });
+
+  // ---- Figure click to zoom ----
+  bodyEl.addEventListener('click', (e) => {
+    const img = e.target.closest('.pd-fig img');
+    if (img) openZoom(img);
+  });
+
+  // ---- Keyboard: Esc closes the topmost layer, Tab stays inside the panel ----
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (!zoom.hidden) { closeZoom(); return; }
+      if (!overlay.hidden) closePaper();
+      return;
+    }
+    if (e.key !== 'Tab' || overlay.hidden || !zoom.hidden) return;
+    const items = Array.from(panel.querySelectorAll(FOCUSABLE)).filter((n) => n.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  // ---- Reading progress ----
+  scroller.addEventListener('scroll', () => {
+    const max = scroller.scrollHeight - scroller.clientHeight;
+    barEl.style.width = (max > 0 ? (scroller.scrollTop / max) * 100 : 0) + '%';
+  }, { passive: true });
+})();

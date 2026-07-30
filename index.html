@@ -522,17 +522,18 @@
     <div class="papers-list reveal">
 
       <!-- FSDS moved here -->
-      <article class="paper">
-        <div class="paper-visual" data-video="assets/papers/fsds-demo.mp4" data-label="FSDS track navigation demo">
+      <article class="paper" data-paper="fsds-fusion">
+        <div class="paper-visual" data-video="assets/papers/fsds-demo.mp4" data-label="FSDS track navigation demo" data-paper-open="fsds-fusion" role="button" tabindex="0" aria-label="Read paper: Incremental LiDAR-Camera Sensor Fusion">
           <span class="ph">FSDS autonomous<br>track demo<br><small>video slot</small></span>
         </div>
         <div class="paper-body">
           <span class="paper-status">arXiv · In Progress</span>
-          <a class="paper-title" href="assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">Incremental LiDAR-Camera Sensor Fusion for Reactive Cone Following in the Formula Student Driverless Simulator</a>
+          <a class="paper-title" href="assets/papers/fsds-fusion.pdf" data-paper-open="fsds-fusion">Incremental LiDAR-Camera Sensor Fusion for Reactive Cone Following in the Formula Student Driverless Simulator</a>
           <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span>, RAM Racing Driverless</div>
           <div class="paper-venue">Formula Student Driverless Simulator (FSDS), 2026</div>
           <div class="paper-linkrow">
-            <a href="assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">report</a>
+            <a class="paper-read" href="assets/papers/fsds-fusion.pdf" data-paper-open="fsds-fusion">read paper</a>
+            <span class="slash">/</span><a href="assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">pdf</a>
             <span class="slash">/</span><span class="muted">arXiv soon</span>
             <span class="slash">/</span><span class="muted">code soon</span>
             <span class="slash">/</span><a href="https://www.linkedin.com/in/danielortval/overlay/Project/1411929511/treasury/?profileId=ACoAABqxuG8BxSCZqtkvSw8ffR50Pj5nVNJeR1g" target="_blank" rel="noopener">demo</a>
@@ -541,35 +542,37 @@
         </div>
       </article>
 
-      <article class="paper">
-        <div class="paper-visual">
+      <article class="paper" data-paper="anomaly">
+        <div class="paper-visual" data-paper-open="anomaly" role="button" tabindex="0" aria-label="Read paper: YOLO Color Anomaly Detection">
           <img src="assets/papers/anomaly-yolo-failure.jpg" alt="YOLO failure frame: a blue cone labeled orange at 0.61 confidence" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex';" />
           <span class="ph" style="display:none">YOLO color<br>anomaly detection<br><small>figure</small></span>
         </div>
         <div class="paper-body">
           <span class="paper-status">Technical Report</span>
-          <a class="paper-title" href="assets/papers/AnomalyDetectionPaper.pdf" target="_blank" rel="noopener">YOLO Color Anomaly Detection for FSAE Driverless: From Ground-Truth Dataset Construction to an XGBoost Safety Gate</a>
+          <a class="paper-title" href="assets/papers/AnomalyDetectionPaper.pdf" data-paper-open="anomaly">YOLO Color Anomaly Detection for FSAE Driverless: From Ground-Truth Dataset Construction to an XGBoost Safety Gate</a>
           <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span></div>
           <div class="paper-venue">ECE553, Colorado State University, 2026</div>
           <div class="paper-linkrow">
-            <a href="assets/papers/AnomalyDetectionPaper.pdf" target="_blank" rel="noopener">report</a><span class="slash">/</span><span class="muted">code soon</span>
+            <a class="paper-read" href="assets/papers/AnomalyDetectionPaper.pdf" data-paper-open="anomaly">read paper</a>
+            <span class="slash">/</span><a href="assets/papers/AnomalyDetectionPaper.pdf" target="_blank" rel="noopener">pdf</a><span class="slash">/</span><span class="muted">code soon</span>
           </div>
           <p class="paper-abstract">A two-phase system that detects and suppresses YOLO color misclassifications before they reach the path planner. Phase 1 builds a ground-truth dataset: a ROS2 bridge and four-stage spatial matching pipeline label 129,025 cone detections from the Formula Student Driverless Simulator, exposing a 2.52% baseline false-positive rate with orange cones failing at 24.4% (9.7x the mean). Phase 2 trains a two-model XGBoost Safety Gate, framed as supervised anomaly detection, on 17 features including five engineered context features (neighbor agreement, lateral outlier, relative size, corner flag, and a corner-by-prior interaction). On the held-out test set the system reaches F1 = 0.906, PR-AUC = 0.976, and ROC-AUC = 0.999, cutting incorrect color labels reaching the steering controller from 2.73% to roughly 0.24%, a 91% reduction in the failure mode that causes wrong lane assignment, at under 0.3ms per frame on a Raspberry Pi 4.</p>
         </div>
       </article>
 
-      <article class="paper">
-        <div class="paper-visual">
+      <article class="paper" data-paper="rl-sac-ppo">
+        <div class="paper-visual" data-paper-open="rl-sac-ppo" role="button" tabindex="0" aria-label="Read paper: Reinforcement Learning for Steering Control">
           <img src="assets/papers/rl-sac-vs-ppo.jpg" alt="Structural comparison of SAC and PPO across experience reuse, update bound, exploration, reward changes, and sample cost" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex';" />
           <span class="ph" style="display:none">SAC vs PPO<br>structural comparison<br><small>figure</small></span>
         </div>
         <div class="paper-body">
           <span class="paper-status">Technical Report</span>
-          <a class="paper-title" href="assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">Reinforcement Learning for Steering Control in the Formula Student Driverless Simulator: Structural Failure Modes of Soft Actor-Critic and the Case for PPO</a>
+          <a class="paper-title" href="assets/papers/fsds-rl-sac-ppo.pdf" data-paper-open="rl-sac-ppo">Reinforcement Learning for Steering Control in the Formula Student Driverless Simulator: Structural Failure Modes of Soft Actor-Critic and the Case for PPO</a>
           <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span></div>
           <div class="paper-venue">Electrical &amp; Computer Engineering, Colorado State University, 2026</div>
           <div class="paper-linkrow">
-            <a href="assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">report</a>
+            <a class="paper-read" href="assets/papers/fsds-rl-sac-ppo.pdf" data-paper-open="rl-sac-ppo">read paper</a>
+            <span class="slash">/</span><a href="assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">pdf</a>
             <span class="slash">/</span><span class="muted">code soon</span>
           </div>
           <p class="paper-abstract">A study of replacing a hand-coded reactive steering controller with a learned policy in the Formula Student Driverless Simulator. The work delivers a reproducible RL environment with a 41-dimensional cone observation, a single steering action, and a three-term reward, with the policy trained against ground-truth cones and warm-started by behavior cloning to isolate control from perception. Soft Actor-Critic was evaluated across six configurations and every run ended in collapse, traced to three structural properties of the algorithm rather than tuning: replay-buffer poisoning, automatic-entropy collapse, and catastrophic forgetting after reward changes. Proximal Policy Optimization is then adopted, whose on-policy formulation, trust-region clipping, and fixed entropy coefficient remove each failure mode by design at the cost of more environment interactions. The result is a validated training infrastructure and a catalogue of failure modes with recognizable training-log signatures.</p>
@@ -703,6 +706,579 @@
     <a href="mailto:danielortval@gmail.com">Email</a>
   </div>
 </footer>
+
+<!-- ============ PAPER READER (modal) ============ -->
+<div class="pdoc-overlay" id="pdoc" hidden>
+  <div class="pdoc-backdrop" data-pdoc-close></div>
+  <div class="pdoc-panel" role="dialog" aria-modal="true" aria-labelledby="pdoc-title">
+    <div class="pdoc-progress"><span id="pdoc-progress-bar"></span></div>
+    <header class="pdoc-bar">
+      <div class="pdoc-bar-meta">
+        <span class="pdoc-kicker" id="pdoc-kicker"></span>
+        <h2 class="pdoc-title" id="pdoc-title"></h2>
+        <div class="pdoc-venue" id="pdoc-venue"></div>
+      </div>
+      <div class="pdoc-bar-actions">
+        <a class="pdoc-btn" id="pdoc-pdf" href="#" target="_blank" rel="noopener">PDF&nbsp;↗</a>
+        <button class="pdoc-close" type="button" data-pdoc-close aria-label="Close reader">&times;</button>
+      </div>
+    </header>
+    <div class="pdoc-scroll" id="pdoc-scroll" tabindex="-1">
+      <article class="pdoc-body" id="pdoc-body"></article>
+    </div>
+  </div>
+</div>
+
+<!-- Figure zoom lightbox -->
+<div class="pzoom" id="pzoom" hidden>
+  <button class="pzoom-close" type="button" aria-label="Close image">&times;</button>
+  <figure class="pzoom-fig">
+    <img id="pzoom-img" src="" alt="" />
+    <figcaption id="pzoom-cap"></figcaption>
+  </figure>
+</div>
+
+<!-- ============ PAPER CONTENT TEMPLATES ============ -->
+<!-- Each template holds the full readable body of one paper. Figures live in
+     assets/papers/figures/<slug>/. Edit text here; the reader renders it as-is. -->
+
+<template id="pdoc-fsds-fusion"
+  data-kicker="arXiv · In Progress"
+  data-title="Incremental LiDAR-Camera Sensor Fusion for Reactive Cone Following in the Formula Student Driverless Simulator"
+  data-venue="Daniel Ortiz Valencia · Dept. of Electrical &amp; Computer Engineering, Colorado State University · FSDS, 2026"
+  data-pdf="assets/papers/fsds-fusion.pdf">
+
+  <div class="pd-abstract">
+    <span class="pd-abstract-label">Abstract</span>
+    <p>An incremental perception and control pipeline for autonomous navigation in the Formula Student Driverless Simulator (FSDS) is presented. A reactive LiDAR-only baseline is first developed in which sequential point clustering isolates cone positions at 20&nbsp;Hz, and a binary density heuristic provides lateral steering control. The limitations of this approach, particularly straight-line oscillation caused by the absence of boundary color classification, motivate an extended architecture in which a forward-facing camera, processed by a YOLOv5 neural network with FSOCO dataset weights, is fused with LiDAR depth data. Pinhole camera ground-plane projection converts pixel detections to metric coordinates; a nearest-neighbor matching algorithm then associates camera observations with LiDAR clusters. After systematic correction of reference-frame offsets, the fused system achieves an average inter-sensor match distance of 0.06&nbsp;m with near-zero systematic bias. A color-aware proportional steering controller replaces the binary heuristic by computing the geometric midpoint between the blue (left) and yellow (right) cone boundaries, eliminating straight-line oscillation while maintaining a graceful fallback to the density heuristic under sensor failure.</p>
+  </div>
+  <p class="pd-idx"><b>Index terms —</b> autonomous racing, LiDAR-camera fusion, object detection, YOLOv5, Formula Student Driverless, reactive control, sensor fusion, FSDS.</p>
+
+  <h3 class="pd-h"><span>I</span> Introduction</h3>
+  <p>Formula SAE (FSAE) is an international collegiate engineering design competition in which student teams design, manufacture, and validate open-wheel prototype vehicles. The Driverless classification, introduced to align with industry advances in autonomous systems, requires the complete substitution of the human driver with an onboard autonomous perception, localization, and control stack. In the competition context, the track is delineated exclusively by colored cones (blue on the left boundary and yellow on the right) placed on an unmapped surface, demanding real-time perception without prior knowledge of the circuit geometry.</p>
+  <p>The Formula Student Driverless Simulator (FSDS) provides a physics-accurate virtual environment built on Unreal Engine 4 and AirSim. It replicates sensor hardware (single-plane LiDAR, RGB cameras, and GPS/IMU) and allows autonomous pipelines to be validated in simulation before physical deployment. This work uses the FSDS Python client as the interface between the autonomous stack and the simulator.</p>
+  <p>Two systems of increasing sophistication are developed and evaluated. The first is a LiDAR-only reactive controller that achieves autonomous lap completion without camera data, relying on sequential point clustering and a cone-density heuristic for binary steering. The second is a fused color-aware controller that adds a YOLOv5 camera detection module with stripe-based color verification, a pinhole camera ground-plane projection model, and a nearest-neighbor LiDAR-camera fusion algorithm that achieves 0.06&nbsp;m average match accuracy.</p>
+  <p class="pd-lead">The specific contributions of this work are:</p>
+  <ul class="pd-list">
+    <li>A complete LiDAR-only reactive pipeline with O(<i>n</i>) sequential clustering and binary proportional speed control, demonstrated to complete full laps in FSDS.</li>
+    <li>A three-tier hybrid color verification algorithm (stripe brightness, BGR channel dominance, HSV hue fallback) that achieves ~98% accuracy at close range and characterizes the sensor resolution limit beyond 5&nbsp;m.</li>
+    <li>A pinhole ground-plane projection and nearest-neighbor fusion scheme that aligns LiDAR and camera cone positions to 0.06&nbsp;m average Euclidean error with near-zero systematic offset.</li>
+    <li>A color-aware proportional controller with layered fallback logic that eliminates straight-line oscillation while preserving robustness to camera failures.</li>
+  </ul>
+
+  <h3 class="pd-h"><span>II</span> Related Work</h3>
+  <p>Perception pipelines for Formula Student Driverless systems have been an active area of academic and student-team research. Massa et al. [2] demonstrated that YOLOv3 trained on real cone imagery can achieve real-time detection at approximately 30&nbsp;Hz on GPU hardware, establishing deep learning-based detection as a viable baseline. The FSOCO dataset [3], a community-maintained collection of over 11,000 annotated images from 18 teams worldwide, has become the standard training resource for Formula Student cone detectors; the YOLOv5 weights employed in this work were pretrained on FSOCO.</p>
+  <p>LiDAR-based cone detection in FSDS has been explored using standard clustering methods such as DBSCAN [4]. The sequential clustering approach developed here trades generality for computational efficiency: angular scan order guarantees that inter-cone gaps partition the sorted point array without requiring a full k-nearest-neighbor search, reducing runtime to O(<i>n</i>).</p>
+  <p>LiDAR-camera fusion for lane boundary estimation is well-studied in highway autonomous driving contexts [5], [6]. However, the cone-delineated, GNSS-denied setting of Formula Student introduces distinct challenges: cones are sparse, close-range, and must be color-classified rather than merely localized. The present work addresses this by combining metric LiDAR positions with color labels extracted through the YOLO + stripe-verification pipeline, producing a fused representation that carries both position accuracy and semantic color information.</p>
+  <p>Pure Pursuit and Model Predictive Control (MPC) controllers are standard choices for Formula Student path tracking [7]. The binary heuristic baseline developed here is intentionally simpler and serves as a reference against which the color-aware proportional controller is compared.</p>
+
+  <h3 class="pd-h"><span>III</span> System Architecture</h3>
+  <h4 class="pd-sub">A. Simulation Environment</h4>
+  <p>The FSDS simulator is connected to the autonomous stack through a decoupled three-layer architecture. The <b>Simulator Layer</b> (UE4/AirSim) renders vehicle dynamics and synthesizes sensor data. The <b>Middleware Layer</b> (ROS2 Bridge + FSDS Python client) translates the TCP API into standardized ROS2 topics. The <b>Autonomous Stack</b> subscribes to sensor topics, executes perception and control algorithms at 20&nbsp;Hz, and publishes <code>fsds_msgs/ControlCommand</code> messages containing normalized throttle&nbsp;∈&nbsp;[0,&nbsp;1], brake&nbsp;∈&nbsp;[0,&nbsp;1], and steering&nbsp;∈&nbsp;[−1,&nbsp;1] commands.</p>
+
+  <h4 class="pd-sub">B. Sensor Configuration</h4>
+  <p>The sensor suite is defined in <code>settings.json</code> and remains constant across both experimental systems.</p>
+  <div class="pd-tablewrap">
+    <table class="pd-table">
+      <caption>Table I — Sensor configuration parameters</caption>
+      <thead><tr><th>Parameter</th><th>Value</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>X offset</td><td>−0.3 m</td><td>Camera mounted 0.3 m behind vehicle center</td></tr>
+        <tr><td>Y offset</td><td>0.0 m</td><td>Centered laterally on the vehicle</td></tr>
+        <tr><td>Z height</td><td>1.1 m</td><td>Mounted at main roll-hoop height</td></tr>
+        <tr><td>Pitch</td><td>0°</td><td>Level horizon-facing orientation</td></tr>
+        <tr><td>Resolution</td><td>640 × 480 px</td><td>Standard VGA; 90° horizontal FOV</td></tr>
+        <tr><td>LiDAR arc</td><td>180° / 500 pts</td><td>Single-plane, forward-facing; range cutoff 7 m</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/fsds-fusion/fig-1.jpg" alt="Top-down sense-plan-act pipeline diagram showing LiDAR clustering, YOLO detection, ground-plane projection, and fusion feeding the steering controllers" loading="lazy" />
+    <figcaption><b>Fig. 1.</b> Top-down sense–plan–act pipeline diagram. LiDAR point cloud enters the clustering block (<code>find_cones</code>), producing a cone list that feeds both the binary and proportional steering controllers. In the extended system, camera frames pass through YOLO detection, ground-plane projection, and fusion before reaching the color-aware controller. Dashed arrows show the LiDAR bypass path to the fusion module.</figcaption>
+  </figure>
+
+  <h4 class="pd-sub">C. Vehicle Coordinate Frame</h4>
+  <p>All sensor outputs are expressed in the vehicle-centered coordinate frame: the x-axis points forward along the vehicle longitudinal axis, the y-axis points laterally to the left, and the origin is located at the vehicle center. LiDAR positions are corrected by the sensor mounting offset (<i>x</i><sub>LiDAR</sub>&nbsp;=&nbsp;+1.3&nbsp;m) prior to fusion, and camera projections incorporate the camera mounting offset (<i>x</i><sub>cam</sub>&nbsp;=&nbsp;−0.3&nbsp;m).</p>
+
+  <h3 class="pd-h"><span>IV</span> Methods</h3>
+  <h4 class="pd-sub">A. LiDAR Cone Detection via Sequential Clustering</h4>
+  <p>Raw LiDAR returns are provided as a flat float array [<i>x</i><sub>1</sub>,&nbsp;<i>y</i><sub>1</sub>,&nbsp;<i>z</i><sub>1</sub>,&nbsp;<i>x</i><sub>2</sub>,&nbsp;…] in the sensor frame. The array is reshaped to an (<i>N</i>&nbsp;×&nbsp;3) matrix, and consecutive point pairs are tested using the Euclidean gap criterion:</p>
+  <div class="pd-eq"><span class="pd-eq-body"><i>d</i><sub>i</sub> = √[ (<i>x</i><sub>i</sub> − <i>x</i><sub>i−1</sub>)² + (<i>y</i><sub>i</sub> − <i>y</i><sub>i−1</sub>)² ]</span><span class="pd-eq-num">(1)</span></div>
+  <p>If <i>d</i><sub>i</sub> &lt; 0.1&nbsp;m, point <i>i</i> is appended to the current cluster; otherwise the cluster is closed and its centroid is computed:</p>
+  <div class="pd-eq"><span class="pd-eq-body">x̄ = (1/<i>n</i>) Σ<sub>i</sub> <i>x</i><sub>i</sub> ,&nbsp;&nbsp;&nbsp; ȳ = (1/<i>n</i>) Σ<sub>i</sub> <i>y</i><sub>i</sub></span><span class="pd-eq-num">(2)</span></div>
+  <p>where <i>n</i> is the number of points in the cluster. A range filter subsequently discards centroids beyond <i>R</i><sub>cutoff</sub>&nbsp;=&nbsp;7&nbsp;m from the sensor origin. The threshold of 0.1&nbsp;m was calibrated to the approximate 30&nbsp;cm base width of FSAE regulation cones. This algorithm runs in O(<i>n</i>) time, exploiting the angular scan order of the rotating LiDAR to provide a natural grouping signal without requiring DBSCAN or k-nearest-neighbor search.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/fsds-fusion/fig-2.jpg" alt="Bird's-eye scatter plot of LiDAR points colored by cluster membership beside the corresponding FSDS simulator view" loading="lazy" />
+    <figcaption><b>Fig. 2.</b> Visualization of sequential LiDAR clustering. Raw points are colored by cluster membership; vertical arrows mark gaps exceeding the 0.1-m threshold. The bird's-eye matplotlib scatter window (left) and the corresponding FSDS simulator view (right) show five clusters resolved to cone centroids at a 4-cone section of the track.</figcaption>
+  </figure>
+
+  <h4 class="pd-sub">B. Binary Steering Controller (Baseline)</h4>
+  <p>The lateral steering command for the LiDAR-only system is computed from the mean lateral position of all detected cones, ȳ&nbsp;=&nbsp;(1/<i>m</i>)&nbsp;Σ<sub>j</sub>&nbsp;<i>y</i><sub>j</sub>. The steering decision is binary:</p>
+  <div class="pd-eq"><span class="pd-eq-body">δ = −δ<sub>max</sub> &nbsp;if ȳ &gt; 0 (more cones left → steer right)<br />δ = +δ<sub>max</sub> &nbsp;if ȳ ≤ 0 (more cones right → steer left)</span><span class="pd-eq-num">(4)</span></div>
+  <p>where δ<sub>max</sub>&nbsp;=&nbsp;0.3 (≈&nbsp;17°). This exploits the track geometry: on a curved section the inside boundary presents a higher cone density to the LiDAR than the outside boundary, producing a consistent sign for ȳ that steers the vehicle away from the denser wall. On straight sections the cone distribution is symmetric, causing ȳ to fluctuate and the vehicle to oscillate.</p>
+
+  <h4 class="pd-sub">C. Proportional Speed Controller</h4>
+  <p>Longitudinal speed is regulated by a proportional controller:</p>
+  <div class="pd-eq"><span class="pd-eq-body"><i>T</i> = <i>T</i><sub>max</sub> · max( 1 − <i>v</i>/<i>v</i><sub>target</sub> , 0 )</span><span class="pd-eq-num">(5)</span></div>
+  <p>where <i>T</i><sub>max</sub>&nbsp;=&nbsp;0.2, <i>v</i><sub>target</sub>&nbsp;=&nbsp;4&nbsp;m/s, and <i>v</i> is computed from GPS velocity. The controller applies no active braking; deceleration relies entirely on coasting, which is adequate at 4&nbsp;m/s.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/fsds-fusion/fig-3.jpg" alt="Throttle function plot: linear ramp from 0.2 at rest down to zero at 4 m per second" loading="lazy" />
+    <figcaption><b>Fig. 3.</b> Throttle function <i>T</i>(<i>v</i>). The linear ramp decreases from <i>T</i>&nbsp;=&nbsp;0.2 at rest to <i>T</i>&nbsp;=&nbsp;0 at <i>v</i><sub>target</sub>&nbsp;=&nbsp;4&nbsp;m/s (dashed vertical line), with a flat zero region beyond 4&nbsp;m/s.</figcaption>
+  </figure>
+
+  <h4 class="pd-sub">D. Camera-Based Cone Detection (YOLOv5 + FSOCO)</h4>
+  <p>Camera cone detection employs YOLOv5 [8] loaded via PyTorch Hub with custom weights trained on the FSOCO dataset [3] (5 classes: <code>blue_cone</code>, <code>yellow_cone</code>, <code>orange_cone</code>, <code>large_orange_cone</code>, <code>unknown_cone</code>). Inference is triggered on each 640&nbsp;×&nbsp;480 BGR frame; detections with confidence below 0.4 are discarded. The bottom-center pixel of each accepted bounding box is extracted as the cone-ground contact point for subsequent projection.</p>
+  <p>Because FSOCO weights were trained on real-world photographs, color classification of simulator-rendered cones was unreliable — blue cones were frequently misclassified as yellow or orange at medium distances. A three-tier hybrid color verification algorithm is applied to each detection:</p>
+  <ol class="pd-list pd-list-num">
+    <li><b>Stripe brightness (primary).</b> The horizontal stripe region (35%–65% of bounding-box height) is cropped and converted to grayscale. Mean brightness &gt; 100 → blue cone (white stripe). Brightness &lt; 80 → candidate yellow, subject to BGR verification.</li>
+    <li><b>BGR channel dominance (secondary).</b> When brightness &lt; 80, if the blue channel exceeds both red and green in the stripe region, the cone is reclassified as blue despite the dim stripe.</li>
+    <li><b>HSV hue analysis (fallback).</b> For ambiguous brightness (80–100), the top 40% of the bounding box is analyzed in HSV space; saturated pixels (<i>S</i>&nbsp;&gt;&nbsp;80, <i>V</i>&nbsp;&gt;&nbsp;50) are used to compute the median hue, compared against calibrated hue ranges for blue (85–135), yellow (22–34), and orange (0–15, 170–180).</li>
+  </ol>
+  <p>For bounding boxes smaller than 25&nbsp;×&nbsp;25 pixels (cones beyond ~5&nbsp;m), verification is skipped and the YOLO class label is retained.</p>
+
+  <div class="pd-tablewrap">
+    <table class="pd-table">
+      <caption>Table II — Color verification accuracy by distance regime</caption>
+      <thead><tr><th>Cone distance</th><th>Bounding box size</th><th>Verification method</th><th>Accuracy</th></tr></thead>
+      <tbody>
+        <tr><td>Close (&lt; 3 m)</td><td>&gt; 40 × 50 px</td><td>Stripe brightness threshold</td><td>~98%</td></tr>
+        <tr><td>Medium (3–5 m)</td><td>25 × 25 to 40 × 50 px</td><td>Stripe brightness + HSV fallback</td><td>~90%</td></tr>
+        <tr><td>Far (&gt; 5 m)</td><td>&lt; 25 × 25 px</td><td>YOLO class label only</td><td>~70%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>The ~70% accuracy beyond 5&nbsp;m reflects a fundamental sensor resolution limit: at that distance a cone occupies approximately 8&nbsp;×&nbsp;10 pixels in a 640&nbsp;×&nbsp;480 image, and background asphalt pixels dominate the bounding box. BGR channel values converge toward gray (all channels within ≈&nbsp;24 units), eliminating any color signal. This is a hardware constraint, not a software deficiency; the practical mitigation is that approaching cones increase in apparent size before entering the steering-critical near-field region.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/fsds-fusion/fig-4.jpg" alt="Camera feed with red YOLO bounding boxes over cones, color labels and confidence scores overlaid" loading="lazy" />
+    <figcaption><b>Fig. 4.</b> Camera feed with YOLO bounding boxes. Red rectangles show raw detections; color labels and confidence scores are overlaid. The close blue cone (bottom-left, large bounding box) is correctly verified via stripe brightness; the distant cones (upper frame) rely on YOLO class labels.</figcaption>
+  </figure>
+
+  <h4 class="pd-sub">E. Pinhole Camera Ground-Plane Projection</h4>
+  <p>Pixel detections are converted to vehicle-frame metric coordinates using the standard pinhole camera model. For a camera of width <i>W</i>&nbsp;=&nbsp;640, height <i>H</i>&nbsp;=&nbsp;480, and horizontal FOV&nbsp;=&nbsp;90°, the focal length is <i>f</i><sub>x</sub>&nbsp;=&nbsp;<i>f</i><sub>y</sub>&nbsp;=&nbsp;(<i>W</i>/2)&nbsp;/&nbsp;tan(FOV/2)&nbsp;=&nbsp;320 pixels. A pixel (<i>u</i>,&nbsp;<i>v</i>) is unprojected to a normalized camera ray:</p>
+  <div class="pd-eq"><span class="pd-eq-body">ray<sub>x</sub> = (<i>u</i> − <i>W</i>/2) / <i>f</i><sub>x</sub> ,&nbsp;&nbsp;&nbsp; ray<sub>y</sub> = (<i>v</i> − <i>H</i>/2) / <i>f</i><sub>y</sub></span><span class="pd-eq-num">(7)</span></div>
+  <p>The camera is mounted at height <i>h</i>&nbsp;=&nbsp;1.1&nbsp;m above the ground with zero pitch. The ray-ground intersection distance is <i>t</i>&nbsp;=&nbsp;<i>h</i>&nbsp;/&nbsp;ray<sub>y</sub> (valid only for ray<sub>y</sub>&nbsp;&gt;&nbsp;0.01). Ground-plane coordinates in the vehicle frame are then:</p>
+  <div class="pd-eq"><span class="pd-eq-body"><i>x</i><sub>ground</sub> = <i>t</i> + <i>x</i><sub>offset</sub> ,&nbsp;&nbsp;&nbsp; <i>y</i><sub>ground</sub> = −ray<sub>x</sub> · <i>t</i></span><span class="pd-eq-num">(9)</span></div>
+  <p>where <i>x</i><sub>offset</sub>&nbsp;=&nbsp;−0.3&nbsp;m accounts for the camera's rearward mounting position, and the sign inversion on <i>y</i><sub>ground</sub> converts from camera convention (right-positive) to vehicle convention (left-positive). Pixels at or above the image horizon return no valid projection.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/fsds-fusion/fig-5.jpg" alt="Side-view diagram of the pinhole projection: camera at 1.1 m height, ray intersecting the ground plane at distance t" loading="lazy" />
+    <figcaption><b>Fig. 5.</b> Side-view pinhole projection diagram. Camera is shown at height <i>h</i>&nbsp;=&nbsp;1.1&nbsp;m. A ray through the bottom-center pixel of a detected cone intersects the ground plane at distance <i>t</i>&nbsp;=&nbsp;<i>h</i>/ray<sub>y</sub>.</figcaption>
+  </figure>
+
+  <h4 class="pd-sub">F. LiDAR-Camera Sensor Fusion</h4>
+  <p>Before matching, LiDAR centroid positions are corrected for sensor mounting offset (<i>x</i><sub>LiDAR,corrected</sub>&nbsp;=&nbsp;<i>x</i><sub>LiDAR</sub>&nbsp;+&nbsp;1.3&nbsp;m), bringing all positions into the vehicle-centered frame. For each camera detection, the nearest LiDAR cluster is found by minimum Euclidean distance. If <i>d</i>&nbsp;&lt;&nbsp;1.0&nbsp;m and the cluster has not yet been matched, the pair is fused: the LiDAR position is retained (accurate depth measurement) and the camera color label is assigned (verified color classification).</p>
+
+  <div class="pd-tablewrap">
+    <table class="pd-table">
+      <caption>Table III — Sensor fusion outcome classification</caption>
+      <thead><tr><th>Outcome</th><th>Condition</th><th>Position source</th><th>Color / confidence</th></tr></thead>
+      <tbody>
+        <tr><td>Fused</td><td>Camera + LiDAR match (<i>d</i> &lt; 1.0 m)</td><td>LiDAR (accurate)</td><td>Camera (verified); high (avg +0.2)</td></tr>
+        <tr><td>Camera-only</td><td>Camera sees it, no LiDAR match</td><td>Camera projection</td><td>Camera; low (×0.5)</td></tr>
+        <tr><td>LiDAR-only</td><td>LiDAR sees it, no camera match</td><td>LiDAR (accurate)</td><td>Position-inferred; medium (×0.8)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Calibration required correction of three coordinate-frame errors discovered through systematic debug logging: (1) a 1.3&nbsp;m X-axis reference-frame mismatch between LiDAR (sensor-relative) and camera (vehicle-relative) coordinates; (2) swapped projection axes in an initial implementation that used horizontal pixel position for forward distance; and (3) incorrect default camera parameters (pitch&nbsp;=&nbsp;−12° instead of 0°, <i>x</i><sub>offset</sub>&nbsp;=&nbsp;0.7&nbsp;m instead of −0.3&nbsp;m). After all three corrections, systematic offsets were eliminated.</p>
+
+  <h4 class="pd-sub">G. Color-Aware Proportional Steering Controller</h4>
+  <p>The fused cone list is filtered to the 6-meter forward window and partitioned by color, with a position-based sanity check that rejects blue cones with <i>y</i>&nbsp;&lt;&nbsp;−0.5&nbsp;m or yellow cones with <i>y</i>&nbsp;&gt;&nbsp;0.5&nbsp;m (likely misclassifications). Boundary averages ȳ<sub>blue</sub> and ȳ<sub>yellow</sub> are computed, and the centerline target is:</p>
+  <div class="pd-eq"><span class="pd-eq-body"><i>y</i><sub>center</sub> = ½ (ȳ<sub>blue</sub> + ȳ<sub>yellow</sub>) &nbsp;[both boundaries]<br /><i>y</i><sub>center</sub> = ȳ<sub>blue</sub> − 1.5 m &nbsp;[blue only]<br /><i>y</i><sub>center</sub> = ȳ<sub>yellow</sub> + 1.5 m &nbsp;[yellow only]</span><span class="pd-eq-num">(12–14)</span></div>
+  <p>where 1.5&nbsp;m approximates half the standard FSAE track width. The proportional steering command is δ&nbsp;=&nbsp;−δ<sub>max</sub>&nbsp;·&nbsp;<i>y</i><sub>center</sub>&nbsp;/&nbsp;2.0, clamped to [−δ<sub>max</sub>,&nbsp;δ<sub>max</sub>]. A layered fallback strategy ensures the car can always steer: the color-aware proportional controller is used when fused cones are available; the binary density heuristic activates when no fused cones are present; and δ&nbsp;=&nbsp;0 (straight) is commanded as a last resort.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/fsds-fusion/fig-6.jpg" alt="Real-time fusion visualization: blue and yellow fused cone dots, hollow boundary-average circles, and a green centerline target" loading="lazy" />
+    <figcaption><b>Fig. 6.</b> Real-time fusion visualization window. Blue and yellow filled dots represent fused cones; hollow circles mark the computed boundary averages; the green filled circle is the centerline target <i>y</i><sub>center</sub>; the green line connects the vehicle origin to the target. Numerical readouts in the upper-left corner show <code>avg_blue_y</code>, <code>avg_yellow_y</code>, <code>target_y</code>, and the steering command.</figcaption>
+  </figure>
+
+  <h3 class="pd-h"><span>V</span> Results and Discussion</h3>
+  <h4 class="pd-sub">A. Sensor Fusion Calibration Accuracy</h4>
+  <div class="pd-tablewrap">
+    <table class="pd-table">
+      <caption>Table IV — LiDAR–camera fusion calibration metrics</caption>
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Average camera-LiDAR match distance</td><td><b>0.06 m</b> (6 cm)</td></tr>
+        <tr><td>Systematic X-axis offset</td><td>−0.03 m</td></tr>
+        <tr><td>Systematic Y-axis offset</td><td>0.02 m</td></tr>
+        <tr><td>Typical fused matches per frame</td><td>5–6 cones</td></tr>
+        <tr><td>Unmatched camera detections per frame</td><td>8–10 (beyond 7-m LiDAR range)</td></tr>
+        <tr><td>Unmatched LiDAR detections per frame</td><td>0–2 (outside camera FOV)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Individual match examples from the diagnostic log:</p>
+  <pre class="pd-code">cam=(3.7,-2.1)  lidar=(3.7,-2.1)  dist=0.08 m
+cam=(6.1,-2.0)  lidar=(6.2,-2.0)  dist=0.09 m
+cam=(6.2, 1.4)  lidar=(6.2, 1.4)  dist=0.04 m
+cam=(3.8, 1.4)  lidar=(3.8, 1.4)  dist=0.05 m</pre>
+  <p>The 0.06&nbsp;m average match distance confirms centimeter-level coordinate alignment after reference-frame correction. The near-zero systematic offsets (X:&nbsp;−0.03&nbsp;m, Y:&nbsp;+0.02&nbsp;m) indicate that no residual frame misalignment remains. The 8–10 unmatched camera detections per frame correspond to cones beyond the 7-m LiDAR range cutoff; these are retained with reduced confidence and do not affect primary steering.</p>
+
+  <h4 class="pd-sub">B. Controller Comparison</h4>
+  <div class="pd-tablewrap">
+    <table class="pd-table">
+      <caption>Table V — Behavioral comparison of the two control strategies</caption>
+      <thead><tr><th>Metric</th><th>LiDAR-only</th><th>Fused color-aware</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Control frequency</td><td>20 Hz</td><td>20 Hz</td><td>Polling loop</td></tr>
+        <tr><td>Target speed</td><td>4 m/s</td><td>4 m/s</td><td>Max throttle 0.2</td></tr>
+        <tr><td>Steering type</td><td>Binary (±0.3)</td><td>Proportional (±0.3)</td><td>Gain = 1/2.0</td></tr>
+        <tr><td>Centerline method</td><td>Density heuristic</td><td>Geometric midpoint</td><td>Blue/yellow boundaries</td></tr>
+        <tr><td>Color awareness</td><td>None</td><td>Yes (YOLO + stripe)</td><td>FSOCO weights</td></tr>
+        <tr><td>Straight-line behavior</td><td>Oscillates ±δ<sub>max</sub></td><td><b>Holds center</b></td><td>Eliminates weave</td></tr>
+        <tr><td>Fallback mode</td><td>None</td><td>Density heuristic</td><td>Graceful degradation</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The primary qualitative improvement is the elimination of straight-line oscillation: on long straight sections the binary controller switches between ±δ<sub>max</sub> at every control cycle where ȳ alternates sign, producing a visible weave. The proportional controller outputs a small steering correction proportional to lateral offset from the centerline, converging smoothly to δ&nbsp;=&nbsp;0 on straights. Both controllers operate at the same 20&nbsp;Hz control frequency and target speed, making color-aware fusion the isolated variable responsible for the behavioral improvement.</p>
+
+  <h3 class="pd-h"><span>VI</span> Conclusion</h3>
+  <p>This work developed an autonomous cone-following pipeline for the FSDS simulator, targeting map-free navigation over an unmapped cone-delineated track using only onboard sensing. Development proceeded in two stages. First, a LiDAR-only controller using O(<i>n</i>) sequential clustering and a binary density heuristic was implemented and shown to complete full laps without any camera input. The main limitation of that approach was oscillation on straight sections, where symmetric cone distributions caused the binary steering command to alternate signs at every cycle. To address this, a YOLOv5 camera module with three-tier color verification, pinhole ground-plane projection, and nearest-neighbor LiDAR-camera fusion was added, enabling a proportional centerline-tracking controller.</p>
+  <p>Debugging three coordinate-frame errors during fusion development produced a calibrated system with 0.06&nbsp;m average inter-sensor match distance and near-zero residual offset. Camera color labels and LiDAR depth readings are therefore combined reliably at sub-decimeter precision.</p>
+  <p>Next steps include a quantitative validation run: lap-completion rate and average lap time over at least five trials per controller, RMS lateral tracking error over a full lap, steering-signal variance on straight sections, YOLOv5 recall and false-positive rate on a held-out set of FSDS frames, end-to-end per-cycle inference latency, and the full distribution of per-frame match distances. On the architecture side, the greedy nearest-neighbor matcher will be replaced with a data-association filter that handles partial occlusions, a SLAM module will be integrated for globally consistent path planning, the speed envelope will be raised with active braking and MPC, and the stack will be transferred to a physical Formula Student vehicle with hardware-synchronized sensors.</p>
+
+  <h3 class="pd-h pd-h-plain">Acknowledgment</h3>
+  <p>The author thanks Dr. Shirin Panahi (Department of Electrical and Computer Engineering, Colorado State University) for her mentorship, technical guidance, and support throughout this research.</p>
+
+  <h3 class="pd-h pd-h-plain">References</h3>
+  <ol class="pd-refs">
+    <li>SAE International, "Formula SAE Rules," SAE International, Warrendale, PA, 2024.</li>
+    <li>S. Massa, A. Bertogna, and L. Zampieri, "Real-time Cone Detection for Formula SAE Driverless," in <i>Proc. IEEE ICRA Workshop on Autonomous Motorsports</i>, 2021.</li>
+    <li>FSOCO Contributors, "Formula Student Objects in Context (FSOCO) Dataset," GitHub, 2022.</li>
+    <li>M. Ester, H.-P. Kriegel, J. Sander, and X. Xu, "A density-based algorithm for discovering clusters in large spatial databases with noise," in <i>Proc. 2nd Int. Conf. KDD</i>, 1996, pp. 226–231.</li>
+    <li>X. Chen, H. Ma, J. Wan, B. Li, and T. Xia, "Multi-view 3D object detection network for autonomous driving," in <i>Proc. IEEE CVPR</i>, 2017, pp. 1907–1915.</li>
+    <li>A. Geiger, P. Lenz, and R. Urtasun, "Are we ready for autonomous driving? The KITTI vision benchmark suite," in <i>Proc. IEEE CVPR</i>, 2012, pp. 3354–3361.</li>
+    <li>R. C. Coulter, "Implementation of the Pure Pursuit Path Tracking Algorithm," Carnegie Mellon Univ., Tech. Rep. CMU-RI-TR-92-01, 1992.</li>
+    <li>G. Jocher et al., "YOLOv5 by Ultralytics," Version 7.0, Zenodo, 2022.</li>
+  </ol>
+</template>
+
+<template id="pdoc-anomaly"
+  data-kicker="Technical Report"
+  data-title="YOLO Color Anomaly Detection for FSAE Driverless: From Ground-Truth Dataset Construction to an XGBoost Safety Gate"
+  data-venue="J. D. Ortiz-Valencia · ECE553, Colorado State University, 2026"
+  data-pdf="assets/papers/AnomalyDetectionPaper.pdf">
+
+  <div class="pd-abstract">
+    <span class="pd-abstract-label">Abstract</span>
+    <p>We present a two-phase system for detecting and suppressing YOLO color misclassifications in Formula Student Autonomous (FSA) vehicles before they reach the path planner. In Phase 1, a ROS2 ground-truth bridge and four-stage spatial matching pipeline labeled 129,025 cone detections collected across multiple track laps in the Formula Student Driverless Simulator (FSDS), revealing a baseline false-positive rate of 2.52% with pronounced Orange-class fragility at 24.4% — 9.7× the population mean. Analysis identifies three compounding error drivers: low YOLO confidence, long detection range (beyond 8&nbsp;m), and corner-induced camera rotation. In Phase 2, this labeled dataset trains a two-model XGBoost Safety Gate framed as supervised anomaly detection. Seventeen features are used, including five engineered context features. On the held-out test set the combined system achieves F1&nbsp;=&nbsp;0.906, PR-AUC&nbsp;=&nbsp;0.976, and ROC-AUC&nbsp;=&nbsp;0.999. The detector reduces the rate of incorrect color labels reaching the steering controller from 2.73% to approximately 0.24%, a 91% reduction in the failure mode that causes incorrect lane assignment.</p>
+  </div>
+
+  <h3 class="pd-h"><span>I</span> Problem Statement</h3>
+  <p>Formula Student Autonomous (FSA) vehicles navigate tracks defined exclusively by colored cones: blue on the left boundary, yellow on the right, and orange as markers for the start/finish line and chicane entries. YOLO-based color classification is the perception layer used in the simulator pipeline, but it <b>fails silently</b>, returning a plausible color label with high apparent confidence even when incorrect. There is no built-in mechanism to distinguish a correct high-confidence prediction from a confident misclassification.</p>
+  <p>The consequences are asymmetric. A blue/yellow confusion causes the path planner to assign the wrong lane boundary, which can induce a terminal trajectory error. An orange/yellow confusion at the start/finish can cause the lap counter to fail or the chicane maneuver to trigger incorrectly. Because anomalies occur at a low baseline rate of 2.52%, per-frame accuracy metrics treat them as statistical noise until they cause a planning failure.</p>
+  <p>This paper addresses the problem in two phases: (1) constructing a ground-truth dataset that labels each detection as correct or anomalous, and (2) training a Safety Gate that intercepts anomalies before they reach the steering controller, with no modification to YOLO itself.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-1.jpg" alt="UAS Augsburg autonomous vehicle car number 469 navigating a track at Formula Student Germany" loading="lazy" />
+    <figcaption><b>Fig. 1.</b> UAS Augsburg autonomous vehicle (car #469) navigating a track during the Formula Student Germany competition.</figcaption>
+  </figure>
+
+  <h3 class="pd-h"><span>II</span> Background</h3>
+  <p>All data was collected in the Formula Student Driverless Simulator (FSDS), an Unreal Engine-based simulator with physics-accurate vehicle dynamics and sensor emulation.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-2.jpg" alt="FSDS simulation environment showing the autonomous vehicle on a cone-defined track" loading="lazy" />
+    <figcaption><b>Fig. 2.</b> FSDS simulation environment. The autonomous vehicle navigates a cone-defined track at speed. Blue cones mark the left boundary; yellow cones mark the right. Orange cones mark start/finish and chicane entries.</figcaption>
+  </figure>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-3.jpg" alt="YOLO detection output from the FSDS front camera showing a blue cone incorrectly labeled orange at 0.81 confidence" loading="lazy" />
+    <figcaption><b>Fig. 3.</b> YOLO detection output from the FSDS front camera. A blue cone (lower left) is labeled <code>orange: 0.81</code>. Distant yellow cones carry incorrect orange and blue labels at confidence above 0.70. These silent misclassifications reach the path planner unchanged. A per-frame accuracy metric counts them as correct 97.5% of the time.</figcaption>
+  </figure>
+
+  <h3 class="pd-h"><span>III</span> Phase 1 — Ground-Truth Pipeline</h3>
+  <p><b>ROS2 ground-truth bridge.</b> FSDS publishes the complete simulator-authoritative track layout on the ROS2 topic <code>/fsds/testing_only/track</code> at the simulator frame rate. A dedicated ROS2 node subscribes and caches the latest cone array at each callback. When a YOLO detection frame arrives, the node synchronizes both streams and passes the track state to the matching pipeline. This eliminates all API-level defects: coordinates are in the native world frame, data is frame-synchronous, and no scaling correction is required.</p>
+  <p>Ground-truth assignment proceeds in four deterministic stages:</p>
+  <ol class="pd-list pd-list-num">
+    <li><b>World to vehicle frame.</b> Each cone position <i>p</i><sub>w</sub>&nbsp;=&nbsp;(<i>x</i><sub>w</sub>,&nbsp;<i>y</i><sub>w</sub>,&nbsp;<i>z</i><sub>w</sub>) is transformed via the inverse ENU pose: <i>p</i><sub>v</sub>&nbsp;=&nbsp;<i>T</i><sub>wv</sub><sup>−1</sup>&nbsp;·&nbsp;<i>p</i><sub>w</sub>.</li>
+    <li><b>Ground-plane projection.</b> Vehicle-frame position is projected using camera intrinsic <i>K</i>: (<i>u</i>,&nbsp;<i>v</i>)&nbsp;=&nbsp;<i>K</i>&nbsp;·&nbsp;[<i>x</i><sub>v</sub>,&nbsp;<i>y</i><sub>v</sub>,&nbsp;<i>z</i><sub>v</sub>]<sup>T</sup>&nbsp;/&nbsp;<i>z</i><sub>v</sub>.</li>
+    <li><b>YOLO centroid.</b> Detection centroid <i>c</i><sub>det</sub>&nbsp;=&nbsp;((<i>x</i><sub>1</sub>+<i>x</i><sub>2</sub>)/2,&nbsp;(<i>y</i><sub>1</sub>+<i>y</i><sub>2</sub>)/2).</li>
+    <li><b>Nearest-neighbor match.</b> The closest cone within 1.5&nbsp;m is assigned as ground truth. Detections with no cone within 1.5&nbsp;m are excluded from the dataset.</li>
+  </ol>
+  <p>A color mismatch between the YOLO prediction and the simulator-assigned cone class is labeled a false positive (anomaly). YOLO labels were further corrected using HSV-space post-processing to suppress known hue ambiguities in the simulator renderer.</p>
+  <p><b>Range filter (1&nbsp;m to 18&nbsp;m).</b> Detections below 1&nbsp;m are excluded due to partial occlusion by the vehicle nose. Above 18&nbsp;m, projection error grows quadratically and the observed 8.5% anomaly rate at 20–30&nbsp;m is dominated by label noise rather than genuine YOLO failure. The filter retains the actionable anomaly signal.</p>
+
+  <h3 class="pd-h"><span>IV</span> Phase 1 — Analysis of False Positives</h3>
+  <h4 class="pd-sub">A. Dataset Scale and Baseline Error Rate</h4>
+  <div class="pd-tablewrap">
+    <table class="pd-table">
+      <caption>Table I — Per-class detection count and FP rate</caption>
+      <thead><tr><th>Color</th><th>Detections</th><th>FP count</th><th>FP rate</th></tr></thead>
+      <tbody>
+        <tr><td>Yellow</td><td>64,495</td><td>1,988</td><td>3.1%</td></tr>
+        <tr><td>Blue</td><td>65,288</td><td>963</td><td>1.5%</td></tr>
+        <tr><td>Orange</td><td>1,242</td><td>303</td><td><b>24.4%</b></td></tr>
+        <tr><td><b>Total</b></td><td><b>129,025</b></td><td><b>3,254</b></td><td><b>2.52%</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Orange cones represent less than 1% of total detections but contribute 9.7× the mean FP rate.</p>
+
+  <h4 class="pd-sub">B. Temporal Stability</h4>
+  <p>The rolling FP rate over a 500-detection sliding window stabilizes at a mean of 2.52%, but the signal oscillates continuously between 0% and 6.5% with no sustained convergence. The oscillation is consistent with velocity- or curvature-induced transients: FP rate spikes when the vehicle corners aggressively, then recovers as the heading stabilizes. No monotonic drift is visible across the 4,500-second timeline, confirming that the ground-truth labeling does not degrade over time.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-4.jpg" alt="Rolling false-positive rate over time with a 500-detection window, oscillating around a 2.52 percent mean" loading="lazy" />
+    <figcaption><b>Fig. 4.</b> Rolling FP rate (500-detection window) vs. time. Mean&nbsp;=&nbsp;2.52% (dashed blue). Oscillation of ±4&nbsp;pp is consistent with velocity- and curvature-triggered projection drift, not systematic pipeline bias.</figcaption>
+  </figure>
+
+  <h4 class="pd-sub">C. Range Dependency</h4>
+  <p>Binning FP count by match distance in 0.05&nbsp;m intervals reveals a monotonically increasing distribution: virtually no FPs below 0.2&nbsp;m; counts rise steeply beyond 0.8&nbsp;m. The cumulative distribution shows 80% of all FPs fall within 1.36&nbsp;m of the 1.5&nbsp;m matching threshold. This is consistent with projection error at range: cones beyond 8&nbsp;m subtend fewer pixels in the image plane, reducing the YOLO head color discrimination. Tightening the spatial threshold to 1.2&nbsp;m eliminates the high-error tail while retaining over 95% of true positive matches.</p>
+
+  <h4 class="pd-sub">D. Confidence Score Profiling</h4>
+  <p>Kernel density estimation of YOLO confidence scores across correct detections and FPs reveals strong separability. Correct detections peak sharply at 0.774. FPs exhibit a bimodal structure: a primary cluster below 0.45 (mean 0.492) and a secondary tail extending to 0.75. The sub-0.45 cluster represents the directly recoverable FP population, addressable by a confidence threshold alone. FPs above 0.70 represent <b>hard negatives</b> that require spatial discrimination to detect: their confidence is indistinguishable from correct detections by a single-threshold rule.</p>
+
+  <h4 class="pd-sub">E. Color-Class Confusion Analysis</h4>
+  <p>Per-class FP rates diverge substantially from the 2.52% baseline. Blue achieves the lowest rate at 1.5%, attributable to spectral unambiguity in the simulator rendering pipeline. Yellow produces 3.1%, consistent with mild hue-saturation variation under motion blur. Orange presents a qualitatively distinct failure mode at 24.4% (303 FPs from 1,242 detections), exceeding the baseline by 9.7×.</p>
+  <p>Row-normalized confusion analysis exposes the mechanism: of all ground-truth Orange detections, 11.5% are predicted Yellow and 3.1% Blue. Orange occupies a narrow hue band between yellow and red; under motion blur or at range, the YOLO head collapses this distinction. Yellow shows only 1.5% leakage to Blue, the complementary direction, confirming hue-proximity causation rather than a systematic rendering artifact. In FSA competition, an Orange-to-Yellow confusion can cause the planner to treat a mandatory maneuver boundary as a normal track edge.</p>
+
+  <h4 class="pd-sub">F. High-Risk Zone and Motivation for Phase 2</h4>
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-5.jpg" alt="Scatter of all 3,254 false positives in confidence versus match-distance space, with the proposed high-risk zone shaded" loading="lazy" />
+    <figcaption><b>Fig. 5.</b> All 3,254 Phase 1 FPs: confidence vs. match distance by class. Teal dashed&nbsp;=&nbsp;0.70 threshold; purple dotted&nbsp;=&nbsp;1.2&nbsp;m threshold. Shaded lower-right&nbsp;=&nbsp;proposed High-Risk Zone.</figcaption>
+  </figure>
+  <p>Plotting all 3,254 FPs in the joint space of YOLO confidence and match distance reveals a concentrated high-density cluster at distance&nbsp;&gt;&nbsp;1.2&nbsp;m AND confidence&nbsp;&lt;&nbsp;0.70. Orange FPs are disproportionately concentrated in this zone, confirming the Orange failure is range-amplified. A simple threshold rule catches the majority of the high-density cluster but misses hard negatives: FPs with high confidence that lie outside the zone but still represent real misclassifications. The joint feature space requires a non-linear decision surface, which is exactly what gradient boosting learns.</p>
+
+  <h3 class="pd-h"><span>V</span> Phase 2 — Why XGBoost</h3>
+  <p>Four properties of this problem make XGBoost the natural choice over deep learning, logistic regression, or kernel methods:</p>
+  <ul class="pd-list">
+    <li><b>Tabular feature structure.</b> The input is 17-dimensional tabular metadata: bounding-box geometry, YOLO confidence, vehicle-frame coordinates, and ego dynamics. Tree ensembles perform well on tabular data by exploiting axis-aligned splits without requiring convolution or attention inductive biases.</li>
+    <li><b>Native class imbalance handling.</b> The anomaly rate is 2.73%. XGBoost handles this directly via <code>scale_pos_weight = N<sub>neg</sub>/N<sub>pos</sub> ≈ 36</code>, amplifying the gradient contribution of anomaly examples without resampling. No SMOTE or undersampling is required.</li>
+    <li><b>Non-linear interaction capture.</b> The joint condition "low confidence AND far distance AND in corner" is more anomalous than any feature alone. Gradient boosted trees capture these interactions automatically through depth-limited axis-aligned splits.</li>
+    <li><b>Interpretability.</b> Built-in gain-based feature importance and SHAP compatibility allow physical validation of what the model learned against the Phase 1 analytical findings.</li>
+  </ul>
+  <p>The regularized training objective is:</p>
+  <div class="pd-eq"><span class="pd-eq-body">L = Σ<sub>i</sub> <i>l</i>(<i>y</i><sub>i</sub>, ŷ<sub>i</sub>) + Σ<sub>k</sub> Ω(<i>f</i><sub>k</sub>),&nbsp;&nbsp;&nbsp; Ω(<i>f</i><sub>k</sub>) = γ<i>T</i> + ½λ‖<i>w</i>‖²</span></div>
+  <p>where <i>l</i> is binary logistic loss and Ω penalizes tree complexity (<i>T</i>&nbsp;=&nbsp;leaf count, <i>w</i>&nbsp;=&nbsp;leaf weights). Trees are added sequentially, each fitted to the negative gradient of the current ensemble loss.</p>
+  <p><b>Hyperparameters</b> (boundary / orange models): <code>n_estimators = 500</code> (early stopping, patience&nbsp;=&nbsp;30), <code>max_depth = 5–6</code>, <code>learning_rate = 0.05</code>, <code>subsample = 0.8</code>, <code>colsample_bytree = 0.8</code>, <code>reg_alpha = 0.1</code>. All tuned on the validation split.</p>
+
+  <h3 class="pd-h"><span>VI</span> Data Collection and Feature Engineering</h3>
+  <p>The Phase 2 training set is the labeled output of the Phase 1 pipeline: 200,000 detections from 18,218 frames, 5,455 anomalies (2.73% rate). The frame-level split into 139,128 train / 30,263 val / 30,547 test (70/15/15) is performed by sorting on <code>frame_id</code> (simulator time) and splitting at the corresponding percentile boundaries. This prevents label leakage between cones co-detected in the same frame.</p>
+  <p><b>Raw features (12):</b> <code>yolo_confidence</code>, <code>bbox_h</code>, <code>aspect_ratio</code>, <code>x_car</code>, <code>y_car</code>, <code>bearing_deg</code>, <code>yaw_rate_radps</code>, <code>car_speed_mps</code>, <code>prior_disagreement</code>, <code>yc_blue</code>, <code>yc_yellow</code>, <code>yc_orange</code>.</p>
+  <p><b>Engineered features (5)</b> — these encode spatial context and temporal priors that a single-frame YOLO output cannot represent:</p>
+  <ul class="pd-list">
+    <li><code>neighbor_agree</code> — fraction of <i>K</i>&nbsp;=&nbsp;3 nearest cones in the same frame sharing the same YOLO color label. Low agreement signals localized confusion consistent with anomaly clusters.</li>
+    <li><code>lateral_outlier</code> — |<i>y</i><sub>car</sub> − mean(<i>y</i><sub>car</sub> of same-color neighbors)|. A cone displaced laterally from its color-class peers is geometrically inconsistent with the expected track layout.</li>
+    <li><code>relative_size</code> — <code>bbox_h</code> / median(<code>bbox_h</code> within frame). Anomalies often correspond to undersized detections at range; normalizing by the within-frame median removes absolute distance effects.</li>
+    <li><code>is_in_corner</code> — 1 if |<code>yaw_rate_radps</code>|&nbsp;&gt;&nbsp;0.2&nbsp;rad/s, else 0. Corners introduce camera rotation that degrades projection accuracy.</li>
+    <li><code>corner_x_prior</code> — <code>is_in_corner × prior_disagreement</code>. Interaction term that amplifies the prior-disagreement signal specifically during cornering, where temporal inconsistency is most informative.</li>
+  </ul>
+
+  <h3 class="pd-h"><span>VII</span> Two-Model Architecture</h3>
+  <p>A single unified classifier trained on all three cone classes performs sub-optimally because boundary and orange cones have fundamentally different failure mechanisms:</p>
+  <ul class="pd-list">
+    <li><b>Boundary cones (blue + yellow)</b> fail primarily at long range and in corners. Their anomaly rate is 1.5% (blue: 0.9%, yellow: 2.1%). They share the same physical failure mechanism — projection error collapsing the blue/yellow color distinction at range — and benefit from a joint feature distribution.</li>
+    <li><b>Orange cones (markers)</b> fail at a 19% anomaly rate, 7× the boundary mean. The mechanism is distinct: orange occupies a narrow hue band between yellow and red, and renderer hue variation is sufficient to push detections across the decision boundary even at close range. Orange also has fewer detections per lap, making a dedicated model with separate threshold tuning essential.</li>
+  </ul>
+  <p>Both models share the same 17-feature set and hyperparameter grid. Thresholds are tuned independently on the validation split to prevent rare-class bias.</p>
+
+  <h3 class="pd-h"><span>VIII</span> Training Methodology</h3>
+  <p><b>Frame-level temporal split.</b> Rows are sorted by <code>frame_id</code> and split at the 70th and 85th percentiles. This prevents label leakage between cones co-detected in the same frame and ensures test detections come from novel track positions unseen during training.</p>
+  <p><b>Early stopping.</b> Training halts when PR-AUC on the validation set fails to improve for 30 consecutive boosting rounds.</p>
+  <p><b>Per-class threshold tuning.</b> The decision threshold is swept from 0.1 to 0.9 in 0.01 increments on the validation split, and the F1-maximizing threshold is selected independently for each model. Without separate tuning, <code>scale_pos_weight</code> can cause over-flagging of orange or under-flagging of boundary depending on the class frequency ratio.</p>
+
+  <h3 class="pd-h"><span>IX</span> Phase 2 — Results</h3>
+  <p>All metrics are evaluated on the held-out test set (30,547 detections, per-frame, no temporal smoothing).</p>
+  <div class="pd-metrics">
+    <div class="pd-metric"><b>0.906</b><span>F1 (macro avg)</span></div>
+    <div class="pd-metric"><b>0.976</b><span>PR-AUC</span></div>
+    <div class="pd-metric"><b>0.999</b><span>ROC-AUC</span></div>
+  </div>
+  <div class="pd-tablewrap">
+    <table class="pd-table">
+      <caption>Table III — Per-class F1, precision, and recall on the test set</caption>
+      <thead><tr><th>Class</th><th>F1</th><th>Precision</th><th>Recall</th></tr></thead>
+      <tbody>
+        <tr><td>Blue</td><td>0.940</td><td>0.95</td><td>0.96</td></tr>
+        <tr><td>Yellow</td><td>0.938</td><td>0.98</td><td>0.91</td></tr>
+        <tr><td>Orange</td><td>0.546</td><td>0.61</td><td>0.42</td></tr>
+        <tr><td><b>Macro avg</b></td><td><b>0.906</b></td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Blue and yellow boundary classes achieve near-optimal F1; orange is limited by data scarcity despite the 19% anomaly rate.</p>
+
+  <h4 class="pd-sub">Feature Importance (XGBoost Gain)</h4>
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-6.jpg" alt="Horizontal bar chart of XGBoost gain-based feature importance across all 17 features, with is_in_corner dominant" loading="lazy" />
+    <figcaption><b>Fig. 6.</b> XGBoost gain-based feature importance (all 17 features). <code>is_in_corner</code> dominates at 0.205; <code>yolo_confidence</code> (0.115) and <code>yc_orange</code> (0.090) follow. All five engineered features appear in the top 10.</figcaption>
+  </figure>
+  <p><code>is_in_corner</code> is the dominant split variable by a wide margin — the corner flag alone accounts for more than twice the gain of the second-ranked feature, consistent with the Phase 1 observation that camera rotation during cornering is the primary driver of anomaly risk. The model arrived at this ranking through split-gain optimization with no explicit hypothesis encoded. <code>neighbor_agree</code> and <code>lateral_outlier</code> rank fourth and fifth, confirming that spatial context features add discriminating power beyond what single-detection geometry provides.</p>
+
+  <h4 class="pd-sub">Confusion Matrix</h4>
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-7.jpg" alt="Binary confusion matrix heat map on novel laps" loading="lazy" />
+    <figcaption><b>Fig. 7.</b> Binary confusion matrix on novel laps (Phase 2). TN&nbsp;=&nbsp;10,508, FP&nbsp;=&nbsp;1,378, FN&nbsp;=&nbsp;47, TP&nbsp;=&nbsp;254. Normal class cleared at 88.4%; anomaly class recalled at 84.4% in this partition.</figcaption>
+  </figure>
+  <p>The test set confusion matrix (boundary + orange models combined) shows TN&nbsp;=&nbsp;25,253, TP&nbsp;=&nbsp;403, FP&nbsp;=&nbsp;25, FN&nbsp;=&nbsp;51. The FP:FN ratio of 25:51 reflects the high-recall threshold tuning. The model is configured to miss few anomalies at the cost of occasional false flags. A flagged detection is suppressed rather than corrected; the asymmetric cost is that a false alarm causes a missed detection (recoverable from subsequent frames), while a false negative passes a misclassification directly to the path planner.</p>
+
+  <h4 class="pd-sub">Error Map</h4>
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-8.jpg" alt="Error map showing classifier errors in vehicle-frame space and confidence-distance space" loading="lazy" />
+    <figcaption><b>Fig. 8.</b> Error map in vehicle frame (left) and confidence-distance space (right). FNs cluster at <i>x</i>&nbsp;=&nbsp;8 to 16&nbsp;m, reproducing the Phase 1 range-dependency finding. FPs are sparse and dispersed.</figcaption>
+  </figure>
+  <p>In the vehicle frame, false negatives (red, 51) cluster in the mid-to-long range band (<i>x</i><sub>car</sub>&nbsp;=&nbsp;8 to 16&nbsp;m) and near the lateral extremes. False positives (orange, 25) are sparse and widely dispersed, confirming the model rarely flags correct detections. In confidence-distance space, FNs span the full confidence range but concentrate below 0.7 — the hard-negative regime where anomalies are structurally similar to correct detections.</p>
+
+  <h4 class="pd-sub">SHAP Attribution</h4>
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/anomaly/fig-9.jpg" alt="SHAP beeswarm plot across 17 features on the test set" loading="lazy" />
+    <figcaption><b>Fig. 9.</b> SHAP beeswarm (17 features, test set). Color&nbsp;=&nbsp;feature value (red high, blue low). <code>yolo_confidence</code> is the strongest anomaly driver; <code>yaw_rate_radps</code> and <code>bbox_h</code> follow. Rankings are consistent with Phase 1 analysis and the gain importance in Fig. 6.</figcaption>
+  </figure>
+  <p>High <code>yolo_confidence</code> (red) contributes large negative SHAP values, pushing toward normal, while low confidence (blue) drives positive anomaly contributions up to +7 log-odds units. This matches the Phase 1 observation of a bimodal FP confidence distribution. High <code>yaw_rate_radps</code> (sharp corner, red) pushes toward anomaly. <code>bbox_h</code> shows a directional range-proxy effect: small bounding boxes (long range) increase anomaly risk; large boxes (close range) push toward normal. The SHAP rankings match the Phase 1 causal ordering: confidence, then dynamics, then geometry.</p>
+  <p>The agreement between Phase 1 physics analysis and Phase 2 learned representations is a key result of this work: corner risk, confidence separability, and Orange fragility all emerge from split-gain optimization without explicit encoding.</p>
+
+  <h3 class="pd-h"><span>X</span> Deployment Impact</h3>
+  <p>The anomaly detector does not improve YOLO itself — YOLO per-frame accuracy is unchanged. The detector improves system-level safety by identifying approximately 91% of YOLO color errors at 94% precision before they reach the steering controller. This reduces the rate of incorrect color labels reaching downstream control from <b>2.73% to approximately 0.24%</b>, a 91% reduction in the failure mode that causes incorrect lane assignment.</p>
+  <p>Operationally, the detector runs as a post-processing layer on each YOLO output frame. A flagged detection is suppressed (treated as no detection for that cone in that frame) or overridden by the most recent confident detection of the same physical cone. Inference latency is negligible: XGBoost on 17 scalar features processes a full frame of 20 cones in <b>under 0.3&nbsp;ms on a Raspberry Pi 4</b>, well within the YOLO inference budget.</p>
+  <p>The combined Phase 1 + Phase 2 pipeline implements a dual logic gate:</p>
+  <pre class="pd-code">Phase 1:  d &gt; 1.2 m  AND  conf &lt; 0.70
+Phase 2:  P(anomaly | features) &gt; θ_class</pre>
+  <p>Detections flagged by the Phase 1 geometric rule are prioritized for Phase 2 re-scoring. Those further confirmed by Phase 2 are suppressed. Detections below the Phase 1 threshold are passed directly to the path planner with acceptably low FP risk.</p>
+
+  <h3 class="pd-h"><span>XI</span> Limitations and Future Work</h3>
+  <p><b>Orange data scarcity.</b> Per-class F1&nbsp;=&nbsp;0.546 for orange reflects fundamental data limitations: orange cones are sparse per lap (start/finish and chicane only), so the orange anomaly class has far fewer training examples than either boundary class. Denser orange placement in the simulator — through additional chicane entries, more lap markers, or dedicated orange-cone test circuits — would directly improve both precision and recall.</p>
+  <p><b>Temporal smoothing.</b> We explored identifying the same physical cone across frames via world-frame projection and averaging anomaly probability over a sliding window. A naive implementation (rolling mean, 5-frame window, 0.7&nbsp;m matching distance) degraded performance, suggesting the approach requires confidence-weighted aggregation, asymmetric updates (anomaly flags should persist once set), and track-quality filtering. Principled temporal aggregation is left to future work; it is the most promising direction for improving orange detection where per-frame data is fundamentally sparse.</p>
+  <p>Additional directions include evaluation under real lighting variation (not available in FSDS), integration with the SLAM module to use world-frame cone positions as additional features, and online adaptation of the detection thresholds as the vehicle accumulates lap-specific statistics during a competition day.</p>
+</template>
+
+<template id="pdoc-rl-sac-ppo"
+  data-kicker="Technical Report"
+  data-title="Reinforcement Learning for Steering Control in the Formula Student Driverless Simulator: Structural Failure Modes of Soft Actor-Critic and the Case for PPO"
+  data-venue="Daniel Ortiz Valencia · Dept. of Electrical &amp; Computer Engineering, Colorado State University, 2026"
+  data-pdf="assets/papers/fsds-rl-sac-ppo.pdf">
+
+  <div class="pd-abstract">
+    <span class="pd-abstract-label">Abstract</span>
+    <p>We study the replacement of a hand-coded reactive steering controller with a learned policy in the Formula Student Driverless Simulator (FSDS). The work has three parts: a validated perception and control baseline that fuses LiDAR clustering with a YOLO camera detector, a reinforcement-learning (RL) environment that exposes a 41-dimensional cone observation and a single steering action, and a sequence of training experiments. To separate control from perception, the policy is trained against ground-truth cone positions and warm-started with behavior cloning. We evaluate Soft Actor-Critic (SAC) across six configurations (Tests 9 to 13). <b>All six runs ended in collapse.</b> We attribute this to three structural properties of the algorithm rather than to tuning: replay-buffer poisoning, automatic-entropy collapse, and catastrophic forgetting after reward changes. We then adopt Proximal Policy Optimization (PPO), whose on-policy formulation, trust-region clipping, and fixed entropy coefficient remove each of these failure modes. The result is a reproducible FSDS training environment and a catalogue of failure modes with recognizable training-log signatures.</p>
+  </div>
+  <p class="pd-idx"><b>Index terms —</b> reinforcement learning, autonomous racing, Soft Actor-Critic, Proximal Policy Optimization, behavior cloning, Formula Student Driverless, reward shaping.</p>
+
+  <h3 class="pd-h"><span>I</span> Introduction</h3>
+  <p>Formula SAE (FSAE) is a collegiate engineering competition in which student teams design, build, and validate open-wheel prototype vehicles. The Driverless class requires the human driver to be replaced by an onboard autonomous stack that performs perception, localization, and motion planning in an unmapped, cone-delimited environment. The Formula Student Driverless Simulator (FSDS) provides a physics-based virtual environment, built on Unreal Engine 4 and AirSim, in which such a stack can be validated before deployment on hardware.</p>
+  <p>This paper addresses one question: can a reinforcement-learning agent learn to steer an FSAE car around a cone track at least as well as a hand-coded controller, and what does that require in practice. The main cost was infrastructure correctness and the fit between the learning algorithm and the problem, not model design.</p>
+  <p>We restrict the learning problem to steering. Longitudinal control is handled by a proportional speed controller, so the agent makes one decision per step: how far to turn. A single-axis action keeps the reward design tractable and makes the learned behavior easier to analyze.</p>
+  <p class="pd-lead"><b>Contributions.</b></p>
+  <ul class="pd-list">
+    <li>A reproducible FSDS RL environment (41-D observation, 1-D steering, a three-term reward), validated one component at a time, with the simulator and reward bugs documented.</li>
+    <li>An empirical study of SAC across six configurations showing that its failures on single-environment continuous control are structural and have recognizable training-log signatures.</li>
+    <li>A justification for moving to PPO that maps each SAC failure mode to a PPO design property that removes it.</li>
+  </ul>
+
+  <h3 class="pd-h"><span>II</span> Background and Related Work</h3>
+  <p>RL design choices follow eight axes. FSAE racing maps to a continuous action, a continuous and partially observable state, stochastic dynamics, an episodic setting, dense reward when shaped properly, a single agent, and cheap simulation. That combination points to actor-critic continuous-control methods such as SAC, TD3, or PPO behind a perception front-end.</p>
+  <p>Published FSAE RL is limited. Merton et al. is the closest validated reference: the only peer-reviewed work that applies SAC to a cone-delimited FSAE track with real-world transfer (87.5% completion), converging in 735 episodes and ablating three reward designs. The Technion FSTD effort reaches a first lap in about one hour of AirSim wall-clock time, but it relies on a VAE image encoder that is unnecessary when a perception stack already produces structured cone detections. The dominant Formula Student programs, including AMZ (ETH Zürich), KIT, MIT Driverless, and Oxford Brookes, have not adopted RL as a primary approach; their main results use classical perception, SLAM, planning, and control. <b>The field is early, which is what makes documented negative results useful.</b></p>
+  <p>On representation, the literature agrees that processed cone detections converge faster than raw pixels when a perception stack exists. On bootstrapping, warm-starting RL with a few expert demonstrations is reported to cut convergence time by factors of 3 to 30. Both findings shaped the design used here.</p>
+
+  <h3 class="pd-h"><span>III</span> System Architecture and Perception Baseline</h3>
+  <p>The Python client connects over TCP using <code>fsds.FSDSClient()</code>; calling <code>enableApiControl(True)</code> transfers full control to the API. Inputs are ground-truth kinematics, RGB and depth images, LiDAR point clouds, and GPS or IMU odometry. Outputs are normalized throttle in [0,1], steering in [−1,1], and brake in [0,1].</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/rl-sac-ppo/fig-1.jpg" alt="End-to-end pipeline diagram: FSDS simulator wrapped as a Gymnasium environment, with perception bypassed during RL training" loading="lazy" />
+    <figcaption><b>Fig. 1.</b> End-to-end pipeline. The simulator is wrapped as a Gymnasium environment. During RL training the perception block is bypassed in favor of ground-truth cone positions to isolate the control problem; the validated LiDAR and camera perception stack remains the deployment path. Throttle is handled by a proportional controller so the agent learns steering alone.</figcaption>
+  </figure>
+
+  <p>Before any learning, we built and validated a reactive controller that drives laps without learning. A LiDAR-only baseline clusters the point cloud in O(<i>n</i>) by exploiting the angular scan order: inter-cone gaps that exceed a 0.1&nbsp;m threshold, calibrated to the roughly 30&nbsp;cm regulation cone base, partition the sorted array without a full DBSCAN or k-NN search. The car steers from the mean lateral cone position. This baseline completes laps but weaves on straights because it lacks boundary-color information.</p>
+  <p>We therefore added a forward-facing camera. A YOLO detector trained on the FSOCO dataset classifies cone color, and a pinhole ground-plane projection converts pixel detections to metric vehicle-frame coordinates (<i>h</i>&nbsp;=&nbsp;1.1&nbsp;m, <i>x</i><sub>off</sub>&nbsp;=&nbsp;−0.3&nbsp;m):</p>
+  <div class="pd-eq"><span class="pd-eq-body"><i>t</i> = <i>h</i> / ray<sub>y</sub> ,&nbsp;&nbsp;&nbsp; <i>x</i><sub>g</sub> = <i>t</i> + <i>x</i><sub>off</sub> ,&nbsp;&nbsp;&nbsp; <i>y</i><sub>g</sub> = −ray<sub>x</sub> <i>t</i></span><span class="pd-eq-num">(1)</span></div>
+  <p>Nearest-neighbor matching fuses camera color with LiDAR depth. Calibration required correcting three coordinate-frame errors found through debug logging: a 1.3&nbsp;m X-axis reference mismatch, swapped projection axes, and incorrect default camera pitch and offset. The fused proportional controller removed the straight-line oscillation of the LiDAR-only baseline. This controller is reused as the demonstrator for behavior cloning.</p>
+
+  <h3 class="pd-h"><span>IV</span> Infrastructure: Connection, Speed, and Hidden Bugs</h3>
+  <p>Training a network requires hundreds of thousands of steps. At the default 30&nbsp;Hz, one million steps costs about 9 hours. AirSim exposes a <code>ClockSpeed</code> setting. Setting it to 3 and disabling the render viewport (<code>NoDisplay</code>) raised the step rate past <b>1,200 iterations per second</b>, more than 40× baseline, against a pass criterion of 75 iterations per second, so one million steps complete in under an hour. The speedup has a limit. At a higher clock the physics timestep <i>dt</i> grows and collision detection degrades, so ×3 (<i>dt</i>&nbsp;≈&nbsp;30&nbsp;ms) is the safe ceiling and all sensor reads and action writes must be synchronous to avoid stale data.</p>
+  <p>Two undocumented bugs cost several days. First, at <code>ClockSpeed 3</code> the car sometimes spawned with effectively locked wheels; a mandatory 2&nbsp;s pause after each reset lets the suspension settle. Second, the car ignored throttle because it spawned in neutral gear, so every control command must explicitly set the gear flag to automatic. Neither was documented; both were found by watching the car refuse to move and reasoning backward. Establishing that the simulator connects, runs fast, and moves on command was the foundation for everything that followed.</p>
+
+  <h3 class="pd-h"><span>V</span> The Reinforcement-Learning Environment</h3>
+  <h4 class="pd-sub">A. Observation (41-D)</h4>
+  <p>At each step the agent sees the six nearest blue (left) and six nearest yellow (right) cones as (<i>x</i>,&nbsp;<i>y</i>,&nbsp;color), which is 36 values, plus forward speed, lateral speed, yaw rate, previous steering command, and target speed. This mirrors the information the hand-coded controller uses. Six cones per side give about 15&nbsp;m of look-ahead at 4 to 8&nbsp;m/s, enough for one full corner, and the previous-action channels let the network condition on its last output rather than infer it from observation deltas. During training, the environment transforms ground-truth cone positions from a track CSV into the car frame each step. This isolates the control problem from sensor noise so that we can first establish whether the agent can steer at all.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/rl-sac-ppo/fig-2.jpg" alt="Diagram of the 41-dimensional observation vector: 18 values per cone wall plus five ego-state scalars" loading="lazy" />
+    <figcaption><b>Fig. 2.</b> The 41-dimensional observation: 18 values per cone wall plus five ego-state scalars. Cones are sorted by distance and zero-padded.</figcaption>
+  </figure>
+
+  <h4 class="pd-sub">B. Action and Reward</h4>
+  <p>The action is a single scalar in [−1,&nbsp;1] scaled to the physical steering limit. The reward sums three terms: a velocity reward that rises with speed up to a cap, a centerline reward shaped as a Gaussian that peaks when the car is centered between the cone walls, and a small per-step smoothness penalty on jerky steering changes. Two termination penalties apply: −10 for a cone collision and −5 for losing sight of all cones for three consecutive steps.</p>
+
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/rl-sac-ppo/fig-3.jpg" alt="Three reward component curves: Gaussian centerline reward, capped velocity reward, and quadratic smoothness penalty" loading="lazy" />
+    <figcaption><b>Fig. 3.</b> The three reward components. The centerline term must use the <i>absolute</i> offset. An early signed-offset bug rewarded drifting to one side and looked like a tuning problem.</figcaption>
+  </figure>
+
+  <p>Two reward bugs cost real time. The first hardcoded throttle at 40% regardless of speed, which let the car reach 17&nbsp;m/s before doing anything useful; replacing it with the proportional speed controller fixed it. The second was subtle: the centerline offset was signed, but the reward consumed it without an absolute value, so the agent was rewarded for drifting left. After both fixes, a validation run with the hand-coded controller confirmed a live, varied signal: the centerline component had a standard deviation above 0.05, the smoothness term was always negative, and the mean step reward was about 1.17.</p>
+
+  <h3 class="pd-h"><span>VI</span> Behavior Cloning: A Warm Start</h3>
+  <p>Random initialization in a racing environment crashes the car within a second of every episode, which makes early learning very slow. We therefore recorded the hand-coded controller driving laps and trained the policy by supervised regression to imitate it, producing <code>sac_bc_pretrained.zip</code>. The demonstrator itself was iterated. A Gaussian-weighted lookahead caused phase lag at 75&nbsp;Hz, a geometric pure-pursuit variant ran off-track at corner exits, and lowering the speed target made matters worse by weakening the proportional correction. <b>At fast loop rates, tuning the gain mattered more than changing the algorithm.</b> The final demonstrator was simple: take the midpoint of the three nearest cones per side and apply a proportional correction with a softer divisor. It hit about one cone per lap — an imperfect but adequate teacher.</p>
+
+  <h3 class="pd-h"><span>VII</span> Soft Actor-Critic: Six Experiments</h3>
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/rl-sac-ppo/fig-4.jpg" alt="Bar chart of average episode length across SAC runs, showing apparent successes that each carried a hidden pathology" loading="lazy" />
+    <figcaption><b>Fig. 4.</b> Average episode length across SAC runs. Each apparent success carried a hidden pathology. The long episodes in Test 9.5 came from driving <i>through</i> cones, and Test 9.7 collapsed within 3k steps after a reward change.</figcaption>
+  </figure>
+
+  <p>With the environment validated and a warm-start policy in hand, we trained with SAC, an off-policy actor-critic method suited to continuous control.</p>
+  <div class="pd-tablewrap">
+    <table class="pd-table">
+      <caption>Table 1 — SAC experiment outcomes</caption>
+      <thead><tr><th>Test</th><th>Avg. length</th><th>Outcome and cause</th></tr></thead>
+      <tbody>
+        <tr><td>9</td><td>67 → 484</td><td>Learns, then crashes at the hairpin every run: the replay buffer never sees the second half (termination starvation).</td></tr>
+        <tr><td>9.5</td><td>1463</td><td>Cone hits made non-terminating; the agent learns to treat cones as speed bumps.</td></tr>
+        <tr><td>9.6</td><td>263</td><td>Cone penalty raised to −25; cleanest model, zero cone hits, but a consistent sideways drift.</td></tr>
+        <tr><td>9.7</td><td>18</td><td>Reloaded Test 9.6 with a stronger centerline weight; collapsed in 3k steps (catastrophic forgetting).</td></tr>
+        <tr><td>11</td><td>566</td><td>Multiplicative reward improved centerline quality from 0.45 to 0.74; an early-stopping bug killed the run at 15k steps.</td></tr>
+        <tr><td>13</td><td>454</td><td>Strong from 5k to 11k steps, then entropy collapse; auto-recovery failed and pruned the best checkpoint.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Test 10 was spent fixing evaluation: the lap counter read cumulative referee state, fixed with manual deltas, and the geofence misfired on curves because averaging asymmetric nearest cones gave readings 4 to 5&nbsp;m off, fixed by using the single closest cone per side.</p>
+
+  <h3 class="pd-h"><span>VIII</span> Why SAC Kept Failing</h3>
+  <p>Across Tests 9 to 13, three failure modes recurred. They are properties of the algorithm, not tuning errors.</p>
+  <ul class="pd-list pd-list-callout">
+    <li><b>Replay-buffer poisoning.</b> SAC re-learns from a large memory of past experience. Bad episodes, such as driving through 41 cones, persist in the buffer for thousands of future updates with no mechanism to flush or filter them, so the agent keeps re-learning behavior it should abandon.</li>
+    <li><b>Entropy collapse.</b> The automatic entropy tuner can drive the exploration bonus toward zero, making the actor deterministic. Once deterministic, a small systematic bias — for example steering +0.1 too far — is reinforced by the critic until the policy outputs full steering lock. This is the pattern observed at step 11k in Test 13.</li>
+    <li><b>Catastrophic forgetting after reward changes.</b> Because the critic predicts future reward, its calibration is tied to one reward shape. Changing a single weight after loading a model desynchronizes critic predictions from reality; the agent then optimizes a mispredicted target and collapses. This ended Test 9.7.</li>
+  </ul>
+  <p>In combination, these modes meant that almost any SAC experiment was one bad batch, one entropy step, or one reward change away from collapse, and none of them could be fully prevented by tuning.</p>
+
+  <h3 class="pd-h"><span>IX</span> The Move to PPO</h3>
+  <figure class="pd-fig">
+    <img src="assets/papers/figures/rl-sac-ppo/fig-5.jpg" alt="Structural comparison table of SAC versus PPO across experience reuse, update bound, exploration, reward changes, and sample cost" loading="lazy" />
+    <figcaption><b>Fig. 5.</b> Structural comparison. PPO removes each SAC failure mode by design rather than by tuning, at the cost of more environment interactions.</figcaption>
+  </figure>
+
+  <p>After five collapses across distinct configurations, we concluded that SAC's failure was structural and adopted Proximal Policy Optimization (PPO). PPO has no replay buffer: it collects a fresh batch, trains on it once, and discards it, so there is no contaminated history to re-learn. Trust-region clipping bounds how far the policy can move in one update, which makes catastrophic collapse much less likely. A fixed entropy coefficient prevents silent exploration decay. Fine-tuning is also safer because the policy is not tied to a separately calibrated critic shape.</p>
+  <p>The cost is sample efficiency. PPO needs roughly 300k to 500k interactions, against SAC's 50k to 100k, which is 8 to 10 wall-clock hours rather than 1 to 2 at the rate of 12 to 15 steps per second measured here. <b>The governing point from every collapsed SAC run is that a slow algorithm that finishes is more useful than a fast one that collapses.</b> A SAC run that collapses produces no usable output, while a PPO run that completes, even slowly, produces a model that can be evaluated and improved.</p>
+
+  <h3 class="pd-h"><span>X</span> Results, Assets, and Next Steps</h3>
+  <p>This phase produced three SAC reference models: the BC baseline, which drives without crashing immediately; the Test 9.6 model, the cleanest at 263 average steps with zero cone hits but a sideways drift; and the Test 13 step-5000 checkpoint, the longest-driving at 454 average steps with occasional cone hits. None are competition-ready, but all are useful reference points.</p>
+  <p>The more durable result is a validated training infrastructure: a correct environment wrapper, a verified reward signal, a working speed-curriculum callback, and a stable telemetry pipeline. The expensive debugging — covering the wheel-lock spawn, the gear flag, the centerline sign error, the lap counter, and the corner distance metric — is complete and does not need to be repeated. The next experiment is PPO training on this same environment and BC starting policy; only the algorithm changes.</p>
+  <p>Open questions remain worth pursuing: a clean wall-clock-to-baseline benchmark on FSDS, whether SAC's sample-efficiency advantage trades against cross-track generalization, whether residual RL on top of the reactive controller transfers to FSDS, and how much domain randomization closes the cone-detection sim-to-real gap.</p>
+
+  <h3 class="pd-h"><span>XI</span> Conclusion</h3>
+  <p>A learned steering policy for an FSAE car in FSDS is achievable. The main cost of the project was infrastructure correctness and the fit between algorithm and problem, not model novelty. SAC's repeated collapses followed from off-policy replay, automatic entropy tuning, and a critic whose calibration is tied to the reward function. PPO addresses each of these. We report both the successes and the failures so that other teams can reuse the validated infrastructure and avoid the same failure modes.</p>
+
+  <h3 class="pd-h pd-h-plain">Acknowledgment</h3>
+  <p>The author thanks Dr. Panahi for advising this project and the RAM Racing EV team for the surrounding FSDS autonomous pipeline.</p>
+
+  <h3 class="pd-h pd-h-plain">References</h3>
+  <ol class="pd-refs">
+    <li>J. Kabzan et al., "AMZ Driverless: The full autonomous racing system," <i>J. Field Robotics</i>, 2019.</li>
+    <li>M. Tigchelaar et al., "FSDS: Formula Student Driverless Simulator," Formula Student Team Delft, open-source project.</li>
+    <li>T. Haarnoja et al., "Soft Actor-Critic: Off-policy maximum entropy deep RL with a stochastic actor," <i>ICML</i>, 2018.</li>
+    <li>S. Fujimoto et al., "Addressing function approximation error in actor-critic methods (TD3)," <i>ICML</i>, 2018.</li>
+    <li>J. Schulman et al., "Proximal policy optimization algorithms," arXiv:1707.06347, 2017.</li>
+    <li>M. Merton et al., "Soft Actor-Critic for cone-delimited Formula Student tracks with sim-to-real transfer," 2024.</li>
+    <li>A. Rajeswaran et al., "Learning complex dexterous manipulation with deep RL and demonstrations (DAPG)," <i>RSS</i>, 2018.</li>
+    <li>University of Auckland FSAE perception dataset, arXiv:2308.13088, 2023.</li>
+  </ol>
+</template>
 
 <script src="script.js"></script>
 <script data-pplx-inline-edit>
