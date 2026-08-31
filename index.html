@@ -200,6 +200,29 @@
 
         <div class="sub">
           <div class="sub-text">
+            <div class="sub-title">Weld &amp; Busbar Quality Validation</div>
+            <div class="sub-blurb">~600 in-house spot welds, destructive peel DOE, non-destructive resistance screening, BMS validation</div>
+            <h4>Background</h4><ul>
+              <li>The nickel fusible link doubles as each cell's fuse, so tab-to-busbar weld quality directly sets a safety-critical parameter; the 90s5p pack required ~450 cells and ~600 spot welds executed in-house with no vendor-qualified process to inherit.</li>
+              <li>Needed a measurable, repeatable accept/reject criterion for a hand-operated spot welder before scaling the process across the full pack.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Ran a design of experiments across pre-pulse (BI), weld time (WT), weld current (WI), electrode pressure, and pulse count; graded pass/fail by destructive peel test against a failure-mode criterion rather than a force threshold, a passing joint had to tear parent tab material rather than release at the weld interface.</li>
+              <li>Low weld time produced cold, low-visual welds and excessive current (WI 15) deformed and holed the cell can, both rejected as under- and over-weld failure modes; the accepted setpoint (WI 10 / WT 4, two pulses) consistently pulled tab material off the cell.</li>
+              <li>Followed with non-destructive resistance screening (voltage-drop method) across 8 busbar assemblies × 5 fusible links each, then revised link geometry to reduce nickel path resistance.</li>
+              <li>Validated the process in service through the BMS, logging 6 instrumented cells through a full discharge cycle to check for an outlier joint.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Fusible-link resistance held 0.29–0.63mΩ across all 40 screened links, with no outliers flagged for rework.</li>
+              <li>Under discharge, cell voltage spread peaked at 28mV (CV 0.32%) across the instrumented group, confirming pack-level uniformity.</li>
+              <li>At the pack's ~20A/cell discharge current, that resistance spread alone predicts only ~6.6mV of cell-to-cell variation, well under the 28mV observed, weld/link resistance is not the dominant driver of pack imbalance.</li>
+            </ul>
+          </div>
+          <div class="sub-photos" data-label="Weld & busbar validation" data-media='[{"src":"assets/projects/rr26ev/weld-1.png","caption":"Destructive peel-test results (Cell Tests 1–5), each accepted weld pulled to tear parent tab material rather than release at the interface, the pass/fail criterion for the hand-operated welder."},{"src":"assets/projects/rr26ev/weld-2.png","caption":"Eight completed busbar assemblies with fusible links installed, each screened non-destructively before pack integration."},{"src":"assets/projects/rr26ev/weld-3.png","caption":"Non-destructive resistance screening, voltage-drop measurement and derived fusible-link resistance across all 8 assemblies × 5 links; results held 0.29–0.63mΩ."},{"src":"assets/projects/rr26ev/weld-4.png","caption":"BMS in-service validation on 6 instrumented cells through a full discharge cycle: voltage std. dev., spread and CV (left) stayed low throughout, confirming no outlier weld (right)."}]'></div>
+        </div>
+
+        <div class="sub">
+          <div class="sub-text">
             <div class="sub-title">Custom Charging Architecture</div>
             <div class="sub-blurb">6.6kW off-vehicle charger interface with full interlock integration</div>
             <h4>Background</h4><ul>
