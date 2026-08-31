@@ -154,32 +154,6 @@
 
         <div class="sub">
           <div class="sub-text">
-            <div class="sub-title">Battery Structure &amp; Manufacturing</div>
-            <div class="sub-blurb">450-cell pack containment, weighted decision matrices &amp; poka-yoke busbars</div>
-            <h4>Background</h4><ul>
-              <li>450-cell pack (90s5p, Molicel P50B 21700) requires structural containment against shock and vibration, cell ejection or busbar fatigue causes short circuit or arc flash.</li>
-              <li>No inherited designs; team defined module geometry, materials, and assembly sequence from scratch with in-house FDM and manual welding.</li>
-              <li>Architecture must allow field serviceability while meeting FSAE flame-retardant and HV isolation requirements.</li>
-            </ul>
-            <h4>Technical Approach</h4><ul>
-              <li>Drove material selection through weighted matrices: steel exterior (59/100), garolite interior (46/100), passive air cooling (41/100).</li>
-              <li>Defined a module-segment-pack hierarchy (2s5p → 6s5p → 90s5p) with press-fit cell retention and keyed copper busbars preventing incorrect assembly.</li>
-              <li>Supported the mechanical engineer with stress analysis inputs; evaluated printable materials (Ultem 9085, Nylon-GF, PC-FR, ASA, PEEK) against UL94 and Tg.</li>
-            </ul>
-            <h4>Results</h4><ul>
-              <li>Delivered complete pack architecture with material down-selections justified by quantified tradeoff analysis.</li>
-              <li>Defined poka-yoke busbar geometry eliminating operator errors across 90 module interfaces.</li>
-              <li>Established module specs (35.3 cm³, 46g, 45-min print) enabling production planning for a 56-module build.</li>
-            </ul>
-            <div class="sub-links">
-              <a class="btn ghost" href="assets/docs/Battery_Pack_Structure.pdf" target="_blank" rel="noopener">📄 Battery Pack Structure (PDF)</a>
-            </div>
-          </div>
-          <div class="sub-photos" data-label="Structure & manufacturing" data-media='[{"src":"assets/projects/rr26ev/struct-2026-4.jpg","caption":"Accumulator integrated in the Venus EV chassis, segmented pack mounted between the rear frame members alongside the powertrain."},{"src":"assets/projects/rr26ev/struct-2026-3.jpg","caption":"Pack module array (CAD), keyed copper busbars and press-fit cell retention across the segmented 90s5p layout."},{"src":"assets/projects/rr26ev/struct-2026-1.jpg","caption":"Assembled battery segment, copper busbars, structural endplate and sealed cell containment."},{"src":"assets/projects/rr26ev/struct-2026-2.jpg","caption":"Tractive-system structure decision matrix, weighted selection of exterior, interior, cooling and packaging strategies."}]'></div>
-        </div>
-
-        <div class="sub">
-          <div class="sub-text">
             <div class="sub-title">Fuse Links</div>
             <div class="sub-blurb">328A short-circuit characterization, benchtop test rig at 200Hz+</div>
             <h4>Background</h4><ul>
@@ -218,7 +192,7 @@
               <li>At the pack's ~20A/cell discharge current, that resistance spread alone predicts only ~6.6mV of cell-to-cell variation, well under the 28mV observed, weld/link resistance is not the dominant driver of pack imbalance.</li>
             </ul>
           </div>
-          <div class="sub-photos" data-label="Weld & busbar validation" data-media='[{"src":"assets/projects/rr26ev/weld-1.png","caption":"Destructive peel-test results (Cell Tests 1–5), each accepted weld pulled to tear parent tab material rather than release at the interface, the pass/fail criterion for the hand-operated welder."},{"src":"assets/projects/rr26ev/weld-2.png","caption":"Eight completed busbar assemblies with fusible links installed, each screened non-destructively before pack integration."},{"src":"assets/projects/rr26ev/weld-3.png","caption":"Non-destructive resistance screening, voltage-drop measurement and derived fusible-link resistance across all 8 assemblies × 5 links; results held 0.29–0.63mΩ."},{"src":"assets/projects/rr26ev/weld-4.png","caption":"BMS in-service validation on 6 instrumented cells through a full discharge cycle: voltage std. dev., spread and CV (left) stayed low throughout, confirming no outlier weld (right)."}]'></div>
+          <div class="sub-photos" data-label="Weld & busbar validation" data-media='[{"src":"assets/projects/rr26ev/weld-2.png","caption":"Eight completed busbar assemblies with fusible links installed, each screened non-destructively before pack integration."},{"src":"assets/projects/rr26ev/weld-3.png","caption":"Non-destructive resistance screening, voltage-drop measurement and derived fusible-link resistance across all 8 assemblies × 5 links; results held 0.29–0.63mΩ."},{"src":"assets/projects/rr26ev/weld-1.png","caption":"Destructive peel-test results (Cell Tests 1–5); a pass had to tear parent tab material, not release at the weld interface."},{"src":"assets/projects/rr26ev/weld-4.png","caption":"BMS in-service validation on 6 instrumented cells through a full discharge cycle: voltage std. dev., spread and CV (left) stayed low throughout, confirming no outlier weld (right)."}]'></div>
         </div>
 
         <div class="sub">
