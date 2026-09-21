@@ -52,9 +52,7 @@
 
 <!-- ============ HERO ============ -->
 <section class="pp-hero">
-  <video autoplay muted loop playsinline preload="auto" width="880" height="322">
-    <source src="../../assets/papers/videos/rl-sac-ppo/ppo-well-trained.mp4" type="video/mp4" />
-  </video>
+  <img class="pp-hero-poster" src="../../assets/papers/videos/rl-sac-ppo/hero-poster.jpg" alt="The training setup: camera detections, the fused cone map and the simulator running side by side" />
   <div class="pp-hero-content">
     <div class="pp-hero-badges">
       <span class="pp-badge is-orange">Technical Report</span>
@@ -116,13 +114,6 @@
     <div class="pp-prose">
       <p>Since random exploration crashes immediately, I recorded the hand-coded controller driving laps and trained the policy to imitate it by supervised regression. That gives the RL agent a starting point that at least stays on the track. The demonstrator needed iterating of its own before it was worth imitating. A Gaussian-weighted lookahead caused phase lag at high loop rates. A geometric pure-pursuit variant ran wide at corner exits. Lowering the speed target made things worse rather than better, because it weakened the proportional correction.</p>
       <p>What ended up working was the simplest version I tried. Take the midpoint of the three nearest cones on each side, apply a proportional correction with a softer divisor. It clips about one cone per lap. Not a great teacher, but good enough to bootstrap from.</p>
-    </div>
-
-    <div class="pp-video-solo">
-      <figure class="pp-video">
-        <video src="../../assets/papers/videos/rl-sac-ppo/baseline-midpoint.mp4" muted loop playsinline preload="metadata" width="880" height="496"></video>
-        <figcaption><b>The demonstrator, driving.</b> Top-down view, ground-truth cone positions, no vision and no learning involved. Every policy below started life imitating this.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -211,10 +202,11 @@
       <div class="pp-stat"><b>84 s</b><span>lap completed in the trained-policy clip below</span></div>
     </div>
 
-    <div class="pp-video-solo">
-      <figure class="pp-video">
+    <div class="pp-clips">
+      <figure class="pp-clip">
+        <span class="pp-clip-tag">PPO · trained</span>
         <video src="../../assets/papers/videos/rl-sac-ppo/ppo-well-trained.mp4" muted loop playsinline preload="metadata" width="880" height="322"></video>
-        <figcaption><b>A trained policy completing a lap.</b> The perception debug windows are running alongside it, so you can watch the fused cone map and the steering command update while the policy drives. The simulator reports the lap at 83.99 seconds.</figcaption>
+        <figcaption><b>A trained PPO policy driving a clean lap.</b> The perception debug windows run alongside the policy, so the fused cone map and the steering command update live while it drives. The simulator clocks this lap at 83.99 seconds.</figcaption>
       </figure>
     </div>
 
