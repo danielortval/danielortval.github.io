@@ -54,6 +54,8 @@
   width: 100%; height: 100%;
   object-fit: cover;
   opacity: .55;
+  /* pages can aim the crop at the part of the frame worth showing */
+  object-position: var(--pp-poster-pos, center);
 }
 .pp-hero::after {
   content: ""; position: absolute; inset: 0;

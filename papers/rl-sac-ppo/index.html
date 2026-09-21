@@ -52,7 +52,7 @@
 
 <!-- ============ HERO ============ -->
 <section class="pp-hero">
-  <img class="pp-hero-poster" src="../../assets/papers/videos/rl-sac-ppo/hero-poster.jpg" alt="The training setup: camera detections, the fused cone map and the simulator running side by side" />
+  <img class="pp-hero-poster" src="../../assets/papers/videos/rl-sac-ppo/hero-poster.jpg" alt="The FSAE car mid-run in the simulator, driving a cone-lined track" />
   <div class="pp-hero-content">
     <div class="pp-hero-badges">
       <span class="pp-badge is-orange">Technical Report</span>
@@ -112,7 +112,7 @@
     <span class="pp-eyebrow">II · A Head Start</span>
     <h2 class="pp-section-title">Giving the agent something to copy</h2>
     <div class="pp-prose">
-      <p>Since random exploration crashes immediately, I recorded the hand-coded controller driving laps and trained the policy to imitate it by supervised regression. That gives the RL agent a starting point that at least stays on the track. The demonstrator needed iterating of its own before it was worth imitating. A Gaussian-weighted lookahead caused phase lag at high loop rates. A geometric pure-pursuit variant ran wide at corner exits. Lowering the speed target made things worse rather than better, because it weakened the proportional correction.</p>
+      <p>Since random exploration crashes immediately, I recorded the hand-coded controller driving laps and trained a policy to imitate it by supervised regression. That gave SAC a starting point that at least stayed on the track. Worth saying up front that this crutch is a SAC-era thing: PPO later trained from scratch on ground-truth cone positions, with none of this demonstration data. The demonstrator needed iterating of its own before it was worth imitating. A Gaussian-weighted lookahead caused phase lag at high loop rates. A geometric pure-pursuit variant ran wide at corner exits. Lowering the speed target made things worse rather than better, because it weakened the proportional correction.</p>
       <p>What ended up working was the simplest version I tried. Take the midpoint of the three nearest cones on each side, apply a proportional correction with a softer divisor. It clips about one cone per lap. Not a great teacher, but good enough to bootstrap from.</p>
     </div>
   </div>
@@ -125,6 +125,19 @@
     <h2 class="pp-section-title">Six SAC runs, and every one of them fell apart</h2>
     <div class="pp-prose">
       <p>With the environment validated and a warm-start policy ready, I trained with Soft Actor-Critic. It is an off-policy actor-critic method built for continuous control, so it was the obvious first choice. Every run that looked like progress turned out to have something wrong underneath it.</p>
+    </div>
+
+    <div class="pp-clips is-two">
+      <figure class="pp-clip">
+        <span class="pp-clip-tag">SAC · early</span>
+        <video src="../../assets/papers/videos/rl-sac-ppo/sac-initial-response.mp4" muted loop playsinline preload="metadata" width="880" height="498"></video>
+        <figcaption><b>The first thing SAC learns is to go straight.</b> Steering sits near zero and the car runs off the end of the cone line, then the episode resets and it tries again. Straight is the safest thing to do when you have not worked out what the cones mean yet.</figcaption>
+      </figure>
+      <figure class="pp-clip">
+        <span class="pp-clip-tag">SAC · corners</span>
+        <video src="../../assets/papers/videos/rl-sac-ppo/sac-corner-penalties.mp4" muted loop playsinline preload="metadata" width="880" height="510"></video>
+        <figcaption><b>Later it corners, but it cheats the corner.</b> It takes the first corner properly, then starts cutting straight across the rest instead of following them round, eating the penalty each time because the shortcut still pays. Watch the steering trace fight to stay on the track.</figcaption>
+      </figure>
     </div>
 
     <figure class="pp-figure">
@@ -184,6 +197,7 @@
     </figure>
 
     <div class="pp-prose">
+      <p>PPO also does without the crutch. SAC needed a behavior-cloned policy to start from, because dropping it into the environment cold meant crashing inside a second. PPO learns the track from scratch, on ground truth and the reward alone, with none of the demonstration data the SAC runs leaned on.</p>
       <p>The tradeoff is sample efficiency. PPO wants somewhere around 300k to 500k environment interactions where SAC needed 50k to 100k, which works out to 8 or 10 hours of wall clock instead of 1 or 2 at the 12 to 15 steps per second this setup manages. I will take that trade. A SAC run that collapses leaves me with nothing to evaluate. A slow PPO run that finishes leaves me with a model I can actually measure and improve.</p>
     </div>
   </div>
@@ -199,20 +213,20 @@
       <div class="pp-stat"><b>263</b><span>avg. steps, Test 9.6, zero cone hits</span></div>
       <div class="pp-stat"><b>454</b><span>avg. steps, Test 13, longest-driving checkpoint</span></div>
       <div class="pp-stat"><b>40×</b><span>training speedup from clock scaling</span></div>
-      <div class="pp-stat"><b>84 s</b><span>lap completed in the trained-policy clip below</span></div>
+      <div class="pp-stat"><b>+826</b><span>best rolling reward on the PPO run below</span></div>
     </div>
 
     <div class="pp-clips">
       <figure class="pp-clip">
-        <span class="pp-clip-tag">PPO · trained</span>
-        <video src="../../assets/papers/videos/rl-sac-ppo/ppo-well-trained.mp4" muted loop playsinline preload="metadata" width="880" height="322"></video>
-        <figcaption><b>A trained PPO policy driving a clean lap.</b> The perception debug windows run alongside the policy, so the fused cone map and the steering command update live while it drives. The simulator clocks this lap at 83.99 seconds.</figcaption>
+        <span class="pp-clip-tag">PPO</span>
+        <video src="../../assets/papers/videos/rl-sac-ppo/ppo-going-perfectly.mp4" muted loop playsinline preload="metadata" width="880" height="308"></video>
+        <figcaption><b>PPO holding the track, still a little shaky.</b> Training telemetry on the left, the car on the right. Each <code>[TERM]</code> line is an episode ending and says why, mostly <code>cone_hit</code> or <code>geofence</code>, with the lateral error it held. Rolling reward sits around +820 and you can watch it save a new best checkpoint mid-run.</figcaption>
       </figure>
     </div>
 
     <div class="pp-prose">
       <p>None of the three SAC checkpoints are competition ready. The BC baseline, the Test 9.6 model and the Test 13 step-5000 checkpoint are all useful as reference points and not much more than that. The part that lasts is the infrastructure. An environment wrapper that behaves, a reward signal I have actually verified, a working speed-curriculum callback, telemetry that does not fall over mid-run. The expensive debugging is finished. The wheel-lock spawn, the gear flag, the centerline sign error, the lap counter, the corner distance metric, none of it needs doing twice.</p>
-      <p>Next is PPO on this same environment and the same BC starting policy, changing nothing but the algorithm. After that I want a clean wall-clock-to-baseline benchmark, and I would like to know whether SAC's sample efficiency advantage costs anything in cross-track generalization. Whether residual RL on top of the reactive controller transfers cleanly is also still open, as is how much domain randomization closes the cone-detection gap between simulation and a real car.</p>
+      <p>PPO runs on this same environment, but it learns on its own. No cloned demonstrations, no warm start, just ground-truth cone positions and the reward. What I want next is a clean wall-clock-to-baseline benchmark, and I would like to know whether SAC's sample efficiency advantage costs anything in cross-track generalization. Whether residual RL on top of the reactive controller transfers cleanly is also still open, as is how much domain randomization closes the cone-detection gap between simulation and a real car.</p>
     </div>
   </div>
 </section>
