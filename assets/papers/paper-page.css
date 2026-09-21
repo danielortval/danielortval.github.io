@@ -16,15 +16,20 @@
   --pp-dark-line: #2c2926;
 }
 
-/* ---------- Top bar ---------- */
-.pp-topbar {
+/* ---------- Sticky chrome (top bar + story nav share one sticky box) ----------
+   Both bars live in a single sticky container so the nav can never slide
+   under the top bar. Anything that depends on their combined height reads
+   it off the element instead of hardcoding a number. */
+.pp-stickytop {
   position: sticky; top: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem;
-  padding: .85rem clamp(1rem, 4vw, 2rem);
   background: var(--header-bg);
   backdrop-filter: blur(10px) saturate(1.4);
   -webkit-backdrop-filter: blur(10px) saturate(1.4);
+}
+.pp-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+  padding: .85rem clamp(1rem, 4vw, 2rem);
   border-bottom: 1px solid var(--line);
 }
 .pp-topbar-back {
@@ -99,10 +104,6 @@
 
 /* ---------- Story nav (sticky, below topbar) ---------- */
 .pp-storynav-wrap {
-  position: sticky; top: 49px; z-index: 40;
-  background: var(--header-bg);
-  backdrop-filter: blur(10px) saturate(1.4);
-  -webkit-backdrop-filter: blur(10px) saturate(1.4);
   border-bottom: 1px solid var(--line);
 }
 .pp-storynav {
@@ -123,7 +124,9 @@
 .pp-storynav a.is-active { color: var(--orange-deep); border-color: var(--orange); }
 
 /* ---------- Sections ---------- */
-.pp-section { padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 3rem); }
+/* scroll-margin keeps a section heading clear of the sticky chrome when
+   the browser (rather than our own JS) does the scrolling. */
+.pp-section { padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 3rem); scroll-margin-top: 110px; }
 .pp-section-inner { max-width: 880px; margin: 0 auto; }
 .pp-section--wide .pp-section-inner { max-width: 1100px; }
 .pp-section--tint { background: var(--paper); }
@@ -254,7 +257,7 @@
 @media (max-width: 760px) {
   .pp-hero { min-height: 78vh; }
   .pp-video-row, .pp-figure-row { grid-template-columns: 1fr; }
-  .pp-storynav-wrap { top: 45px; }
+  .pp-section { scroll-margin-top: 96px; }
   .pp-log-row { grid-template-columns: 70px 90px 1fr; gap: .6rem; }
 }
 @media (prefers-reduced-motion: reduce) {

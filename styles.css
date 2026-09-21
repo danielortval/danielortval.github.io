@@ -439,6 +439,15 @@ section { scroll-margin-top: 90px; }
 .paper-linkrow .muted { color: var(--ink-faint); }
 .paper-linkrow .slash { color: var(--line-strong); }
 .paper-abstract { font-size: var(--text-sm); color: var(--ink-soft); margin-top: .9rem; max-width: 70ch; }
+.paper-cta {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin-top: .7rem; font-size: var(--text-sm); font-weight: 700;
+  color: var(--orange-deep); border-bottom: 1px solid var(--orange-soft);
+  padding-bottom: .1rem; transition: border-color .18s ease;
+}
+.paper-cta::after { content: "→"; transition: transform .18s ease; }
+.paper-cta:hover { border-color: var(--orange); }
+.paper-cta:hover::after { transform: translateX(3px); }
 
 /* ---------- Prizes ---------- */
 .prizes { display: grid; gap: 0; }

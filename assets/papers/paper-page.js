@@ -6,6 +6,13 @@
 
 document.documentElement.classList.add('js');
 
+// Height of the sticky top bar + story nav, measured rather than guessed,
+// so a section heading never lands underneath it.
+function stickyOffset() {
+  const bar = document.querySelector('.pp-stickytop');
+  return (bar ? bar.offsetHeight : 96) + 14;
+}
+
 // ---------- Apply the deep-link hash once layout has settled ----------
 // The inline script at the top of <head> already stripped location.hash
 // into window.__ppPendingHash before the browser could act on it. Apply
@@ -18,7 +25,7 @@ document.documentElement.classList.add('js');
   const applyHash = () => {
     const target = document.querySelector(hash);
     if (!target) return;
-    const top = target.getBoundingClientRect().top + window.scrollY - 88;
+    const top = target.getBoundingClientRect().top + window.scrollY - stickyOffset();
     window.scrollTo({ top, behavior: 'auto' });
     history.replaceState(null, '', location.pathname + location.search + hash);
   };
@@ -85,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(a.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - 96;
+        const top = target.getBoundingClientRect().top + window.scrollY - stickyOffset();
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });

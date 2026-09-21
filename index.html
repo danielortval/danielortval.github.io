@@ -169,7 +169,7 @@
               <li>Test data package prepared for SAE technical inspection, proving the fuse clears fault current within required windows.</li>
             </ul>
           </div>
-          <div class="sub-photos" data-label="Fuse-link characterization" data-media='[{"src":"assets/projects/rr26ev/fuse-1.jpg","caption":"Fuse-wire temperature profile (nickel, I = 328A), modeled heating phase and melt transition (~68ms) used to validate blow time."},{"src":"assets/projects/rr26ev/fuse-2.jpg","caption":"Benchtop fuse-characterization rig, stick-welder short-circuit source with current sensing into Simulink for blow-time capture."},{"src":"assets/projects/rr26ev/fuse-3.png","caption":"Measured blow time vs. current (log–log) across the four-level test matrix, plotted against FSAE target bands (30–300s, 5–15s, 0.2–1s, 0.05–0.15s); all four clusters land within their required window."}]'></div>
+          <div class="sub-photos" data-label="Fuse-link characterization" data-media='[{"src":"assets/projects/rr26ev/fuse-1.jpg","caption":"Fuse-wire temperature profile (nickel, I = 328A), modeled heating phase and melt transition (~68ms) used to validate blow time."},{"src":"assets/projects/rr26ev/fuse-2.jpg","caption":"Benchtop fuse-characterization rig, stick-welder short-circuit source with current sensing into Simulink for blow-time capture."},{"src":"assets/projects/rr26ev/fuse-3.png","caption":"Measured blow time vs. current (log, log) across the four-level test matrix, plotted against FSAE target bands (30 to 300s, 5 to 15s, 0.2 to 1s, 0.05 to 0.15s); all four clusters land within their required window."}]'></div>
         </div>
 
         <div class="sub">
@@ -187,12 +187,12 @@
               <li>Validated the process in service through the BMS, logging 6 instrumented cells through a full discharge cycle to check for an outlier joint.</li>
             </ul>
             <h4>Results</h4><ul>
-              <li>Fusible-link resistance held 0.29–0.63mΩ across all 40 screened links, with no outliers flagged for rework.</li>
+              <li>Fusible-link resistance held 0.29 to 0.63mΩ across all 40 screened links, with no outliers flagged for rework.</li>
               <li>Under discharge, cell voltage spread peaked at 28mV (CV 0.32%) across the instrumented group, confirming pack-level uniformity.</li>
               <li>At the pack's ~20A/cell discharge current, that resistance spread alone predicts only ~6.6mV of cell-to-cell variation, well under the 28mV observed, weld/link resistance is not the dominant driver of pack imbalance.</li>
             </ul>
           </div>
-          <div class="sub-photos" data-label="Weld & busbar validation" data-media='[{"src":"assets/projects/rr26ev/weld-2.png","caption":"Eight completed busbar assemblies with fusible links installed, each screened non-destructively before pack integration."},{"src":"assets/projects/rr26ev/weld-3.png","caption":"Non-destructive resistance screening, voltage-drop measurement and derived fusible-link resistance across all 8 assemblies × 5 links; results held 0.29–0.63mΩ."},{"src":"assets/projects/rr26ev/weld-1.png","caption":"Destructive peel-test results (Cell Tests 1–5); a pass had to tear parent tab material, not release at the weld interface."},{"src":"assets/projects/rr26ev/weld-4.png","caption":"BMS in-service validation on 6 instrumented cells through a full discharge cycle: voltage std. dev., spread and CV (left) stayed low throughout, confirming no outlier weld (right)."}]'></div>
+          <div class="sub-photos" data-label="Weld & busbar validation" data-media='[{"src":"assets/projects/rr26ev/weld-2.png","caption":"Eight completed busbar assemblies with fusible links installed, each screened non-destructively before pack integration."},{"src":"assets/projects/rr26ev/weld-3.png","caption":"Non-destructive resistance screening, voltage-drop measurement and derived fusible-link resistance across all 8 assemblies × 5 links; results held 0.29 to 0.63mΩ."},{"src":"assets/projects/rr26ev/weld-1.png","caption":"Destructive peel-test results (Cell Tests 1 to 5); a pass had to tear parent tab material, not release at the weld interface."},{"src":"assets/projects/rr26ev/weld-4.png","caption":"BMS in-service validation on 6 instrumented cells through a full discharge cycle: voltage std. dev., spread and CV (left) stayed low throughout, confirming no outlier weld (right)."}]'></div>
         </div>
 
         <div class="sub">
@@ -529,13 +529,14 @@
           <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span>, RAM Racing Driverless</div>
           <div class="paper-venue">Formula Student Driverless Simulator (FSDS), 2026</div>
           <div class="paper-linkrow">
-            <a class="paper-read" href="papers/fsds-fusion/">read paper</a>
+            <a class="paper-read" href="papers/fsds-fusion/">read the walkthrough</a>
             <span class="slash">/</span><a href="assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">pdf</a>
             <span class="slash">/</span><span class="muted">arXiv soon</span>
             <span class="slash">/</span><span class="muted">code soon</span>
             <span class="slash">/</span><a href="https://www.linkedin.com/in/danielortval/overlay/Project/1411929511/treasury/?profileId=ACoAABqxuG8BxSCZqtkvSw8ffR50Pj5nVNJeR1g" target="_blank" rel="noopener">demo</a>
           </div>
-          <p class="paper-abstract">An incremental perception and control pipeline for autonomous navigation in the Formula Student Driverless Simulator (FSDS). A reactive LiDAR-only baseline isolates cone positions at 20Hz with O(n) sequential clustering and a binary density heuristic for steering, then a forward-facing camera processed by a YOLOv5 detector with FSOCO weights is fused with LiDAR depth. Pinhole ground-plane projection and nearest-neighbor matching align the two sensors to a 0.06m average match distance with near-zero systematic bias. A three-tier hybrid color verification scheme (stripe brightness, BGR channel dominance, HSV hue fallback) reaches roughly 98% accuracy at close range, and a color-aware proportional controller tracks the geometric centerline between the blue and yellow boundaries, eliminating the straight-line oscillation of the baseline while keeping a graceful fallback to the density heuristic under camera failure.</p>
+          <p class="paper-abstract">A LiDAR-only controller drives the track but weaves down every straight, because it cannot tell blue cones from yellow ones. Adding a camera and fusing the two sensors brought them into agreement at 6 cm average match accuracy and killed the oscillation for good.</p>
+          <a class="paper-cta" href="papers/fsds-fusion/">See the full build, with video of the fused stack running</a>
         </div>
       </article>
 
@@ -553,7 +554,8 @@
             <a class="paper-read" href="assets/papers/AnomalyDetectionPaper.pdf" data-paper-open="anomaly">read paper</a>
             <span class="slash">/</span><a href="assets/papers/AnomalyDetectionPaper.pdf" target="_blank" rel="noopener">pdf</a><span class="slash">/</span><span class="muted">code soon</span>
           </div>
-          <p class="paper-abstract">A two-phase system that detects and suppresses YOLO color misclassifications before they reach the path planner. Phase 1 builds a ground-truth dataset: a ROS2 bridge and four-stage spatial matching pipeline label 129,025 cone detections from the Formula Student Driverless Simulator, exposing a 2.52% baseline false-positive rate with orange cones failing at 24.4% (9.7x the mean). Phase 2 trains a two-model XGBoost Safety Gate, framed as supervised anomaly detection, on 17 features including five engineered context features (neighbor agreement, lateral outlier, relative size, corner flag, and a corner-by-prior interaction). On the held-out test set the system reaches F1 = 0.906, PR-AUC = 0.976, and ROC-AUC = 0.999, cutting incorrect color labels reaching the steering controller from 2.73% to roughly 0.24%, a 91% reduction in the failure mode that causes wrong lane assignment, at under 0.3ms per frame on a Raspberry Pi 4.</p>
+          <p class="paper-abstract">YOLO fails silently. It hands back a confident color label that happens to be wrong, and the path planner believes it. I labeled 129,025 cone detections to measure how often that happens, then trained an XGBoost gate that catches roughly 91% of those errors before they reach the steering controller.</p>
+          <a class="paper-cta" href="assets/papers/AnomalyDetectionPaper.pdf" data-paper-open="anomaly">Read the full report, with the dataset build and results</a>
         </div>
       </article>
 
@@ -568,11 +570,12 @@
           <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span></div>
           <div class="paper-venue">Electrical &amp; Computer Engineering, Colorado State University, 2026</div>
           <div class="paper-linkrow">
-            <a class="paper-read" href="papers/rl-sac-ppo/">read paper</a>
+            <a class="paper-read" href="papers/rl-sac-ppo/">read the walkthrough</a>
             <span class="slash">/</span><a href="assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">pdf</a>
             <span class="slash">/</span><span class="muted">code soon</span>
           </div>
-          <p class="paper-abstract">A study of replacing a hand-coded reactive steering controller with a learned policy in the Formula Student Driverless Simulator. The work delivers a reproducible RL environment with a 41-dimensional cone observation, a single steering action, and a three-term reward, with the policy trained against ground-truth cones and warm-started by behavior cloning to isolate control from perception. Soft Actor-Critic was evaluated across six configurations and every run ended in collapse, traced to three structural properties of the algorithm rather than tuning: replay-buffer poisoning, automatic-entropy collapse, and catastrophic forgetting after reward changes. Proximal Policy Optimization is then adopted, whose on-policy formulation, trust-region clipping, and fixed entropy coefficient remove each failure mode by design at the cost of more environment interactions. The result is a validated training infrastructure and a catalogue of failure modes with recognizable training-log signatures.</p>
+          <p class="paper-abstract">Can a learned policy steer the car as well as the controller I already wrote by hand? Six training runs with Soft Actor-Critic all ended in collapse, and tracing why led to three properties of the algorithm itself rather than anything I could fix by tuning.</p>
+          <a class="paper-cta" href="papers/rl-sac-ppo/">See all six runs, what broke in each, and why PPO came next</a>
         </div>
       </article>
 
@@ -748,7 +751,7 @@
 
   <div class="pd-abstract">
     <span class="pd-abstract-label">Abstract</span>
-    <p>We present a two-phase system for detecting and suppressing YOLO color misclassifications in Formula Student Autonomous (FSA) vehicles before they reach the path planner. In Phase 1, a ROS2 ground-truth bridge and four-stage spatial matching pipeline labeled 129,025 cone detections collected across multiple track laps in the Formula Student Driverless Simulator (FSDS), revealing a baseline false-positive rate of 2.52% with pronounced Orange-class fragility at 24.4% — 9.7× the population mean. Analysis identifies three compounding error drivers: low YOLO confidence, long detection range (beyond 8&nbsp;m), and corner-induced camera rotation. In Phase 2, this labeled dataset trains a two-model XGBoost Safety Gate framed as supervised anomaly detection. Seventeen features are used, including five engineered context features. On the held-out test set the combined system achieves F1&nbsp;=&nbsp;0.906, PR-AUC&nbsp;=&nbsp;0.976, and ROC-AUC&nbsp;=&nbsp;0.999. The detector reduces the rate of incorrect color labels reaching the steering controller from 2.73% to approximately 0.24%, a 91% reduction in the failure mode that causes incorrect lane assignment.</p>
+    <p>We present a two-phase system for detecting and suppressing YOLO color misclassifications in Formula Student Autonomous (FSA) vehicles before they reach the path planner. In Phase 1, a ROS2 ground-truth bridge and four-stage spatial matching pipeline labeled 129,025 cone detections collected across multiple track laps in the Formula Student Driverless Simulator (FSDS), revealing a baseline false-positive rate of 2.52% with pronounced Orange-class fragility at 24.4%, 9.7× the population mean. Analysis identifies three compounding error drivers: low YOLO confidence, long detection range (beyond 8&nbsp;m), and corner-induced camera rotation. In Phase 2, this labeled dataset trains a two-model XGBoost Safety Gate framed as supervised anomaly detection. Seventeen features are used, including five engineered context features. On the held-out test set the combined system achieves F1&nbsp;=&nbsp;0.906, PR-AUC&nbsp;=&nbsp;0.976, and ROC-AUC&nbsp;=&nbsp;0.999. The detector reduces the rate of incorrect color labels reaching the steering controller from 2.73% to approximately 0.24%, a 91% reduction in the failure mode that causes incorrect lane assignment.</p>
   </div>
 
   <h3 class="pd-h"><span>I</span> Problem Statement</h3>
@@ -774,7 +777,7 @@
     <figcaption><b>Fig. 3.</b> YOLO detection output from the FSDS front camera. A blue cone (lower left) is labeled <code>orange: 0.81</code>. Distant yellow cones carry incorrect orange and blue labels at confidence above 0.70. These silent misclassifications reach the path planner unchanged. A per-frame accuracy metric counts them as correct 97.5% of the time.</figcaption>
   </figure>
 
-  <h3 class="pd-h"><span>III</span> Phase 1 — Ground-Truth Pipeline</h3>
+  <h3 class="pd-h"><span>III</span> Phase 1: Ground-Truth Pipeline</h3>
   <p><b>ROS2 ground-truth bridge.</b> FSDS publishes the complete simulator-authoritative track layout on the ROS2 topic <code>/fsds/testing_only/track</code> at the simulator frame rate. A dedicated ROS2 node subscribes and caches the latest cone array at each callback. When a YOLO detection frame arrives, the node synchronizes both streams and passes the track state to the matching pipeline. This eliminates all API-level defects: coordinates are in the native world frame, data is frame-synchronous, and no scaling correction is required.</p>
   <p>Ground-truth assignment proceeds in four deterministic stages:</p>
   <ol class="pd-list pd-list-num">
@@ -784,13 +787,13 @@
     <li><b>Nearest-neighbor match.</b> The closest cone within 1.5&nbsp;m is assigned as ground truth. Detections with no cone within 1.5&nbsp;m are excluded from the dataset.</li>
   </ol>
   <p>A color mismatch between the YOLO prediction and the simulator-assigned cone class is labeled a false positive (anomaly). YOLO labels were further corrected using HSV-space post-processing to suppress known hue ambiguities in the simulator renderer.</p>
-  <p><b>Range filter (1&nbsp;m to 18&nbsp;m).</b> Detections below 1&nbsp;m are excluded due to partial occlusion by the vehicle nose. Above 18&nbsp;m, projection error grows quadratically and the observed 8.5% anomaly rate at 20–30&nbsp;m is dominated by label noise rather than genuine YOLO failure. The filter retains the actionable anomaly signal.</p>
+  <p><b>Range filter (1&nbsp;m to 18&nbsp;m).</b> Detections below 1&nbsp;m are excluded due to partial occlusion by the vehicle nose. Above 18&nbsp;m, projection error grows quadratically and the observed 8.5% anomaly rate at 20 to 30&nbsp;m is dominated by label noise rather than genuine YOLO failure. The filter retains the actionable anomaly signal.</p>
 
-  <h3 class="pd-h"><span>IV</span> Phase 1 — Analysis of False Positives</h3>
+  <h3 class="pd-h"><span>IV</span> Phase 1: Analysis of False Positives</h3>
   <h4 class="pd-sub">A. Dataset Scale and Baseline Error Rate</h4>
   <div class="pd-tablewrap">
     <table class="pd-table">
-      <caption>Table I — Per-class detection count and FP rate</caption>
+      <caption>Table I. Per-class detection count and FP rate</caption>
       <thead><tr><th>Color</th><th>Detections</th><th>FP count</th><th>FP rate</th></tr></thead>
       <tbody>
         <tr><td>Yellow</td><td>64,495</td><td>1,988</td><td>3.1%</td></tr>
@@ -827,7 +830,7 @@
   </figure>
   <p>Plotting all 3,254 FPs in the joint space of YOLO confidence and match distance reveals a concentrated high-density cluster at distance&nbsp;&gt;&nbsp;1.2&nbsp;m AND confidence&nbsp;&lt;&nbsp;0.70. Orange FPs are disproportionately concentrated in this zone, confirming the Orange failure is range-amplified. A simple threshold rule catches the majority of the high-density cluster but misses hard negatives: FPs with high confidence that lie outside the zone but still represent real misclassifications. The joint feature space requires a non-linear decision surface, which is exactly what gradient boosting learns.</p>
 
-  <h3 class="pd-h"><span>V</span> Phase 2 — Why XGBoost</h3>
+  <h3 class="pd-h"><span>V</span> Phase 2: Why XGBoost</h3>
   <p>Four properties of this problem make XGBoost the natural choice over deep learning, logistic regression, or kernel methods:</p>
   <ul class="pd-list">
     <li><b>Tabular feature structure.</b> The input is 17-dimensional tabular metadata: bounding-box geometry, YOLO confidence, vehicle-frame coordinates, and ego dynamics. Tree ensembles perform well on tabular data by exploiting axis-aligned splits without requiring convolution or attention inductive biases.</li>
@@ -838,24 +841,24 @@
   <p>The regularized training objective is:</p>
   <div class="pd-eq"><span class="pd-eq-body">L = Σ<sub>i</sub> <i>l</i>(<i>y</i><sub>i</sub>, ŷ<sub>i</sub>) + Σ<sub>k</sub> Ω(<i>f</i><sub>k</sub>),&nbsp;&nbsp;&nbsp; Ω(<i>f</i><sub>k</sub>) = γ<i>T</i> + ½λ‖<i>w</i>‖²</span></div>
   <p>where <i>l</i> is binary logistic loss and Ω penalizes tree complexity (<i>T</i>&nbsp;=&nbsp;leaf count, <i>w</i>&nbsp;=&nbsp;leaf weights). Trees are added sequentially, each fitted to the negative gradient of the current ensemble loss.</p>
-  <p><b>Hyperparameters</b> (boundary / orange models): <code>n_estimators = 500</code> (early stopping, patience&nbsp;=&nbsp;30), <code>max_depth = 5–6</code>, <code>learning_rate = 0.05</code>, <code>subsample = 0.8</code>, <code>colsample_bytree = 0.8</code>, <code>reg_alpha = 0.1</code>. All tuned on the validation split.</p>
+  <p><b>Hyperparameters</b> (boundary / orange models): <code>n_estimators = 500</code> (early stopping, patience&nbsp;=&nbsp;30), <code>max_depth = 5 to 6</code>, <code>learning_rate = 0.05</code>, <code>subsample = 0.8</code>, <code>colsample_bytree = 0.8</code>, <code>reg_alpha = 0.1</code>. All tuned on the validation split.</p>
 
   <h3 class="pd-h"><span>VI</span> Data Collection and Feature Engineering</h3>
   <p>The Phase 2 training set is the labeled output of the Phase 1 pipeline: 200,000 detections from 18,218 frames, 5,455 anomalies (2.73% rate). The frame-level split into 139,128 train / 30,263 val / 30,547 test (70/15/15) is performed by sorting on <code>frame_id</code> (simulator time) and splitting at the corresponding percentile boundaries. This prevents label leakage between cones co-detected in the same frame.</p>
   <p><b>Raw features (12):</b> <code>yolo_confidence</code>, <code>bbox_h</code>, <code>aspect_ratio</code>, <code>x_car</code>, <code>y_car</code>, <code>bearing_deg</code>, <code>yaw_rate_radps</code>, <code>car_speed_mps</code>, <code>prior_disagreement</code>, <code>yc_blue</code>, <code>yc_yellow</code>, <code>yc_orange</code>.</p>
-  <p><b>Engineered features (5)</b> — these encode spatial context and temporal priors that a single-frame YOLO output cannot represent:</p>
+  <p><b>Engineered features (5).</b> These encode spatial context and temporal priors that a single-frame YOLO output cannot represent:</p>
   <ul class="pd-list">
-    <li><code>neighbor_agree</code> — fraction of <i>K</i>&nbsp;=&nbsp;3 nearest cones in the same frame sharing the same YOLO color label. Low agreement signals localized confusion consistent with anomaly clusters.</li>
-    <li><code>lateral_outlier</code> — |<i>y</i><sub>car</sub> − mean(<i>y</i><sub>car</sub> of same-color neighbors)|. A cone displaced laterally from its color-class peers is geometrically inconsistent with the expected track layout.</li>
-    <li><code>relative_size</code> — <code>bbox_h</code> / median(<code>bbox_h</code> within frame). Anomalies often correspond to undersized detections at range; normalizing by the within-frame median removes absolute distance effects.</li>
-    <li><code>is_in_corner</code> — 1 if |<code>yaw_rate_radps</code>|&nbsp;&gt;&nbsp;0.2&nbsp;rad/s, else 0. Corners introduce camera rotation that degrades projection accuracy.</li>
-    <li><code>corner_x_prior</code> — <code>is_in_corner × prior_disagreement</code>. Interaction term that amplifies the prior-disagreement signal specifically during cornering, where temporal inconsistency is most informative.</li>
+    <li><code>neighbor_agree</code>, fraction of <i>K</i>&nbsp;=&nbsp;3 nearest cones in the same frame sharing the same YOLO color label. Low agreement signals localized confusion consistent with anomaly clusters.</li>
+    <li><code>lateral_outlier</code>, |<i>y</i><sub>car</sub> − mean(<i>y</i><sub>car</sub> of same-color neighbors)|. A cone displaced laterally from its color-class peers is geometrically inconsistent with the expected track layout.</li>
+    <li><code>relative_size</code>, <code>bbox_h</code> / median(<code>bbox_h</code> within frame). Anomalies often correspond to undersized detections at range; normalizing by the within-frame median removes absolute distance effects.</li>
+    <li><code>is_in_corner</code>, 1 if |<code>yaw_rate_radps</code>|&nbsp;&gt;&nbsp;0.2&nbsp;rad/s, else 0. Corners introduce camera rotation that degrades projection accuracy.</li>
+    <li><code>corner_x_prior</code>, <code>is_in_corner × prior_disagreement</code>. Interaction term that amplifies the prior-disagreement signal specifically during cornering, where temporal inconsistency is most informative.</li>
   </ul>
 
   <h3 class="pd-h"><span>VII</span> Two-Model Architecture</h3>
   <p>A single unified classifier trained on all three cone classes performs sub-optimally because boundary and orange cones have fundamentally different failure mechanisms:</p>
   <ul class="pd-list">
-    <li><b>Boundary cones (blue + yellow)</b> fail primarily at long range and in corners. Their anomaly rate is 1.5% (blue: 0.9%, yellow: 2.1%). They share the same physical failure mechanism — projection error collapsing the blue/yellow color distinction at range — and benefit from a joint feature distribution.</li>
+    <li><b>Boundary cones (blue + yellow)</b> fail primarily at long range and in corners. Their anomaly rate is 1.5% (blue: 0.9%, yellow: 2.1%). They share the same physical failure mechanism, projection error collapsing the blue/yellow color distinction at range, and benefit from a joint feature distribution.</li>
     <li><b>Orange cones (markers)</b> fail at a 19% anomaly rate, 7× the boundary mean. The mechanism is distinct: orange occupies a narrow hue band between yellow and red, and renderer hue variation is sufficient to push detections across the decision boundary even at close range. Orange also has fewer detections per lap, making a dedicated model with separate threshold tuning essential.</li>
   </ul>
   <p>Both models share the same 17-feature set and hyperparameter grid. Thresholds are tuned independently on the validation split to prevent rare-class bias.</p>
@@ -865,7 +868,7 @@
   <p><b>Early stopping.</b> Training halts when PR-AUC on the validation set fails to improve for 30 consecutive boosting rounds.</p>
   <p><b>Per-class threshold tuning.</b> The decision threshold is swept from 0.1 to 0.9 in 0.01 increments on the validation split, and the F1-maximizing threshold is selected independently for each model. Without separate tuning, <code>scale_pos_weight</code> can cause over-flagging of orange or under-flagging of boundary depending on the class frequency ratio.</p>
 
-  <h3 class="pd-h"><span>IX</span> Phase 2 — Results</h3>
+  <h3 class="pd-h"><span>IX</span> Phase 2: Results</h3>
   <p>All metrics are evaluated on the held-out test set (30,547 detections, per-frame, no temporal smoothing).</p>
   <div class="pd-metrics">
     <div class="pd-metric"><b>0.906</b><span>F1 (macro avg)</span></div>
@@ -874,13 +877,13 @@
   </div>
   <div class="pd-tablewrap">
     <table class="pd-table">
-      <caption>Table III — Per-class F1, precision, and recall on the test set</caption>
+      <caption>Table III. Per-class F1, precision, and recall on the test set</caption>
       <thead><tr><th>Class</th><th>F1</th><th>Precision</th><th>Recall</th></tr></thead>
       <tbody>
         <tr><td>Blue</td><td>0.940</td><td>0.95</td><td>0.96</td></tr>
         <tr><td>Yellow</td><td>0.938</td><td>0.98</td><td>0.91</td></tr>
         <tr><td>Orange</td><td>0.546</td><td>0.61</td><td>0.42</td></tr>
-        <tr><td><b>Macro avg</b></td><td><b>0.906</b></td><td>—</td><td>—</td></tr>
+        <tr><td><b>Macro avg</b></td><td><b>0.906</b></td><td>n/a</td><td>n/a</td></tr>
       </tbody>
     </table>
   </div>
@@ -891,7 +894,7 @@
     <img src="assets/papers/figures/anomaly/fig-6.jpg" alt="Horizontal bar chart of XGBoost gain-based feature importance across all 17 features, with is_in_corner dominant" loading="lazy" />
     <figcaption><b>Fig. 6.</b> XGBoost gain-based feature importance (all 17 features). <code>is_in_corner</code> dominates at 0.205; <code>yolo_confidence</code> (0.115) and <code>yc_orange</code> (0.090) follow. All five engineered features appear in the top 10.</figcaption>
   </figure>
-  <p><code>is_in_corner</code> is the dominant split variable by a wide margin — the corner flag alone accounts for more than twice the gain of the second-ranked feature, consistent with the Phase 1 observation that camera rotation during cornering is the primary driver of anomaly risk. The model arrived at this ranking through split-gain optimization with no explicit hypothesis encoded. <code>neighbor_agree</code> and <code>lateral_outlier</code> rank fourth and fifth, confirming that spatial context features add discriminating power beyond what single-detection geometry provides.</p>
+  <p><code>is_in_corner</code> is the dominant split variable by a wide margin. The corner flag alone accounts for more than twice the gain of the second-ranked feature, consistent with the Phase 1 observation that camera rotation during cornering is the primary driver of anomaly risk. The model arrived at this ranking through split-gain optimization with no explicit hypothesis encoded. <code>neighbor_agree</code> and <code>lateral_outlier</code> rank fourth and fifth, confirming that spatial context features add discriminating power beyond what single-detection geometry provides.</p>
 
   <h4 class="pd-sub">Confusion Matrix</h4>
   <figure class="pd-fig">
@@ -905,7 +908,7 @@
     <img src="assets/papers/figures/anomaly/fig-8.jpg" alt="Error map showing classifier errors in vehicle-frame space and confidence-distance space" loading="lazy" />
     <figcaption><b>Fig. 8.</b> Error map in vehicle frame (left) and confidence-distance space (right). FNs cluster at <i>x</i>&nbsp;=&nbsp;8 to 16&nbsp;m, reproducing the Phase 1 range-dependency finding. FPs are sparse and dispersed.</figcaption>
   </figure>
-  <p>In the vehicle frame, false negatives (red, 51) cluster in the mid-to-long range band (<i>x</i><sub>car</sub>&nbsp;=&nbsp;8 to 16&nbsp;m) and near the lateral extremes. False positives (orange, 25) are sparse and widely dispersed, confirming the model rarely flags correct detections. In confidence-distance space, FNs span the full confidence range but concentrate below 0.7 — the hard-negative regime where anomalies are structurally similar to correct detections.</p>
+  <p>In the vehicle frame, false negatives (red, 51) cluster in the mid-to-long range band (<i>x</i><sub>car</sub>&nbsp;=&nbsp;8 to 16&nbsp;m) and near the lateral extremes. False positives (orange, 25) are sparse and widely dispersed, confirming the model rarely flags correct detections. In confidence-distance space, FNs span the full confidence range but concentrate below 0.7, the hard-negative regime where anomalies are structurally similar to correct detections.</p>
 
   <h4 class="pd-sub">SHAP Attribution</h4>
   <figure class="pd-fig">
@@ -916,7 +919,7 @@
   <p>The agreement between Phase 1 physics analysis and Phase 2 learned representations is a key result of this work: corner risk, confidence separability, and Orange fragility all emerge from split-gain optimization without explicit encoding.</p>
 
   <h3 class="pd-h"><span>X</span> Deployment Impact</h3>
-  <p>The anomaly detector does not improve YOLO itself — YOLO per-frame accuracy is unchanged. The detector improves system-level safety by identifying approximately 91% of YOLO color errors at 94% precision before they reach the steering controller. This reduces the rate of incorrect color labels reaching downstream control from <b>2.73% to approximately 0.24%</b>, a 91% reduction in the failure mode that causes incorrect lane assignment.</p>
+  <p>The anomaly detector does not improve YOLO itself. YOLO per-frame accuracy is unchanged. The detector improves system-level safety by identifying approximately 91% of YOLO color errors at 94% precision before they reach the steering controller. This reduces the rate of incorrect color labels reaching downstream control from <b>2.73% to approximately 0.24%</b>, a 91% reduction in the failure mode that causes incorrect lane assignment.</p>
   <p>Operationally, the detector runs as a post-processing layer on each YOLO output frame. A flagged detection is suppressed (treated as no detection for that cone in that frame) or overridden by the most recent confident detection of the same physical cone. Inference latency is negligible: XGBoost on 17 scalar features processes a full frame of 20 cones in <b>under 0.3&nbsp;ms on a Raspberry Pi 4</b>, well within the YOLO inference budget.</p>
   <p>The combined Phase 1 + Phase 2 pipeline implements a dual logic gate:</p>
   <pre class="pd-code">Phase 1:  d &gt; 1.2 m  AND  conf &lt; 0.70
@@ -924,7 +927,7 @@ Phase 2:  P(anomaly | features) &gt; θ_class</pre>
   <p>Detections flagged by the Phase 1 geometric rule are prioritized for Phase 2 re-scoring. Those further confirmed by Phase 2 are suppressed. Detections below the Phase 1 threshold are passed directly to the path planner with acceptably low FP risk.</p>
 
   <h3 class="pd-h"><span>XI</span> Limitations and Future Work</h3>
-  <p><b>Orange data scarcity.</b> Per-class F1&nbsp;=&nbsp;0.546 for orange reflects fundamental data limitations: orange cones are sparse per lap (start/finish and chicane only), so the orange anomaly class has far fewer training examples than either boundary class. Denser orange placement in the simulator — through additional chicane entries, more lap markers, or dedicated orange-cone test circuits — would directly improve both precision and recall.</p>
+  <p><b>Orange data scarcity.</b> Per-class F1&nbsp;=&nbsp;0.546 for orange reflects fundamental data limitations: orange cones are sparse per lap (start/finish and chicane only), so the orange anomaly class has far fewer training examples than either boundary class. Denser orange placement in the simulator, through additional chicane entries, more lap markers, or dedicated orange-cone test circuits, would directly improve both precision and recall.</p>
   <p><b>Temporal smoothing.</b> We explored identifying the same physical cone across frames via world-frame projection and averaging anomaly probability over a sliding window. A naive implementation (rolling mean, 5-frame window, 0.7&nbsp;m matching distance) degraded performance, suggesting the approach requires confidence-weighted aggregation, asymmetric updates (anomaly flags should persist once set), and track-quality filtering. Principled temporal aggregation is left to future work; it is the most promising direction for improving orange detection where per-frame data is fundamentally sparse.</p>
   <p>Additional directions include evaluation under real lighting variation (not available in FSDS), integration with the SLAM module to use world-frame cone positions as additional features, and online adaptation of the detection thresholds as the vehicle accumulates lap-specific statistics during a competition day.</p>
 </template>
