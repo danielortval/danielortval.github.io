@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+// Deep links (e.g. shared as .../rl-sac-ppo/#sac) must land on the right
+// section, but this is a long page with a webfont and several videos —
+// the browser's native "jump to #hash on load" fires before either has
+// settled and lands far off target. Strip the hash immediately so the
+// browser never gets to act on it; paper-page.js re-applies it correctly
+// once layout is stable.
+(function () {
+  if (!location.hash) return;
+  window.__ppPendingHash = location.hash;
+  history.replaceState(null, '', location.pathname + location.search);
+})();
+</script>
+<title>Reinforcement Learning for Steering Control — Daniel Ortiz Valencia</title>
+<meta name="description" content="Six reinforcement-learning experiments, six collapses, and why Proximal Policy Optimization succeeded where Soft Actor-Critic couldn't — steering an FSAE car in the Formula Student Driverless Simulator." />
+<meta property="og:title" content="Reinforcement Learning for Steering Control in FSDS" />
+<meta property="og:description" content="Structural failure modes of Soft Actor-Critic, and the case for PPO." />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d9741f'/%3E%3Cpath d='M9 8h6a8 8 0 010 16H9z' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="../../assets/papers/paper-page.css" />
+</head>
+<body>
+
+<header class="pp-topbar">
+  <a class="pp-topbar-back" href="../../index.html#papers"><span class="arrow">←</span> Daniel Ortiz Valencia</a>
+  <div class="pp-topbar-actions">
+    <a class="pp-btn" href="../../assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">PDF ↗</a>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span class="theme-icon-sun" aria-hidden="true">☀</span><span class="theme-icon-moon" aria-hidden="true">☾</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="pp-hero">
+  <video autoplay muted loop playsinline preload="auto" width="880" height="322">
+    <source src="../../assets/papers/videos/rl-sac-ppo/ppo-well-trained.mp4" type="video/mp4" />
+  </video>
+  <div class="pp-hero-content">
+    <div class="pp-hero-badges">
+      <span class="pp-badge is-orange">Technical Report</span>
+      <span class="pp-badge">Colorado State University · 2026</span>
+    </div>
+    <h1 class="pp-hero-title">Reinforcement Learning for Steering Control in the Formula Student Driverless Simulator</h1>
+    <p class="pp-hero-subtitle">Structural failure modes of Soft Actor-Critic, and the case for PPO. Six training runs, six collapses — traced to three properties of the algorithm, not bad luck or bad tuning.</p>
+    <div class="pp-hero-meta"><b>Daniel Ortiz Valencia</b> · Dept. of Electrical &amp; Computer Engineering</div>
+  </div>
+  <div class="pp-scrolldown">Scroll ↓</div>
+</section>
+
+<!-- ============ STORY NAV ============ -->
+<div class="pp-storynav-wrap">
+  <nav class="pp-storynav">
+    <a href="#setup">The Setup</a>
+    <a href="#warmstart">A Warm Start</a>
+    <a href="#sac">Six Ways SAC Collapsed</a>
+    <a href="#why">Why SAC Kept Failing</a>
+    <a href="#ppo">The Move to PPO</a>
+    <a href="#results">Results</a>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============ TLDR ============ -->
+<section class="pp-section pp-tldr">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">The Question</span>
+    <h2 class="pp-section-title">Can a learned policy steer as well as the hand-coded controller we already trust?</h2>
+    <div class="pp-prose">
+      <p class="pp-lede">We restricted the learning problem to one decision per step — how far to turn — and set out to answer it honestly. Six configurations of Soft Actor-Critic later, every single one had collapsed. We traced the failures to three structural properties of the algorithm itself, adopted Proximal Policy Optimization instead, and ended up with a validated training environment plus a catalogue of failure modes worth publishing precisely because the field's negative results are so rarely written down.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SETUP ============ -->
+<section id="setup" class="pp-section">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">I — The Setup</span>
+    <h2 class="pp-section-title">Before any learning, we built something that already drives</h2>
+    <div class="pp-prose">
+      <p>Random initialization in a racing environment crashes the car within a second of every episode — that's a terrible place to start learning from. So before touching an RL algorithm, we built and validated a reactive controller by hand: a LiDAR-only baseline that clusters the point cloud in O(<i>n</i>) by exploiting the angular scan order of the rotating sensor, steering from the mean lateral cone position. It completes laps. It also weaves on straights, because it has no idea which boundary is which color.</p>
+      <p>Adding a forward-facing camera fixed that. A YOLO detector trained on the FSOCO dataset classifies cone color, a pinhole ground-plane projection converts pixel detections into metric vehicle-frame coordinates, and nearest-neighbor matching fuses that color label with LiDAR depth. Getting the coordinate frames to agree took three separate corrections found through debug logging — a 1.3&nbsp;m reference-frame mismatch, swapped projection axes, and a wrong default camera pitch. Once fixed, the fused controller stopped weaving. This reactive stack is what we reuse everywhere below: as the RL environment's ground-truth generator, and as the demonstrator for behavior cloning.</p>
+    </div>
+
+    <div class="pp-video-solo">
+      <figure class="pp-video">
+        <video src="../../assets/papers/videos/rl-sac-ppo/reactive-baseline.mp4" muted loop playsinline preload="metadata" width="880" height="320"></video>
+        <figcaption><b>The fused controller, live.</b> Camera detections (left), the fused blue/yellow/target visualization (center), and the simulator (right) — the same debug tooling that underlies every result on this page. Blue and yellow dots are fused cone positions; the green dot is the centerline target the controller steers toward.</figcaption>
+      </figure>
+    </div>
+
+    <div class="pp-prose">
+      <p>The environment itself exposes a 41-dimensional observation — the six nearest blue and six nearest yellow cones as (x, y, color), plus forward speed, lateral speed, yaw rate, the previous steering command, and target speed. Six cones per side gives roughly 15&nbsp;m of look-ahead at racing speed, enough to see one full corner coming. The action is a single scalar steering command; throttle stays on the proportional controller so the agent only has to learn one thing.</p>
+    </div>
+
+    <div class="pp-figure-row">
+      <figure class="pp-figure">
+        <img src="../../assets/papers/figures/rl-sac-ppo/fig-1.jpg" alt="End-to-end pipeline diagram: the simulator wrapped as a Gymnasium environment, perception bypassed during training in favor of ground-truth cone positions" loading="lazy" />
+        <figcaption><b>Fig. 1.</b> During training the perception block is bypassed in favor of ground-truth cone positions, isolating the control problem. The validated LiDAR+camera stack above remains the deployment path.</figcaption>
+      </figure>
+      <figure class="pp-figure">
+        <img src="../../assets/papers/figures/rl-sac-ppo/fig-2.jpg" alt="Diagram of the 41-dimensional observation vector: 18 values per cone wall plus five ego-state scalars" loading="lazy" />
+        <figcaption><b>Fig. 2.</b> The 41-D observation: 18 values per cone wall, plus five ego-state scalars. Cones are sorted by distance and zero-padded.</figcaption>
+      </figure>
+    </div>
+
+    <div class="pp-callout">
+      <b>The unglamorous part.</b> Training needs hundreds of thousands of steps — at the simulator's default 30&nbsp;Hz, a million steps costs about 9 hours. Cranking AirSim's <code>ClockSpeed</code> to 3× and killing the render viewport pushed the step rate past 1,200&nbsp;iterations/second, 40× baseline. That speedup has a ceiling: push the clock further and the physics timestep grows enough to break collision detection. Two undocumented bugs cost several real days on top of that — the car sometimes spawned with locked wheels (fixed with a mandatory 2&nbsp;s settle pause after reset), and it silently ignored throttle because it spawned in neutral gear. Both were found the same way: watching the car refuse to move, and reasoning backward.
+    </div>
+  </div>
+</section>
+
+<!-- ============ WARM START ============ -->
+<section id="warmstart" class="pp-section pp-section--tint">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">II — A Warm Start</span>
+    <h2 class="pp-section-title">Teaching the demonstrator before teaching the agent</h2>
+    <div class="pp-prose">
+      <p>Since random exploration crashes immediately, we recorded the hand-coded controller driving laps and trained the policy by supervised regression to imitate it — behavior cloning, producing a pretrained checkpoint the RL agent starts from instead of from scratch. The demonstrator itself went through its own iteration: a Gaussian-weighted lookahead caused phase lag at high loop rates, a geometric pure-pursuit variant ran off-track at corner exits, and lowering the speed target only made things worse by weakening the proportional correction.</p>
+      <p>The version that actually worked was the simplest one we tried: take the midpoint of the three nearest cones per side, apply a proportional correction with a softer divisor. It hits about one cone per lap — an imperfect but adequate teacher, and the clip below is that exact demonstrator driving the track top-down, no vision or reinforcement learning involved yet.</p>
+    </div>
+
+    <div class="pp-video-solo">
+      <figure class="pp-video">
+        <video src="../../assets/papers/videos/rl-sac-ppo/baseline-midpoint.mp4" muted loop playsinline preload="metadata" width="880" height="496"></video>
+        <figcaption><b>The behavior-cloning demonstrator.</b> Midpoint-of-nearest-cones steering, top-down view, ground-truth positions — no perception, no learning. This is the trajectory every RL policy below was warm-started from.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAC: SIX EXPERIMENTS ============ -->
+<section id="sac" class="pp-section pp-section--dark pp-section--wide">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">III — Six Ways SAC Collapsed</span>
+    <h2 class="pp-section-title">Every run learned something. Every run then lost it.</h2>
+    <div class="pp-prose">
+      <p>With the environment validated and a warm-start policy in hand, we trained with Soft Actor-Critic — an off-policy actor-critic method suited to continuous control, and the natural first choice. Across six configurations, every apparent success carried a hidden pathology.</p>
+    </div>
+
+    <figure class="pp-figure">
+      <img src="../../assets/papers/figures/rl-sac-ppo/fig-4.jpg" alt="Bar chart of average episode length across SAC runs, showing apparent successes that each carried a hidden pathology" loading="lazy" />
+      <figcaption><b>Fig. 4.</b> Average episode length across SAC runs. The long bar at Test&nbsp;9.5 looks like progress — it's actually the car driving <i>through</i> cones. Test&nbsp;9.7 collapsed within 3k steps of a single reward change.</figcaption>
+    </figure>
+
+    <div class="pp-log">
+      <div class="pp-log-row"><span class="pp-log-test">Test 9</span><span class="pp-log-len">67 → 484</span><span class="pp-log-note">Learns, then crashes at the same hairpin every run — the replay buffer never sees data past the corner (<b>termination starvation</b>).</span></div>
+      <div class="pp-log-row"><span class="pp-log-test">Test 9.5</span><span class="pp-log-len">1,463</span><span class="pp-log-note">Made cone hits non-terminal to fix the above. The agent learns to treat cones as speed bumps — 30+ hits per episode, masked by a fat lap bonus.</span></div>
+      <div class="pp-log-row"><span class="pp-log-test">Test 9.6</span><span class="pp-log-len">263</span><span class="pp-log-note">Raised the cone penalty to −25. Cleanest model of the six — zero cone hits — but a consistent sideways drift remained.</span></div>
+      <div class="pp-log-row"><span class="pp-log-test">Test 9.7</span><span class="pp-log-len">18</span><span class="pp-log-note">Reloaded 9.6, raised the centerline weight to fix the drift. Collapsed from 131 to 18 steps in 3k steps and never recovered (<b>catastrophic forgetting</b>).</span></div>
+      <div class="pp-log-row"><span class="pp-log-test">Test 11</span><span class="pp-log-len">566</span><span class="pp-log-note">Multiplied velocity by centerline quality so a fast-but-off-center car earns little. Quality climbed 0.45 → 0.74 before an early-stopping bug killed the run at 15k steps.</span></div>
+      <div class="pp-log-row"><span class="pp-log-test">Test 13</span><span class="pp-log-len">454</span><span class="pp-log-note">Strong from 5k–11k steps (reward ≈ +0.71), then entropy collapsed. Auto-recovery failed three times; the pruning script then deleted the best checkpoint.</span></div>
+    </div>
+
+    <div class="pp-prose">
+      <p>Two reward bugs cost real time before any of this: throttle hardcoded at 40% let the car hit 17&nbsp;m/s before doing anything useful, and a signed centerline offset consumed without an absolute value rewarded the agent for drifting <i>left</i> — it looked exactly like a tuning problem until it wasn't.</p>
+    </div>
+
+    <figure class="pp-figure">
+      <img src="../../assets/papers/figures/rl-sac-ppo/fig-3.jpg" alt="Three reward component curves: Gaussian centerline reward, capped velocity reward, and quadratic smoothness penalty" loading="lazy" />
+      <figcaption><b>Fig. 3.</b> The three reward terms, after both bugs were fixed. The centerline term must use the absolute offset — the signed version is what rewarded the leftward drift.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ WHY SAC KEPT FAILING ============ -->
+<section id="why" class="pp-section">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">IV — Why SAC Kept Failing</span>
+    <h2 class="pp-section-title">Not tuning errors. Properties of the algorithm.</h2>
+    <div class="pp-prose">
+      <p>Across Tests 9 through 13, the same three failure modes kept recurring — and they're structural, not the result of a bad seed or a wrong hyperparameter.</p>
+    </div>
+    <div class="pp-callout"><b>Replay-buffer poisoning.</b> SAC re-learns from a large memory of past experience. A bad episode — driving through 41 cones, say — persists in the buffer for thousands of future updates with no mechanism to flush it, so the agent keeps re-learning behavior it should have abandoned.</div>
+    <div class="pp-callout"><b>Entropy collapse.</b> The automatic entropy tuner can drive the exploration bonus toward zero, making the actor deterministic. Once deterministic, a small systematic bias — steering 0.1 too far, say — gets reinforced by the critic until the policy outputs full steering lock. This is exactly the pattern at step 11k in Test&nbsp;13.</div>
+    <div class="pp-callout"><b>Catastrophic forgetting after reward changes.</b> The critic's calibration is tied to one specific reward shape. Change a single weight after loading a checkpoint, and the critic starts predicting against a reality that no longer matches its training — the agent optimizes a mispredicted target and collapses. This is what ended Test&nbsp;9.7.</div>
+    <div class="pp-prose">
+      <p>In combination, almost any SAC experiment was one bad batch, one entropy step, or one reward tweak away from collapse — and none of the three could be fully prevented by tuning around it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOVE TO PPO ============ -->
+<section id="ppo" class="pp-section pp-section--tint">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">V — The Move to PPO</span>
+    <h2 class="pp-section-title">A slow algorithm that finishes beats a fast one that collapses</h2>
+    <div class="pp-prose">
+      <p>After five collapses across distinct configurations, the conclusion wasn't "tune harder" — it was that SAC's failure mode was structural. Proximal Policy Optimization removes each of the three problems above by design, not by tuning:</p>
+    </div>
+
+    <figure class="pp-figure">
+      <img src="../../assets/papers/figures/rl-sac-ppo/fig-5.jpg" alt="Structural comparison table of SAC versus PPO across experience reuse, update bound, exploration, reward changes, and sample cost" loading="lazy" />
+      <figcaption><b>Fig. 5.</b> PPO has no replay buffer to poison — it collects a fresh batch, trains on it once, and discards it. Trust-region clipping bounds how far one update can move the policy. A fixed entropy coefficient prevents silent exploration decay.</figcaption>
+    </figure>
+
+    <div class="pp-prose">
+      <p>The tradeoff is sample efficiency: PPO needs roughly 300k–500k environment interactions against SAC's 50k–100k, which is 8–10 wall-clock hours instead of 1–2 at the ~12–15 steps/second this setup sustains. But a SAC run that collapses produces nothing usable, while a PPO run that finishes — even slowly — produces a model that can actually be evaluated and improved on. That asymmetry is the whole argument for switching.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section id="results" class="pp-section">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">VI — Results</span>
+    <h2 class="pp-section-title">Three reference models, and infrastructure that doesn't need to be rebuilt</h2>
+
+    <div class="pp-stat-row">
+      <div class="pp-stat"><b>263</b><span>avg. steps, Test 9.6 — zero cone hits, cleanest SAC model</span></div>
+      <div class="pp-stat"><b>454</b><span>avg. steps, Test 13 — longest-driving SAC checkpoint</span></div>
+      <div class="pp-stat"><b>40×</b><span>training speedup from clock scaling + no render</span></div>
+      <div class="pp-stat"><b>8–10 hr</b><span>PPO wall-clock cost vs. SAC's 1–2 hr</span></div>
+    </div>
+
+    <div class="pp-video-solo">
+      <figure class="pp-video">
+        <video src="../../assets/papers/videos/rl-sac-ppo/ppo-well-trained.mp4" muted loop playsinline preload="metadata" width="880" height="322"></video>
+        <figcaption><b>A well-trained policy, driving.</b> The same fused debug visualization as the reactive baseline above — steering command, fused cone targets, and the simulator, all live.</figcaption>
+      </figure>
+    </div>
+
+    <div class="pp-prose">
+      <p>None of the three SAC checkpoints — the BC baseline, Test 9.6, or the Test 13 step-5000 checkpoint — are competition-ready. All three are useful reference points. The more durable result is the infrastructure itself: a correct environment wrapper, a verified reward signal, a working speed-curriculum callback, a stable telemetry pipeline. The expensive debugging — the wheel-lock spawn, the gear flag, the centerline sign error, the lap counter, the corner-distance metric — is done and doesn't need to be repeated. The next experiment is PPO on this same environment and the same BC starting policy; only the algorithm changes.</p>
+      <p>Open questions worth chasing next: a clean wall-clock-to-baseline benchmark, whether SAC's sample-efficiency advantage trades against cross-track generalization, whether residual RL on top of the reactive controller transfers cleanly, and how much domain randomization closes the cone-detection sim-to-real gap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section class="pp-section pp-close">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">Conclusion</span>
+    <h2 class="pp-section-title">A learned steering policy is achievable — the cost was infrastructure, not model novelty</h2>
+    <div class="pp-prose">
+      <p>SAC's repeated collapses followed from off-policy replay, automatic entropy tuning, and a critic whose calibration is tied to the reward function. PPO addresses each of these by construction. We're publishing both the successes and the failures here so other teams can reuse the validated infrastructure and skip straight past the failure modes documented above.</p>
+    </div>
+    <div class="pp-close-actions">
+      <a class="pp-btn is-primary" href="../../assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">Read the full technical report (PDF) ↗</a>
+      <a class="pp-btn" href="../../index.html#papers">← Back to Papers &amp; Research</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pp-footer">
+  <span>© <span id="year"></span> Daniel Ortiz Valencia</span>
+  <span>Dept. of Electrical &amp; Computer Engineering, Colorado State University</span>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="../../assets/papers/paper-page.js"></script>
+</body>
+</html>

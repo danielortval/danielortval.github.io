@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+// Deep links (e.g. shared as .../fsds-fusion/#fusion) must land on the
+// right section, but this is a long page with a webfont and several
+// videos — the browser's native "jump to #hash on load" fires before
+// either has settled and lands far off target. Strip the hash immediately
+// so the browser never gets to act on it; paper-page.js re-applies it
+// correctly once layout is stable.
+(function () {
+  if (!location.hash) return;
+  window.__ppPendingHash = location.hash;
+  history.replaceState(null, '', location.pathname + location.search);
+})();
+</script>
+<title>Incremental LiDAR-Camera Sensor Fusion — Daniel Ortiz Valencia</title>
+<meta name="description" content="A reactive LiDAR-only baseline, a YOLOv5 camera module, and the fusion pipeline that eliminated straight-line oscillation in the Formula Student Driverless Simulator." />
+<meta property="og:title" content="Incremental LiDAR-Camera Sensor Fusion for Reactive Cone Following" />
+<meta property="og:description" content="A color-aware fused controller for the Formula Student Driverless Simulator." />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d9741f'/%3E%3Cpath d='M9 8h6a8 8 0 010 16H9z' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="../../assets/papers/paper-page.css" />
+</head>
+<body>
+
+<header class="pp-topbar">
+  <a class="pp-topbar-back" href="../../index.html#papers"><span class="arrow">←</span> Daniel Ortiz Valencia</a>
+  <div class="pp-topbar-actions">
+    <a class="pp-btn" href="../../assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">PDF ↗</a>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span class="theme-icon-sun" aria-hidden="true">☀</span><span class="theme-icon-moon" aria-hidden="true">☾</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="pp-hero">
+  <video autoplay muted loop playsinline preload="auto" width="920" height="518">
+    <source src="../../assets/papers/videos/fsds-fusion/fsds-demo.mp4" type="video/mp4" />
+  </video>
+  <div class="pp-hero-content">
+    <div class="pp-hero-badges">
+      <span class="pp-badge is-orange">arXiv · In Progress</span>
+      <span class="pp-badge">FSDS · 2026</span>
+    </div>
+    <h1 class="pp-hero-title">Incremental LiDAR-Camera Sensor Fusion for Reactive Cone Following</h1>
+    <p class="pp-hero-subtitle">A LiDAR-only baseline weaves on straights because it can't tell which boundary is which color. Fusing in a camera fixes that — at 0.06&nbsp;m average match accuracy, with near-zero systematic bias.</p>
+    <div class="pp-hero-meta"><b>Daniel Ortiz Valencia</b> · RAM Racing Driverless</div>
+  </div>
+  <div class="pp-scrolldown">Scroll ↓</div>
+</section>
+
+<!-- ============ STORY NAV ============ -->
+<div class="pp-storynav-wrap">
+  <nav class="pp-storynav">
+    <a href="#baseline">The Baseline Problem</a>
+    <a href="#camera">Adding Eyes</a>
+    <a href="#fusion">Fusing LiDAR and Camera</a>
+    <a href="#results">Results</a>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============ TLDR ============ -->
+<section class="pp-section pp-tldr">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">The Problem</span>
+    <h2 class="pp-section-title">A cone-delimited track, and no map of it</h2>
+    <div class="pp-prose">
+      <p class="pp-lede">Formula Student Driverless tracks are marked only by colored cones — blue on the left, yellow on the right — with no prior knowledge of the layout. This is the story of building that stack in two stages: a LiDAR-only reactive controller that completes laps but oscillates, and a fused color-aware controller that fixes the oscillation by finally knowing which side is which.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BASELINE ============ -->
+<section id="baseline" class="pp-section">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">I — The Baseline Problem</span>
+    <h2 class="pp-section-title">Fast clustering, and a controller that can't tell left from right</h2>
+    <div class="pp-prose">
+      <p>Raw LiDAR returns arrive as a flat array of points in the sensor frame. Sorted by the rotating scanner's angular order, consecutive points that sit within 0.1&nbsp;m of each other — calibrated to the ~30&nbsp;cm base of a regulation FSAE cone — get grouped into the same cluster. That ordering is what makes the whole thing run in O(<i>n</i>): no DBSCAN, no k-nearest-neighbor search, just a single pass exploiting the scan geometry.</p>
+    </div>
+
+    <div class="pp-figure-row">
+      <figure class="pp-figure">
+        <img src="../../assets/papers/figures/fsds-fusion/fig-1.jpg" alt="Top-down sense-plan-act pipeline diagram showing LiDAR clustering, YOLO detection, ground-plane projection, and fusion feeding the steering controllers" loading="lazy" />
+        <figcaption><b>Fig. 1.</b> Sense → plan → act. LiDAR feeds both the binary and proportional controllers; camera frames join through detection, projection, and fusion.</figcaption>
+      </figure>
+      <figure class="pp-figure">
+        <img src="../../assets/papers/figures/fsds-fusion/fig-2.jpg" alt="Bird's-eye scatter plot of LiDAR points colored by cluster membership beside the corresponding FSDS simulator view" loading="lazy" />
+        <figcaption><b>Fig. 2.</b> Sequential clustering in action — five clusters resolved to cone centroids at a 4-cone section of track.</figcaption>
+      </figure>
+    </div>
+
+    <div class="pp-prose">
+      <p>Steering from this alone is binary: more cones on the left than the right, steer right, and vice versa. On a curve, the inside boundary is genuinely denser, so this works. On a straight, the cone distribution is roughly symmetric — the sign of that comparison flips almost randomly frame to frame, and the car weaves. That weave is the entire reason the rest of this project exists.</p>
+    </div>
+
+    <figure class="pp-figure">
+      <img src="../../assets/papers/figures/fsds-fusion/fig-3.jpg" alt="Throttle function plot: linear ramp from 0.2 at rest down to zero at 4 m per second" loading="lazy" />
+      <figcaption><b>Fig. 3.</b> Longitudinal speed is simpler — a proportional throttle ramping to zero at the 4&nbsp;m/s target, no active braking, coasting is enough at this speed.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ CAMERA ============ -->
+<section id="camera" class="pp-section pp-section--tint">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">II — Adding Eyes</span>
+    <h2 class="pp-section-title">YOLO knows the color. Simulator cones make it lie about it.</h2>
+    <div class="pp-prose">
+      <p>A YOLOv5 detector pretrained on the FSOCO dataset classifies each cone by color, but FSOCO is real-world photography — simulator-rendered cones confused it constantly, with blue cones frequently coming back labeled yellow or orange at medium range. Fixing that meant a three-tier verification cascade layered on top of the raw detection: stripe brightness first (bright means blue, dark means candidate-yellow), a BGR channel-dominance check when brightness is ambiguous, and an HSV hue fallback as the last resort.</p>
+    </div>
+
+    <figure class="pp-figure">
+      <img src="../../assets/papers/figures/fsds-fusion/fig-4.jpg" alt="Camera feed with red YOLO bounding boxes over cones, color labels and confidence scores overlaid" loading="lazy" />
+      <figcaption><b>Fig. 4.</b> Raw YOLO detections with color labels overlaid. The close blue cone verifies correctly via stripe brightness; the distant cones fall back to the raw class label.</figcaption>
+    </figure>
+
+    <div class="pp-stat-row">
+      <div class="pp-stat"><b>~98%</b><span>color accuracy, close range (&lt; 3 m)</span></div>
+      <div class="pp-stat"><b>~90%</b><span>medium range (3–5 m), stripe + HSV fallback</span></div>
+      <div class="pp-stat"><b>~70%</b><span>beyond 5 m — a sensor-resolution wall, not a software bug</span></div>
+    </div>
+    <div class="pp-prose">
+      <p>That 70% ceiling is physical: past 5&nbsp;m a cone occupies roughly 8×10 pixels in a 640×480 frame, background asphalt dominates the bounding box, and the BGR channels converge to within 24 units of gray — there's no color signal left to recover. The practical fix isn't better software; it's that approaching cones grow larger before they enter the steering-critical near field.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUSION ============ -->
+<section id="fusion" class="pp-section">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">III — Fusing LiDAR and Camera</span>
+    <h2 class="pp-section-title">Metric depth from LiDAR, verified color from the camera</h2>
+    <div class="pp-prose">
+      <p>A standard pinhole model unprojects each YOLO detection's bottom-center pixel into a normalized camera ray, then intersects that ray with the ground plane to recover a metric position in the vehicle frame. Camera and LiDAR detections are then matched nearest-neighbor: when a camera projection and a LiDAR cluster land within 1.0&nbsp;m of each other, the pair fuses — LiDAR keeps the depth (it's the accurate measurement), the camera keeps the color label (it's the verified classification).</p>
+    </div>
+
+    <figure class="pp-figure">
+      <img src="../../assets/papers/figures/fsds-fusion/fig-5.jpg" alt="Side-view diagram of the pinhole projection: camera at 1.1 m height, ray intersecting the ground plane at distance t" loading="lazy" />
+      <figcaption><b>Fig. 5.</b> The pinhole ground-plane projection. A ray through the detection's bottom-center pixel intersects the ground at distance <i>t</i> = <i>h</i> / ray<sub>y</sub>.</figcaption>
+    </figure>
+
+    <div class="pp-callout">
+      <b>Getting there took three separate bugs.</b> A 1.3&nbsp;m X-axis mismatch between LiDAR's sensor-relative frame and the camera's vehicle-relative frame. Swapped projection axes in an early implementation that used horizontal pixel position for forward distance. And wrong default camera parameters — pitch of −12° instead of 0°, an offset of 0.7&nbsp;m instead of −0.3&nbsp;m. All three were found the same way: logging every fused pair and watching the residual offset refuse to go to zero until each one was corrected.
+    </div>
+
+    <div class="pp-video-solo">
+      <figure class="pp-video">
+        <video src="../../assets/papers/videos/fsds-fusion/reactive-baseline.mp4" muted loop playsinline preload="metadata" width="880" height="320"></video>
+        <figcaption><b>The fused system, live.</b> Camera detections (left), the fused blue/yellow/target visualization (center) — blue and yellow dots are fused cone positions, the green dot is the centerline target — and the simulator (right).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section id="results" class="pp-section pp-section--tint">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">IV — Results</span>
+    <h2 class="pp-section-title">The weave is gone</h2>
+
+    <div class="pp-stat-row">
+      <div class="pp-stat"><b>0.06 m</b><span>average camera–LiDAR match distance</span></div>
+      <div class="pp-stat"><b>±0.03 m</b><span>residual systematic offset, after calibration</span></div>
+      <div class="pp-stat"><b>5–6</b><span>fused cones per frame, typical</span></div>
+    </div>
+
+    <div class="pp-prose">
+      <p>With cones fused and color-labeled, the controller switches from a binary left/right decision to a continuous one: compute the geometric midpoint between the blue and yellow boundary averages, steer proportionally toward it. On straights, where the old binary controller alternated between full-lock left and full-lock right every control cycle, the proportional controller now converges smoothly to zero steering. Both controllers run at the same 20&nbsp;Hz and the same 4&nbsp;m/s target speed — color-aware fusion is the only variable that changed, and it's the only variable responsible for the improvement.</p>
+      <p>A layered fallback keeps the car steering even when the camera fails: fused color-aware control when fused cones are available, the binary density heuristic when they aren't, straight-ahead as the last resort. Next: a quantitative validation pass — lap-completion rate, RMS lateral tracking error, YOLOv5 recall on held-out frames — plus replacing the greedy nearest-neighbor matcher with a data-association filter that handles partial occlusion, and moving this stack onto a physical car.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section class="pp-section pp-close">
+  <div class="pp-section-inner">
+    <span class="pp-eyebrow">Acknowledgment</span>
+    <h2 class="pp-section-title">Thanks to Dr. Shirin Panahi for the mentorship and technical guidance behind this work</h2>
+    <div class="pp-close-actions">
+      <a class="pp-btn is-primary" href="../../assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">Read the full technical report (PDF) ↗</a>
+      <a class="pp-btn" href="../../index.html#papers">← Back to Papers &amp; Research</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pp-footer">
+  <span>© <span id="year"></span> Daniel Ortiz Valencia</span>
+  <span>RAM Racing Driverless</span>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="../../assets/papers/paper-page.js"></script>
+</body>
+</html>
