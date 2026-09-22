@@ -130,12 +130,12 @@
     <div class="pp-clips is-two">
       <figure class="pp-clip">
         <span class="pp-clip-tag">SAC · early</span>
-        <video src="../../assets/papers/videos/rl-sac-ppo/sac-initial-response.mp4" muted loop playsinline preload="metadata" width="880" height="498"></video>
+        <video autoplay src="../../assets/papers/videos/rl-sac-ppo/sac-initial-response.mp4" muted loop playsinline preload="metadata" width="880" height="498"></video>
         <figcaption><b>The first thing SAC learns is to go straight.</b> Steering sits near zero and the car runs off the end of the cone line, then the episode resets and it tries again. Straight is the safest thing to do when you have not worked out what the cones mean yet.</figcaption>
       </figure>
       <figure class="pp-clip">
         <span class="pp-clip-tag">SAC · corners</span>
-        <video src="../../assets/papers/videos/rl-sac-ppo/sac-corner-penalties.mp4" muted loop playsinline preload="metadata" width="880" height="510"></video>
+        <video autoplay src="../../assets/papers/videos/rl-sac-ppo/sac-corner-penalties.mp4" muted loop playsinline preload="metadata" width="880" height="510"></video>
         <figcaption><b>Later it corners, but it cheats the corner.</b> It takes the first corner properly, then starts cutting straight across the rest instead of following them round, eating the penalty each time because the shortcut still pays. Watch the steering trace fight to stay on the track.</figcaption>
       </figure>
     </div>
@@ -219,7 +219,7 @@
     <div class="pp-clips">
       <figure class="pp-clip">
         <span class="pp-clip-tag">PPO</span>
-        <video src="../../assets/papers/videos/rl-sac-ppo/ppo-going-perfectly.mp4" muted loop playsinline preload="metadata" width="880" height="308"></video>
+        <video autoplay src="../../assets/papers/videos/rl-sac-ppo/ppo-going-perfectly.mp4" muted loop playsinline preload="metadata" width="880" height="308"></video>
         <figcaption><b>PPO holding the track, still a little shaky.</b> Training telemetry on the left, the car on the right. Each <code>[TERM]</code> line is an episode ending and says why, mostly <code>cone_hit</code> or <code>geofence</code>, with the lateral error it held. Rolling reward sits around +820 and you can watch it save a new best checkpoint mid-run.</figcaption>
       </figure>
     </div>

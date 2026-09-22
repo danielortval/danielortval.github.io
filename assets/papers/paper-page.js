@@ -99,7 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---------- Play inline videos only while visible ----------
-  const clips = [...document.querySelectorAll('.pp-video video, .pp-hero video')];
+  // Clips carry `autoplay` so they start without JS; this observer is a
+  // performance measure (pause what is off screen) plus a second attempt
+  // at play() for browsers that declined the autoplay.
+  const clips = [...document.querySelectorAll('.pp-video video, .pp-clip video, .pp-hero video')];
   if ('IntersectionObserver' in window && clips.length) {
     const vio = new IntersectionObserver(
       (entries) => {
