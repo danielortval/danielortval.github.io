@@ -36,6 +36,8 @@ onScroll();
 // If data-media is present (JSON array of {src,caption,type}), render real
 // images/videos. Otherwise fall back to styled placeholder slots.
 document.querySelectorAll('.sub-photos').forEach((grid) => {
+  // Hand-authored media is already complete; only populate data-driven slots.
+  if (grid.querySelector('.media-slot')) return;
   const label = grid.dataset.label || 'Photo';
   let media = [];
   if (grid.dataset.media) {
@@ -162,7 +164,7 @@ document.querySelectorAll('.nav a, .brand').forEach((a) => {
     const dark = document.documentElement.getAttribute('data-theme') === 'dark';
     return dark
       ? { dot: [255, 255, 255], dotA: 0.55, lineA: 0.22 }
-      : { dot: [180, 95, 20],   dotA: 0.30, lineA: 0.13 };
+      : { dot: [37, 99, 235],   dotA: 0.30, lineA: 0.13 };
   }
 
   function mkParticle() {

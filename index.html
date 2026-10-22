@@ -4,15 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Daniel Ortiz Valencia, Portfolio</title>
-<meta name="description" content="Daniel Ortiz Valencia, electrical & autonomous systems engineer. Founder of Colorado's first Formula SAE Electric program. Projects, papers, prizes, and leadership in HV battery systems and driverless racing." />
+<meta name="description" content="Daniel Ortiz Valencia, electrical & autonomous systems engineer. Founder of Colorado's first Formula SAE Electric program. Projects and achievements in HV battery systems, robotics, and driverless racing." />
 <meta property="og:title" content="Daniel Ortiz Valencia, Portfolio" />
 <meta property="og:description" content="Electrical & autonomous systems engineer. HV battery architecture, driverless racing, six competition vehicles." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d9741f'/%3E%3Cpath d='M9 8h6a8 8 0 010 16H9z' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css?v=portfolio-7" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M9 8h6a8 8 0 010 16H9z' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E" />
 </head>
 <body>
 
@@ -26,9 +26,8 @@
     </a>
     <nav class="nav">
       <a href="#projects">Projects</a><span class="sep">|</span>
-      <a href="#papers">Papers</a><span class="sep">|</span>
-      <a href="#prizes">Prizes</a><span class="sep">|</span>
-      <a href="#leadership">Leadership</a><span class="sep">|</span>
+      <a href="#driverless">Driverless</a><span class="sep">|</span>
+      <a href="#prizes">Achievements</a><span class="sep">|</span>
       <a href="#education">Education</a><span class="sep">|</span>
       <a href="#contact">Contact</a>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -42,7 +41,6 @@
 
 <!-- ============ HERO / OVERVIEW ============ -->
 <section class="hero wrap">
-  <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Building the future, one system at a time</div>
   <h1>Daniel Ortiz Valencia<br><span class="accent">Portfolio</span></h1>
 
   <div class="overview-grid reveal">
@@ -85,6 +83,82 @@
       <h2>Projects</h2>
     </div>
 
+    <!-- ===== Interlatent ===== -->
+    <details class="car reveal interlatent-project" id="interlatent" open>
+      <summary class="car-summary">
+        <span class="car-thumb car-thumb--logo"><img src="assets/projects/interlatent/logo.png" alt="Interlatent logo" /></span>
+        <span class="car-headtext">
+          <span class="car-toprow"><span class="car-index">01</span><span class="car-name">Interlatent</span></span>
+          <span class="car-tagline">Robot teleoperation, hardware integration &amp; agent validation</span>
+          <span class="car-keywords"><span class="kw">Robotics</span><span class="kw">VR / IK</span><span class="kw">QUIC</span><span class="kw">Agent Evaluation</span></span>
+        </span>
+        <span class="car-meta"><span class="car-role">Robotics Engineer Intern</span><span class="car-year">Jun 2026 to Present</span></span>
+        <span class="car-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="car-body">
+        <p class="car-intro">Interlatent turns robot demonstrations into training-ready datasets. I worked on teleoperation and agent validation across NORI, Dimensional OS, I2RT YAM, SO-101, and Axol.</p>
+        <div class="sub">
+          <div class="sub-text">
+            <div class="sub-title">Teleoperation Architecture &amp; Hardware Integration</div>
+            <div class="sub-blurb">WebXR, inverse kinematics, QUIC &amp; robot hardware</div>
+            <h4>Background</h4><ul>
+              <li>Needed a shared teleoperation and recording workflow across robots with different joint units, kinematics, cameras, and onboard computers.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Integrated CAN, cameras, and host hardware on Raspberry Pi 5 and Jetson; validated clutch mapping, IK, and independent arm control in MuJoCo before live testing.</li>
+              <li>Traced WebXR poses through browser IK and QUIC delivery to the robot's command arbiter, freshness checks, joint limits, and motion clamps.</li>
+              <li>Evaluated command and camera timing, plus the separate gRPC recording path that spools acknowledged data into LeRobot episodes.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Helped expand control from one robot to a five-robot fleet through shared interfaces and hardware-specific configuration.</li>
+              <li>Identified capture and encoding bottlenecks and documented changes to improve control timing and recording turnaround.</li>
+            </ul>
+            <div class="sub-links"><a class="btn ghost" href="https://github.com/Interlatent/Deployment-Infra" target="_blank" rel="noopener">Deployment SDK &#8599;</a></div>
+          </div>
+          <div class="sub-photos interlatent-media">
+            <figure class="media-slot">
+              <video class="media-el" controls playsinline preload="metadata" aria-label="Browser VR teleoperation demonstration"><source src="assets/projects/interlatent/teleoperation.mp4" type="video/mp4" /></video>
+              <figcaption>Browser VR and inverse kinematics controlling bimanual YAM arms.</figcaption>
+            </figure>
+            <div class="interlatent-diagrams">
+              <figure class="media-slot">
+                <a class="diagram-link" href="assets/projects/interlatent/teleoperation-architecture.png" target="_blank" rel="noopener"><img class="media-el" src="assets/projects/interlatent/teleoperation-architecture.png" alt="Teleoperation architecture: browser IK, QUIC relay, robot safety and separate recording uplink" loading="lazy" /></a>
+                <figcaption>System architecture. Select to enlarge.</figcaption>
+              </figure>
+              <figure class="media-slot">
+                <a class="diagram-link" href="assets/projects/interlatent/quic-delivery.png" target="_blank" rel="noopener"><img class="media-el" src="assets/projects/interlatent/quic-delivery.png" alt="Command deduplication and independent video streams over QUIC" loading="lazy" /></a>
+                <figcaption>Command and video delivery. Select to enlarge.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="sub" id="interlatent-validation">
+          <div class="sub-text">
+            <div class="sub-title">Agent Validation &amp; Reliability Testing</div>
+            <div class="sub-blurb">Visual grounding, annotation consistency &amp; workflow reliability</div>
+            <h4>Background</h4><ul>
+              <li>Dataset agents needed to describe robot recordings and annotate task progress accurately before their outputs could guide training-data selection.</li>
+            </ul>
+            <h4>Technical Approach</h4><ul>
+              <li>Built an eight-area test matrix using cloth-folding and cable-untangling datasets, with explicit prompts, pass criteria, and recorded observations.</li>
+              <li>Checked claims against camera frames and state tracks; repeated phase-segmentation and outcome prompts to measure consistency.</li>
+              <li>Tracked annotation versions, cancellation, cost, and unintended writes alongside answer quality.</li>
+            </ul>
+            <h4>Results</h4><ul>
+              <li>Exposed ungrounded visual claims, inconsistent phase boundaries, and background writes after cancellation.</li>
+              <li>Delivered a reproducible failure log and prioritized fixes for visual evidence, write isolation, and cancellation; confirmed stable outcome labels across three repeated checks.</li>
+            </ul>
+          </div>
+          <div class="sub-photos interlatent-media">
+            <figure class="media-slot">
+              <video class="media-el" controls playsinline preload="metadata" aria-label="Interlatent dataset annotation workflow"><source src="assets/projects/interlatent/agent-validation.mp4" type="video/mp4" /></video>
+              <figcaption>Interlatent's dataset annotation workflow, the product behavior evaluated in this project.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </details>
+
     <!-- ===== Venus EV ===== -->
     <details class="car reveal" open>
       <summary class="car-summary">
@@ -92,7 +166,7 @@
           <img src="assets/projects/rr26ev/thumb.jpg" alt="Venus EV Formula SAE Electric car" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noimg');" />
         </span>
         <span class="car-headtext">
-          <span class="car-toprow"><span class="car-index">01</span><span class="car-name">Venus EV</span></span>
+          <span class="car-toprow"><span class="car-index">02</span><span class="car-name">Venus EV</span></span>
           <span class="car-tagline">Colorado's flagship FSAE Electric car, full HV accumulator &amp; safety stack</span>
           <span class="car-keywords">
             <span class="kw">HV Accumulator</span><span class="kw">324V Battery</span><span class="kw">BMS</span><span class="kw">KiCad</span><span class="kw">System Integration</span>
@@ -238,7 +312,7 @@
           <img src="assets/projects/rubicon/thumb.jpg" alt="Rubicon EV, first CSU Formula SAE Electric car" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noimg');" />
         </span>
         <span class="car-headtext">
-          <span class="car-toprow"><span class="car-index">02</span><span class="car-name">Rubicon EV</span></span>
+          <span class="car-toprow"><span class="car-index">03</span><span class="car-name">Rubicon EV</span></span>
           <span class="car-tagline">First CSU EV car, full vehicle electrical architecture &amp; safety systems</span>
           <span class="car-keywords">
             <span class="kw">System Architecture</span><span class="kw">Tractive System</span><span class="kw">Brake Plausibility</span><span class="kw">Powertrain</span><span class="kw">Vehicle Integration</span>
@@ -358,7 +432,7 @@
           <img src="assets/projects/intrepid/thumb.jpg" alt="Intrepid IC combustion Formula SAE car" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noimg');" />
         </span>
         <span class="car-headtext">
-          <span class="car-toprow"><span class="car-index">03</span><span class="car-name">Intrepid IC</span></span>
+          <span class="car-toprow"><span class="car-index">04</span><span class="car-name">Intrepid IC</span></span>
           <span class="car-tagline">Combustion car, full harness integration &amp; wireless telemetry</span>
           <span class="car-keywords">
             <span class="kw">Wiring Harness</span><span class="kw">CAN Bus</span><span class="kw">Haltech ECU</span><span class="kw">Telemetry</span><span class="kw">30+ Sensors</span>
@@ -415,6 +489,28 @@
       </div>
     </details>
 
+    <!-- ===== Driverless ===== -->
+    <details class="car reveal" id="driverless">
+      <summary class="car-summary">
+        <span class="car-thumb"><img src="assets/papers/anomaly-yolo-failure.jpg" alt="Driverless cone perception test frame" loading="lazy" /></span>
+        <span class="car-headtext">
+          <span class="car-toprow"><span class="car-index">05</span><span class="car-name">Driverless</span></span>
+          <span class="car-tagline">Perception, anomaly detection &amp; steering control in the Formula Student Driverless Simulator</span>
+          <span class="car-keywords"><span class="kw">LiDAR + Camera</span><span class="kw">YOLO</span><span class="kw">XGBoost</span><span class="kw">SAC / PPO</span></span>
+        </span>
+        <span class="car-meta"><span class="car-role">Principal Researcher</span><span class="car-year">2026</span></span>
+        <span class="car-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="car-body">
+        <p class="car-intro">I built and evaluated a simulated driverless racing stack, from cone sensing and color validation to steering policy research. The three walkthroughs below cover each part of that work.</p>
+        <div class="topic-list">
+          <div class="topic topic-static"><div class="topic-summary"><span class="topic-number">01</span><span>LiDAR-Camera Sensor Fusion</span></div><div class="topic-body"><p>Fused LiDAR and camera detections for reactive cone following, reaching 6 cm average match accuracy and resolving straight-line weaving from the LiDAR-only controller.</p><a class="paper-read" href="papers/fsds-fusion/">Read the sensor fusion walkthrough</a></div></div>
+          <div class="topic topic-static"><div class="topic-summary"><span class="topic-number">02</span><span>YOLO Color Anomaly Detection</span></div><div class="topic-body"><p>Labeled 129,025 cone detections and trained an XGBoost safety gate that reduced incorrect color labels reaching control by about 91%.</p><a class="paper-read" href="assets/papers/AnomalyDetectionPaper.pdf" data-paper-open="anomaly">Read the anomaly detection walkthrough</a></div></div>
+          <div class="topic topic-static"><div class="topic-summary"><span class="topic-number">03</span><span>Reinforcement Learning for Steering</span></div><div class="topic-body"><p>Analyzed six Soft Actor-Critic training runs, diagnosed structural failure modes, and developed a PPO training environment for comparison.</p><a class="paper-read" href="papers/rl-sac-ppo/">Read the steering control walkthrough</a></div></div>
+        </div>
+      </div>
+    </details>
+
     <!-- ===== Other Projects ===== -->
     <details class="car reveal">
       <summary class="car-summary">
@@ -422,7 +518,7 @@
           <img src="assets/projects/other/cybertruck-2.jpg" alt="Cybertruck Challenge cohort, heavy-vehicle cybersecurity" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noimg');" />
         </span>
         <span class="car-headtext">
-          <span class="car-toprow"><span class="car-index">04</span><span class="car-name">Other Projects</span></span>
+          <span class="car-toprow"><span class="car-index">06</span><span class="car-name">Other Projects</span></span>
           <span class="car-tagline">Selected work, embedded systems, automotive cybersecurity &amp; early CSU race cars</span>
         </span>
         <span class="car-meta">
@@ -510,112 +606,20 @@
   </div>
 </section>
 
-<!-- ============ PAPERS ============ -->
-<section class="section" id="papers">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Papers &amp; Research</h2>
-    </div>
-    <div class="papers-list reveal">
-
-      <!-- FSDS moved here -->
-      <article class="paper" data-paper="fsds-fusion">
-        <a class="paper-visual" href="papers/fsds-fusion/" data-video="assets/papers/fsds-demo.mp4" data-label="FSDS track navigation demo" aria-label="Read paper: Incremental LiDAR-Camera Sensor Fusion">
-          <span class="ph">FSDS autonomous<br>track demo<br><small>video slot</small></span>
-        </a>
-        <div class="paper-body">
-          <span class="paper-status">arXiv · In Progress</span>
-          <a class="paper-title" href="papers/fsds-fusion/">Incremental LiDAR-Camera Sensor Fusion for Reactive Cone Following in the Formula Student Driverless Simulator</a>
-          <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span>, RAM Racing Driverless</div>
-          <div class="paper-venue">Formula Student Driverless Simulator (FSDS), 2026</div>
-          <div class="paper-linkrow">
-            <a class="paper-read" href="papers/fsds-fusion/">read the walkthrough</a>
-            <span class="slash">/</span><a href="assets/papers/fsds-fusion.pdf" target="_blank" rel="noopener">pdf</a>
-            <span class="slash">/</span><span class="muted">arXiv soon</span>
-            <span class="slash">/</span><span class="muted">code soon</span>
-            <span class="slash">/</span><a href="https://www.linkedin.com/in/danielortval/overlay/Project/1411929511/treasury/?profileId=ACoAABqxuG8BxSCZqtkvSw8ffR50Pj5nVNJeR1g" target="_blank" rel="noopener">demo</a>
-          </div>
-          <p class="paper-abstract">A LiDAR-only controller drives the track but weaves down every straight, because it cannot tell blue cones from yellow ones. Adding a camera and fusing the two sensors brought them into agreement at 6 cm average match accuracy and killed the oscillation for good.</p>
-          <a class="paper-cta" href="papers/fsds-fusion/">See the full build, with video of the fused stack running</a>
-        </div>
-      </article>
-
-      <article class="paper" data-paper="anomaly">
-        <div class="paper-visual" data-paper-open="anomaly" role="button" tabindex="0" aria-label="Read paper: YOLO Color Anomaly Detection">
-          <img src="assets/papers/anomaly-yolo-failure.jpg" alt="YOLO failure frame: a blue cone labeled orange at 0.61 confidence" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex';" />
-          <span class="ph" style="display:none">YOLO color<br>anomaly detection<br><small>figure</small></span>
-        </div>
-        <div class="paper-body">
-          <span class="paper-status">Technical Report</span>
-          <a class="paper-title" href="assets/papers/AnomalyDetectionPaper.pdf" data-paper-open="anomaly">YOLO Color Anomaly Detection for FSAE Driverless: From Ground-Truth Dataset Construction to an XGBoost Safety Gate</a>
-          <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span></div>
-          <div class="paper-venue">ECE553, Colorado State University, 2026</div>
-          <div class="paper-linkrow">
-            <a class="paper-read" href="assets/papers/AnomalyDetectionPaper.pdf" data-paper-open="anomaly">read paper</a>
-            <span class="slash">/</span><a href="assets/papers/AnomalyDetectionPaper.pdf" target="_blank" rel="noopener">pdf</a><span class="slash">/</span><span class="muted">code soon</span>
-          </div>
-          <p class="paper-abstract">YOLO fails silently. It hands back a confident color label that happens to be wrong, and the path planner believes it. I labeled 129,025 cone detections to measure how often that happens, then trained an XGBoost gate that catches roughly 91% of those errors before they reach the steering controller.</p>
-          <a class="paper-cta" href="assets/papers/AnomalyDetectionPaper.pdf" data-paper-open="anomaly">Read the full report, with the dataset build and results</a>
-        </div>
-      </article>
-
-      <article class="paper" data-paper="rl-sac-ppo">
-        <a class="paper-visual" href="papers/rl-sac-ppo/" aria-label="Read paper: Reinforcement Learning for Steering Control">
-          <img src="assets/papers/rl-sac-vs-ppo.jpg" alt="Structural comparison of SAC and PPO across experience reuse, update bound, exploration, reward changes, and sample cost" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex';" />
-          <span class="ph" style="display:none">SAC vs PPO<br>structural comparison<br><small>figure</small></span>
-        </a>
-        <div class="paper-body">
-          <span class="paper-status">Technical Report</span>
-          <a class="paper-title" href="papers/rl-sac-ppo/">Reinforcement Learning for Steering Control in the Formula Student Driverless Simulator: Structural Failure Modes of Soft Actor-Critic and the Case for PPO</a>
-          <div class="paper-authors"><span class="me">Daniel Ortiz Valencia</span></div>
-          <div class="paper-venue">Electrical &amp; Computer Engineering, Colorado State University, 2026</div>
-          <div class="paper-linkrow">
-            <a class="paper-read" href="papers/rl-sac-ppo/">read the walkthrough</a>
-            <span class="slash">/</span><a href="assets/papers/fsds-rl-sac-ppo.pdf" target="_blank" rel="noopener">pdf</a>
-            <span class="slash">/</span><span class="muted">code soon</span>
-          </div>
-          <p class="paper-abstract">Can a learned policy steer the car as well as the controller I already wrote by hand? Six training runs with Soft Actor-Critic all ended in collapse, and tracing why led to three properties of the algorithm itself rather than anything I could fix by tuning.</p>
-          <a class="paper-cta" href="papers/rl-sac-ppo/">See all six runs, what broke in each, and why PPO came next</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRIZES ============ -->
+<!-- ============ ACHIEVEMENTS ============ -->
 <section class="section" id="prizes">
   <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Prizes &amp; Awards</h2>
-      <p class="sub">Recognition for engineering, leadership, and academic achievement.</p>
-    </div>
+    <div class="section-head reveal"><h2>Awards &amp; Achievements</h2></div>
     <div class="prizes reveal">
-      <div class="prize"><div class="pyear">Sep 2025</div><div class="pbody"><h3>Featured in The Rocky Mountain Collegian</h3><div class="porg">The Rocky Mountain Collegian</div><p>Featured for engineering work and leadership with CSU Ram Racing Formula SAE.</p></div><div class="pmark">★</div></div>
-      <div class="prize"><div class="pyear">Aug 2025</div><div class="pbody"><h3>Tesla Battery Sponsorship Recipient</h3><div class="porg">Tesla</div><p>Team selected based on a high-voltage battery pack proposal for the FSAE EV accumulator.</p></div><div class="pmark">★</div></div>
-      <div class="prize"><div class="pyear">Mar 2024</div><div class="pbody"><h3>ECE 202 Sophomore Competition Winner</h3><div class="porg">Colorado State University ECE Department</div><p>Won the department-wide product competition with a custom PCB and embedded system design.</p></div><div class="pmark">★</div></div>
-      <div class="prize"><div class="pyear">Aug 2023</div><div class="pbody"><h3>ECE Department Scholarship</h3><div class="porg">Colorado State University ECE Department</div><p>Merit-based award for academic performance and contributions to ECE.</p></div><div class="pmark">★</div></div>
-      <div class="prize"><div class="pyear">Feb 2023</div><div class="pbody"><h3>NRHH Academic Achievement Award</h3><div class="porg">National Residence Hall Honorary, CSU Chapter</div><p>Recognized for a 4.0 GPA and academic excellence.</p></div><div class="pmark">★</div></div>
-      <div class="prize"><div class="pyear">Aug 2022</div><div class="pbody"><h3>International Scholarship Award</h3><div class="porg">Colorado State University</div><p>Merit-based scholarship for international students.</p></div><div class="pmark">★</div></div>
-      <div class="prize"><div class="pyear">Jan 2022</div><div class="pbody"><h3>Honor Tuition Award</h3><div class="porg">Universidad de Nariño, Colombia</div><p>Highest GPA in cohort with a tuition waiver.</p></div><div class="pmark">★</div></div>
-      <div class="prize"><div class="pyear">Jul 2020</div><div class="pbody"><h3>Regional Recognition, Bachiller CONACED</h3><div class="porg">Confederación Nacional Católica de Educación, Federación Pasto</div><p>Top-performing high school graduate in the region.</p></div><div class="pmark">★</div></div>
-      <div class="prize"><div class="pyear">May 2020</div><div class="pbody"><h3>Gloria de Martínez Prize</h3><div class="porg">Gimnasio Los Andes</div><p>Perfect GPA, first student in school history to achieve this record.</p></div><div class="pmark">★</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ LEADERSHIP ============ -->
-<section class="section" id="leadership">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Leadership</h2>
-      <p class="sub">Building teams, programs, and engineering culture from the ground up.</p>
-    </div>
-    <div class="lead-grid reveal">
-      <div class="lead-card"><div class="lrole">Electrical Systems Officer</div><div class="lorg">CSU Formula SAE</div><div class="lyear">2025 to 2026</div><p>Lead 20 electrical and computer engineering students across HV systems, electronics, and driverless research. Delivered the program's first complete EV car to competition 2026.</p></div>
-      <div class="lead-card"><div class="lrole">EV Chief Engineer &amp; Founder</div><div class="lorg">CSU Formula SAE Electric</div><div class="lyear">2024 to 2025</div><p>Founded Colorado's first university FSAE Electric program from nothing, only 2 people, no sponsors, no workspace. Scaled to 30+ members and 15+ sponsors in one year. Managed all subsystem teams and built a leadership pipeline that enabled the team to reach competition independently.</p></div>
-      <div class="lead-card"><div class="lrole">Electrical Systems Assistant Lead</div><div class="lorg">CSU Formula SAE Combustion</div><div class="lyear">2023 to 2024</div><p>Two-person electrical team delivering full vehicle electrical integration, controllers adding electronic shifting and a custom dashboard. Established documentation standards for team knowledge transfer.</p></div>
-      <div class="lead-card"><div class="lrole">Operations Lead</div><div class="lorg">Healthcare Practice</div><div class="lyear">Summer 2025</div><p>Led organizational restructuring for a 20-person team during rapid growth: defined reporting structure, closed financial leakages, and used data analysis to exit unprofitable investments. Reduced operational time ~20% while maintaining revenue.</p></div>
+      <article class="prize"><div class="pyear">Aug 2025</div><div class="pbody"><h3>Tesla Battery Sponsorship</h3><div class="porg">Tesla</div><p>Team selected for its high-voltage FSAE battery proposal.</p></div></article>
+      <article class="prize"><div class="pyear">Sep 2025</div><div class="pbody"><h3>Engineering Feature</h3><div class="porg">The Rocky Mountain Collegian</div><p>Profiled for engineering work with CSU Ram Racing.</p></div></article>
+      <article class="prize"><div class="pyear">Mar 2024</div><div class="pbody"><h3>ECE 202 Competition Winner</h3><div class="porg">Colorado State University</div><p>Won with a custom PCB and embedded system.</p></div></article>
+      <article class="prize"><div class="pyear">Aug 2023</div><div class="pbody"><h3>ECE Department Scholarship</h3><div class="porg">Colorado State University</div><p>Merit award for academic performance and ECE contributions.</p></div></article>
+      <article class="prize"><div class="pyear">Feb 2023</div><div class="pbody"><h3>Academic Achievement Award</h3><div class="porg">NRHH · CSU Chapter</div><p>Recognized for a 4.0 GPA.</p></div></article>
+      <article class="prize"><div class="pyear">Aug 2022</div><div class="pbody"><h3>International Scholarship</h3><div class="porg">Colorado State University</div><p>Merit scholarship for international students.</p></div></article>
+      <article class="prize"><div class="pyear">Jan 2022</div><div class="pbody"><h3>Honor Tuition Award</h3><div class="porg">Universidad de Nariño</div><p>Tuition waiver for the highest GPA in the cohort.</p></div></article>
+      <article class="prize"><div class="pyear">Jul 2020</div><div class="pbody"><h3>Bachiller CONACED Recognition</h3><div class="porg">CONACED · Pasto</div><p>Recognized as a top regional high school graduate.</p></div></article>
+      <article class="prize"><div class="pyear">May 2020</div><div class="pbody"><h3>Gloria de Martínez Prize</h3><div class="porg">Gimnasio Los Andes</div><p>First student in school history to earn a perfect GPA.</p></div></article>
     </div>
   </div>
 </section>
@@ -932,7 +936,7 @@ Phase 2:  P(anomaly | features) &gt; θ_class</pre>
   <p>Additional directions include evaluation under real lighting variation (not available in FSDS), integration with the SLAM module to use world-frame cone positions as additional features, and online adaptation of the detection thresholds as the vehicle accumulates lap-specific statistics during a competition day.</p>
 </template>
 
-<script src="script.js"></script>
+<script src="script.js?v=portfolio-7"></script>
 <script data-pplx-inline-edit>
 (function () {
   if (window === window.top) return;

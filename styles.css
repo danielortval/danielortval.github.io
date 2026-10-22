@@ -1,6 +1,6 @@
 /* ============================================================
    Daniel Ortiz Valencia - Portfolio
-   White + Orange · Monospace technical aesthetic
+   White + Blue · Monospace technical aesthetic
    ============================================================ */
 
 :root {
@@ -12,11 +12,11 @@
   --line: #e6e6e2;
   --line-strong: #d4d4ce;
 
-  --orange: #d9741f;
-  --orange-deep: #c1620f;
-  --orange-soft: #f7e0c2;
-  --orange-tint: #fcf1e2;
-  --orange-glow: rgba(217, 116, 31, 0.14);
+  --orange: #2563eb;
+  --orange-deep: #1d4ed8;
+  --orange-soft: #dfe2e6;
+  --orange-tint: #f5f6f7;
+  --orange-glow: rgba(37, 99, 235, 0.14);
 
   --mono: 'JetBrains Mono', 'SFMono-Regular', 'Menlo', monospace;
 
@@ -35,7 +35,7 @@
 
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
   --shadow-md: 0 8px 30px rgba(0,0,0,0.07);
-  --shadow-orange: 0 12px 40px rgba(217,116,31,0.16);
+  --shadow-orange: 0 12px 40px rgba(37,99,235,0.16);
 
   --header-bg: rgba(255,255,255,0.88);
   --kw-bg: var(--paper);
@@ -53,11 +53,11 @@
   --line: #2a2a2e;
   --line-strong: #3a3a3f;
 
-  --orange: #ff8a3d;
-  --orange-deep: #ff9d5c;
-  --orange-soft: #5a3a1a;
-  --orange-tint: #2a1d10;
-  --orange-glow: rgba(255, 138, 61, 0.22);
+  --orange: #60a5fa;
+  --orange-deep: #93c5fd;
+  --orange-soft: #34383f;
+  --orange-tint: #202328;
+  --orange-glow: rgba(96, 165, 250, 0.22);
 
   --header-bg: rgba(17,17,20,0.88);
   --kw-bg: #1f1f23;
@@ -65,7 +65,7 @@
 
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
   --shadow-md: 0 8px 30px rgba(0,0,0,0.5);
-  --shadow-orange: 0 12px 40px rgba(255,138,61,0.18);
+  --shadow-orange: 0 12px 40px rgba(96,165,250,0.18);
   color-scheme: dark;
 }
 
@@ -177,7 +177,7 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 500px) {
   .edu-grid { grid-template-columns: 1fr; }
-  .edu-card { text-align: left; align-items: flex-start; flex-direction: row; gap: 1rem; }
+  .edu-card { text-align: left; align-items: flex-start; flex-direction: column; gap: .35rem; }
   .edu-logo-wrap { margin-bottom: 0; flex-shrink: 0; }
 }
 
@@ -216,12 +216,12 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 0 0 0 var(--orange-glow); animation: pulse 2.4s infinite;
 }
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(232,132,42,0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(232,132,42,0); }
-  100% { box-shadow: 0 0 0 0 rgba(232,132,42,0); }
+  0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(37,99,235,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
 }
 .hero h1 { font-size: var(--text-hero); font-weight: 800; letter-spacing: -0.03em; line-height: 1.04; }
-.hero h1 .accent { color: var(--orange); }
+.hero h1 .accent { color: var(--ink); }
 
 /* Typewriter line */
 .typeline {
@@ -283,7 +283,7 @@ section { scroll-margin-top: 90px; }
   transition: border-color .25s ease, box-shadow .25s ease;
 }
 .car:hover { border-color: var(--orange-soft); }
-.car[open] { border-color: var(--orange); box-shadow: var(--shadow-md); }
+.car[open] { border-color: var(--line-strong); box-shadow: var(--shadow-md); }
 
 .car-summary {
   display: flex; align-items: center; gap: 1.2rem;
@@ -305,13 +305,23 @@ section { scroll-margin-top: 90px; }
 }
 .car-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .car-thumb.noimg { display: none; }
+.car-thumb--wordmark {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; color: var(--orange-deep); font-size: 2rem; font-weight: 800;
+  letter-spacing: -.08em; background: var(--orange-tint);
+}
+.wordmark-grid {
+  position: absolute; inset: 0; opacity: .22; pointer-events: none;
+  background-image: linear-gradient(var(--orange-soft) 1px, transparent 1px), linear-gradient(90deg, var(--orange-soft) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
 .car-keywords { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
 .kw {
   font-size: var(--text-xs); font-weight: 500; color: var(--ink-soft);
   background: var(--kw-bg); border: 1px solid var(--line-strong);
   padding: .22rem .6rem; border-radius: 6px; letter-spacing: .02em; white-space: nowrap;
 }
-.car[open] .kw { border-color: var(--orange-soft); color: var(--orange-deep); background: var(--orange-tint); }
+.car[open] .kw { border-color: var(--line); color: var(--ink-soft); background: var(--paper); }
 .car-meta { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; flex-shrink: 0; }
 .car-role {
   font-size: var(--text-xs); color: var(--orange-deep); background: var(--orange-tint);
@@ -336,6 +346,55 @@ section { scroll-margin-top: 90px; }
   max-width: 80ch;
 }
 
+/* Nested project topics */
+.topic-list { display: grid; gap: .75rem; margin-top: 1.25rem; }
+.topic { border: 1px solid var(--line-strong); border-radius: 10px; background: var(--white); overflow: hidden; }
+.topic[open] { border-color: var(--orange-soft); }
+.topic-summary {
+  display: flex; align-items: center; gap: .9rem; padding: 1rem 1.15rem;
+  font-size: var(--text-sm); font-weight: 700; list-style: none;
+}
+details.topic .topic-summary { cursor: pointer; }
+.topic-summary::-webkit-details-marker { display: none; }
+.topic-number { color: var(--orange); font-size: var(--text-xs); font-weight: 800; }
+.topic-toggle { margin-left: auto; color: var(--orange-deep); font-size: 1.2rem; transition: transform .2s ease; }
+.topic[open] .topic-toggle { transform: rotate(45deg); }
+.topic-body { padding: 0 1.15rem 1.15rem; font-size: var(--text-sm); color: var(--ink-soft); }
+.topic-body p { max-width: 78ch; }
+.topic-body ul { margin: .8rem 0 0; padding-left: 1.2rem; }
+.topic-body li { margin-top: .35rem; }
+.topic-body .paper-read { margin-top: .8rem; }
+.topic-static .topic-summary { padding-bottom: .45rem; }
+.topic-summary:focus-visible { outline: 2px solid var(--orange); outline-offset: -4px; }
+
+/* Interlatent case studies use the same text/media rhythm as the vehicle projects. */
+.car-intro-followup { padding-top: .65rem; }
+.interlatent-project .car-meta { max-width: 100%; flex-shrink: 1; }
+.interlatent-study.sub:first-of-type { margin-top: 0; border-top: 0; padding: .5rem 0 0; }
+.interlatent-study .sub-text { min-width: 0; }
+.interlatent-study ul { margin: 0; padding-left: 0; }
+.interlatent-study h4:first-of-type { margin-top: 0; }
+.interlatent-media { display: flex; flex-direction: column; gap: 1.4rem; min-width: 0; }
+.diagram-link { display: block; border-radius: 12px; }
+.diagram-link .media-el { max-height: none; background: #fff; cursor: zoom-in; }
+.diagram-link:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+.evidence-panel { margin: 0; border: 1px solid var(--orange-soft); border-radius: 12px; padding: 1.1rem; background: var(--orange-tint); }
+.evidence-panel > figcaption { font-size: var(--text-sm); font-weight: 700; color: var(--ink); margin-bottom: .8rem; }
+.evidence-table-wrap { overflow-x: auto; }
+.evidence-table { width: 100%; border-collapse: collapse; font-size: var(--text-xs); text-align: left; }
+.evidence-table th, .evidence-table td { padding: .65rem .45rem; vertical-align: top; border-bottom: 1px solid var(--line-strong); }
+.evidence-table thead th { color: var(--orange-deep); }
+.evidence-table tbody th { color: var(--ink); font-weight: 500; }
+.evidence-table tbody tr:last-child > * { border-bottom: 0; }
+.validation-findings th:first-child { width: 30%; }
+.evidence-panel > p { font-size: var(--text-xs); color: var(--ink-faint); margin-top: .8rem; }
+.project-demo { min-width: 0; }
+.tweet-mount { width: 100%; min-width: 0; }
+.tweet-mount .twitter-tweet { margin: 0 auto !important; }
+.tweet-mount iframe { max-width: 100%; }
+.tweet-placeholder, .tweet-mount > blockquote { margin: 0; padding: 1.5rem; border: 1px solid var(--orange-soft); border-radius: 12px; background: var(--orange-tint); }
+.project-demo figcaption a { color: var(--orange-deep); text-decoration: underline; }
+
 /* ---------- Subproject row (desc left, images right) ---------- */
 .sub {
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem);
@@ -343,7 +402,7 @@ section { scroll-margin-top: 90px; }
 }
 .sub:first-of-type { border-top: 1px solid var(--orange-soft); margin-top: 1rem; }
 .sub-title { font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.01em; margin-bottom: .3rem; }
-.sub-blurb { font-size: var(--text-sm); color: var(--orange-deep); margin-bottom: 1rem; }
+.sub-blurb { font-size: var(--text-sm); color: var(--ink-soft); margin-bottom: 1rem; }
 .sub h4 {
   font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .14em;
   color: var(--ink-faint); font-weight: 700; margin: 1rem 0 .5rem;
@@ -395,7 +454,7 @@ section { scroll-margin-top: 90px; }
   border: 1px solid var(--orange-soft);
   border-left: 3px solid var(--orange);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255,122,26,0.04), rgba(255,122,26,0.01));
+  background: linear-gradient(180deg, rgba(37,99,235,0.04), rgba(37,99,235,0.01));
   padding: 1.1rem 1.15rem;
 }
 .doc-note-icon { color: var(--orange); font-size: 1.1rem; line-height: 1; }
@@ -763,3 +822,27 @@ body.pdoc-open { overflow: hidden; }
   .pdoc-backdrop, .pdoc-panel, .pzoom { animation: none; }
   .pdoc-scroll { scroll-behavior: auto; }
 }
+
+/* Official Interlatent mark, shared by both independent case studies. */
+.car-thumb--logo { background: #fff; }
+.car-thumb--logo img { object-fit: contain; padding: .45rem; }
+
+/* Restrained accents: neutral content, blue reserved for small navigation cues. */
+.car-role, .section-label, .stat .num, .lead-card .lorg, .prize .pyear { color: var(--ink-soft); }
+.car-role { background: var(--paper); border-color: var(--line); }
+.sub li::before { color: var(--ink-faint); }
+.edu-card, .lead-card { border-color: var(--line-strong); }
+#neural-bg { opacity: .25; }
+.interlatent-media { position: static; gap: .85rem; }
+.interlatent-diagrams { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.interlatent-media video { background: #111; object-fit: contain; }
+
+/* Compact achievement cards with a clear date, title, and outcome. */
+.prizes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.prizes .prize { display: block; padding: 1.25rem; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.prizes .pyear { font-size: var(--text-xs); font-weight: 400; color: var(--ink-faint); margin-bottom: .65rem; }
+.prizes .pbody h3 { line-height: 1.4; margin-bottom: .4rem; }
+.prizes .pbody .porg { margin-bottom: .7rem; }
+.prizes .pbody p { line-height: 1.6; }
+@media (max-width: 900px) { .prizes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .prizes { grid-template-columns: 1fr; } }
