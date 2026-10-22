@@ -824,8 +824,11 @@ body.pdoc-open { overflow: hidden; }
 }
 
 /* Official Interlatent mark, shared by both independent case studies. */
-.car-thumb--logo { background: #fff; }
-.car-thumb--logo img { object-fit: contain; padding: .45rem; }
+.car-thumb--logo { width: 88px; height: 88px; background: #000; border: 0; }
+.car-thumb--logo img { object-fit: contain; padding: 0; }
+@media (max-width: 560px) {
+  .car-thumb--logo { width: 96px; height: 96px; }
+}
 
 /* Restrained accents: neutral content, blue reserved for small navigation cues. */
 .car-role, .section-label, .stat .num, .lead-card .lorg, .prize .pyear { color: var(--ink-soft); }
